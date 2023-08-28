@@ -1,0 +1,59 @@
+# Proyecto con React, JavaScript, TypeScript, CSS y Conexión a Bases de Datos SQL y MongoDB
+
+Este repositorio contiene un proyecto web desarrollado utilizando tecnologías como React, JavaScript, TypeScript, CSS, y además, integra la conexión con bases de datos tanto SQL como MongoDB. El proyecto combina estas tecnologías para crear una aplicación web moderna y escalable.
+
+## Características
+
+- **Tecnologías Frontend:** El proyecto utiliza React como librería principal para construir la interfaz de usuario. Se emplea JavaScript y TypeScript para la lógica y tipado seguro respectivamente. El diseño y estilo se controlan mediante CSS.
+
+- **Conexión a Bases de Datos:** La aplicación demuestra la capacidad de conectarse a diferentes tipos de bases de datos. Utiliza una base de datos SQL para almacenar ciertos tipos de datos relacionales y MongoDB para almacenar datos no estructurados.
+
+## Requisitos Previos
+
+Antes de comenzar con este proyecto, asegúrate de tener instalados:
+
+- Node.js: [Descargar Node.js](https://nodejs.org/)
+- npm (Administrador de paquetes de Node.js): Esto viene incluido con Node.js, así que no necesitas instalarlo por separado.
+- Base de datos SQL (por ejemplo, MySQL, PostgreSQL)
+- Base de datos MongoDB: [Instrucciones de instalación](https://docs.mongodb.com/manual/administration/install-community/)
+
+## Configuración
+
+1. Clona este repositorio en tu máquina local:
+
+```bash
+git clone https://github.com/tuusuario/nombre-del-repo.git
+```
+
+2. Instala las dependencias del proyecto:
+
+```bash
+cd nombre-del-repo
+npm install
+```
+
+3. Configuración de las bases de datos:
+
+   - **SQL:** Configura la conexión a tu base de datos SQL en el archivo `sql-config.js` ubicado en la carpeta `src/server`. Asegúrate de tener las credenciales correctas y la base de datos creada.
+   
+   - **MongoDB:** Configura la conexión a tu base de datos MongoDB en el archivo `mongodb-config.js` ubicado en la carpeta `src/server`.
+
+4. Inicia el servidor:
+
+```bash
+npm run server
+```
+
+5. Inicia la aplicación frontend:
+
+```bash
+npm start
+```
+
+## Contribuciones
+
+¡Las contribuciones son bienvenidas! Si encuentras errores o mejoras, por favor abre un issue o envía un pull request.
+
+## Licencia
+
+Este proyecto está bajo la Licencia [MIT](LICENSE).

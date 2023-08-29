@@ -1,7 +1,9 @@
 import React from "react";
-import {Link } from 'react-router-dom'
+import {Link} from "react-router-dom"
 
-export const Navigation = (props) => {
+export const Navigation = () => {
+
+ 
   return (
     <nav id="menu" className="navbar navbar-default navbar-fixed-top">
       <div className="container">
@@ -29,8 +31,8 @@ export const Navigation = (props) => {
         >
           <ul className="nav navbar-nav navbar-right">
             <li>
-              <a href="#features" className="page-scroll">
-                Features
+              <a href="#team" className="page-scroll">
+                Equipo
               </a>
             </li>
             <li>
@@ -49,8 +51,8 @@ export const Navigation = (props) => {
               </a>
             </li>
             <li>
-              <a href="#team" className="page-scroll">
-                Team
+              <a href="#features" className="page-scroll">
+                Feature
               </a>
             </li>
             <li>
@@ -59,12 +61,8 @@ export const Navigation = (props) => {
               </a>
             </li>
             <li>
-              <a href="#register" className="page-scroll">
-                Register
-              </a>
+             <Link to="/login">Login</Link>
             </li>
-            
-          
           </ul>
         </div>
       </div>

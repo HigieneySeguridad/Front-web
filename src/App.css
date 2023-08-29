@@ -17,3 +17,10 @@
   }
 }
 
+#page-scroll{
+ 
+}
+
+body{
+  scroll-behavior: smooth;
+}

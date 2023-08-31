@@ -1,8 +1,11 @@
 import React from "react";
+import { Navigation } from "./Navigation"
 
 export const Header = () => {
   return (
-    <header id="header">
+    <>
+    <Navigation/>
+     <header id="header">
       <div className="intro">
         <div className="overlay">
           <div className="container">
@@ -25,5 +28,7 @@ export const Header = () => {
         </div>
       </div>
     </header>
+    </>
+   
   );
 };

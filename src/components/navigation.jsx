@@ -3,25 +3,12 @@ import {Link} from "react-router-dom"
 
 export const Navigation = () => {
 
- 
   return (
     <nav id="menu" className="navbar navbar-default navbar-fixed-top">
       <div className="container">
         <div className="navbar-header">
-          <button
-            type="button"
-            className="navbar-toggle collapsed"
-            data-toggle="collapse"
-            data-target="#bs-example-navbar-collapse-1"
-          >
-            {" "}
-            <span className="sr-only">Toggle navigation</span>{" "}
-            <span className="icon-bar"></span>{" "}
-            <span className="icon-bar"></span>{" "}
-            <span className="icon-bar"></span>{" "}
-          </button>
-          <a className="navbar-brand page-scroll" href="#page-top">
-            React Landing Page
+          <a className="navbar-brand page-scroll">
+            <Link to = "/">Seguridad e Higiene</Link>
           </a>{" "}
         </div>
 
@@ -37,31 +24,31 @@ export const Navigation = () => {
             </li>
             <li>
               <a href="#about" className="page-scroll">
-                About
+                Nosotros
               </a>
             </li>
             <li>
               <a href="#services" className="page-scroll">
-                Services
+                Servicios
               </a>
             </li>
             <li>
               <a href="#portfolio" className="page-scroll">
-                Gallery
+                Galeria
               </a>
             </li>
             <li>
               <a href="#features" className="page-scroll">
-                Feature
+                Extras
               </a>
             </li>
             <li>
               <a href="#contact" className="page-scroll">
-                Contact
+                Contacto
               </a>
             </li>
             <li>
-             <Link to="/login">Login</Link>
+            <Link to = "/login">Iniciar Sesion</Link>
             </li>
           </ul>
         </div>

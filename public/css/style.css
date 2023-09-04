@@ -72,7 +72,7 @@ hr {
 }
 /* Navigation */
 #menu {
-  padding: 15px;
+  padding: 25px;
   transition: all 0.8s;
 }
 #menu.navbar-default {
@@ -426,7 +426,7 @@ h4 {
   font-family: Montserrat, sans-serif;
   font-size: 20px;
   text-align: center;
-  color: #fff;
+  color: #252424;
   font-weight: 400;
   word-spacing: 2px;
   position: relative;
@@ -647,9 +647,8 @@ label {
 .footer {
   background: #ffffff;
   position: absolute;
-  
   width: 100%;
- 
+  margin-bottom: 0%;
 }
 #footer p {
   color: #888;

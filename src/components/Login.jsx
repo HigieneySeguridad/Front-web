@@ -17,11 +17,16 @@ export const Login = () => {
                         
                               <div className="form-floating mb-3">
                                 <input name="password" type="email" className="form-control input-form" id="mail" placeholder="Contraseña"/>
-                                <br />
-                              </div>
+                                
+                              </div> <br />
+                              {/* <button type='checkout' className='recordarme'></button>Recordarme <br /> Boton para Recordarme, luego lo hago*/}
+                              <p>
+                              <a  href='#' className="color-link-footer" >Olvidaste tu contraseña?</a>
+                              </p>
                               <div className="div-button">
                                 <button type="submit" className="button-enviar">Enviar</button>
                               </div>
+                              
                             </form>  
                   </div>
             

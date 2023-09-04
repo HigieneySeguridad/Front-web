@@ -35,7 +35,7 @@
 }
 .div-form {
   width: 400px;
-  background: linear-gradient(70deg, #a398d4d0, #24bfbfcb);
+  background: linear-gradient(70deg, #a398d4, #24bfbf);
   color:#5e17eb;
   padding: 25px;
   border-radius: 15px;
@@ -71,14 +71,16 @@
   border-radius: 20px;
 }
 .fondoimagen{
-  background-image: url('../public//img/intro-bg.jpg');
-  height: 1000px;
+  background-image: url('/img/imagenesSeguridad/trabajador con epp5.jpg');
+  background-repeat: no-repeat;
+  background-size: 100%;
+  height: 750px;
 }
 .button-enviar{
   font-family: "Raleway", sans-serif;
   text-transform: uppercase;
   color: #ffffff;
-  background-image: linear-gradient(to right, #10447c 0%, #20533e 100%);
+  background-image: linear-gradient(to right, #5b8cc2 0%, #249767 100%);
   padding: 14px 34px;
   letter-spacing: 1px;
   margin: 0;
@@ -87,6 +89,12 @@
   border-radius: 25px;
   transition: all 0.5s linear;
   border: 0;
+}
+.recordarme{
+  height: 16px;
+  width: 5px;
+  margin-right: 10;
+  margin-bottom: 10;
 }
 body{
   scroll-behavior: smooth;

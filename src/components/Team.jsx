@@ -11,9 +11,9 @@ export const Team = () => {
             dapibus leonec.
           </p>
         </div>
-        <div id="row">
+        <div  id= 'row' className="center-elements">
           
-                <div className="col-md-3 col-sm-6 team">
+                <div className="col-md-4 team">
                   <div className="thumbnail">
                     {" "}
                     <img src='img/team/01.jpg' className="team-img" />
@@ -24,7 +24,7 @@ export const Team = () => {
                   </div>
                 </div>
 
-                <div className="col-md-3 col-sm-6 team">
+                <div className="col-md-4 team">
                   <div className="thumbnail">
                     {" "}
                     <img src='img/team/02.jpg' className="team-img" />
@@ -35,7 +35,7 @@ export const Team = () => {
                   </div>
                 </div>
 
-                <div className="col-md-3 col-sm-6 team">
+                <div className="col-md-4 team">
                   <div className="thumbnail">
                     {" "}
                     <img src='img/team/03.jpg' className="team-img" />

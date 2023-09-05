@@ -90,6 +90,13 @@
   transition: all 0.5s linear;
   border: 0;
 }
+.center-elements{
+  place-items: center;
+  margin: auto;
+  align-items: center;
+  align-content: center;
+  
+}
 .recordarme{
   height: 16px;
   width: 5px;

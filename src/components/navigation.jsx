@@ -18,8 +18,9 @@ export const Navigation = () => {
         >
           <ul className="nav navbar-nav navbar-right">
             <li>
-              <a href="#team" className="page-scroll">
-                Equipo
+            
+              <a href="#features" className="page-scroll">
+                Extras
               </a>
             </li>
             <li>
@@ -38,8 +39,8 @@ export const Navigation = () => {
               </a>
             </li>
             <li>
-              <a href="#features" className="page-scroll">
-                Extras
+            <a href="#team" className="page-scroll">
+                Equipo
               </a>
             </li>
             <li>

@@ -10,10 +10,10 @@ export const Cards = () => {
             <h2>Detalles</h2>
          </div>
          <div className='content'>
-            <p>Aqui encontraras todos los detalles de la pagina con solo un click en el boton
+            <p>Aqui encontraras todos los detalles de la pagina con solo un click en el boton xd
                
             </p>
-            <a href="#">Leer Más Aqui</a>
+            <a href="#">Leer Más</a>
          </div>
       </div>
       <div className='card'>

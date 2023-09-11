@@ -15,7 +15,7 @@ export const HomePage = () => {
         <Services  />
         <Features />
         <Cards />
-        {/* <Gallery  /> */}
+        <Gallery  /> 
         <Team  />
         <Contact  /> 
         

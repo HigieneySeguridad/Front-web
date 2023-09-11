@@ -17,12 +17,13 @@
   }
 }
 .fondoimagen{
-  background-image: url('/img/imagenesSeguridad/trabajador con epp5.jpg');
+  background-image: url('/img/imagenesFondos/seguridad.jpg');
   background-repeat: no-repeat;
   background-size: 100%;
   margin-left: 450px;
   height: 100vh;
 }
+
 body{
   scroll-behavior: smooth;
 }
@@ -34,13 +35,14 @@ body{
   width: 100px;
   align-items: center;
   justify-content: center;
-  background-color: #eeeeee4b;
+  background-color: #ffffff;
   border-radius: 3px;
   letter-spacing: 1px;
   transition: all 0.2s linear;
   cursor: pointer;
-  border: none;
-  background: #06d9e0;
+  border-radius: 5px;
+  border-color: #ffaf00;
+  background: #ffffff;
   color: black;
  }
  
@@ -57,7 +59,7 @@ body{
  }
  
 .button-back:hover {
-  box-shadow: 9px 9px 33px #d1d1d1, -9px -9px 33px #ffffff;
+  box-shadow: 9px 9px 33px #918686, -9px -9px 33px #ffffff;
   transform: translateY(-2px);
  }
 
@@ -68,7 +70,7 @@ body{
   position: relative;
   padding: 10px;
   font-size: 18px;
-  border: 2px solid rgb(56, 7, 233);
+  border: 2px solid rgb(255, 251, 0);
   border-radius: 34px;
   background-color: transparent;
   font-weight: 600;
@@ -241,17 +243,24 @@ body{
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background: linear-gradient(45deg, #ffaf00, #bb02ff);
 }
-
+.background-cards{
+  background-image: url('/img/imagenesFondos/fondocontacto.jpg');
+  -webkit-background-size: cover;
+  background-size: cover;
+  background-repeat: no-repeat;
+ 
+  
+}
 .container_cards{
-  position: relative;
+  position: absolute;
   width: 1150px;
   padding: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
+  z-index: 5;
 }
 .container_cards .card{
   position: relative;

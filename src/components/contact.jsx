@@ -1,4 +1,3 @@
-import React from "react";
 
 export const Contact = () => {
  
@@ -9,10 +8,10 @@ export const Contact = () => {
           <div className="col-md-8">
             <div className="row">
               <div className="section-title">
-                <h2>Get In Touch</h2>
+                <h2>Contáctanos</h2>
                 <p>
-                  Please fill out the form below to send us an email and we will
-                  get back to you as soon as possible.
+                  Por favor complete el siguiente formulario para enviarnos un correo electrónico y lo haremos
+                  Responderemos a usted lo antes posible.
                 </p>
               </div>
               <form name="sentMessage">
@@ -24,7 +23,7 @@ export const Contact = () => {
                         id="name"
                         name="name"
                         className="form-control"
-                        placeholder="Name"
+                        placeholder="Nombre"
                         required
                         
                       />
@@ -38,7 +37,7 @@ export const Contact = () => {
                         id="email"
                         name="email"
                         className="form-control"
-                        placeholder="Email"
+                        placeholder="Correo"
                         required
                        
                       />
@@ -52,7 +51,7 @@ export const Contact = () => {
                     id="message"
                     className="form-control"
                     rows="4"
-                    placeholder="Message"
+                    placeholder="Mensaje"
                     required
                     
                   ></textarea>
@@ -60,35 +59,35 @@ export const Contact = () => {
                 </div>
                 <div id="success"></div>
                 <button type="submit" className="btn btn-custom btn-lg">
-                  Send Message
+                  Completar y Enviar
                 </button>
               </form>
             </div>
           </div>
           <div className="col-md-3 col-md-offset-1 contact-info">
             <div className="contact-item">
-              <h3>Contact Info</h3>
+              <h3>Información de Contacto</h3>
               <p>
                 <span>
-                  <i className="fa fa-map-marker"></i> Address
+                  <i className="fa fa-map-marker"></i> Dirección
                 </span>
-                address: 4321 California St, San Francisco, CA 12345
+                (3600) Formosa, Argentina: Avenida 25 de Mayo 3500
               </p>
             </div>
             <div className="contact-item">
               <p>
                 <span>
-                  <i className="fa fa-phone"></i> Phone
+                  <i className="fa fa-phone"></i> Teléfono
                 </span>{" "}
-                phone: +123 22134521 213
+                Teléfono: +0370 4 15 4464908
               </p>
             </div>
             <div className="contact-item">
               <p>
                 <span>
-                  <i className="fa fa-envelope-o"></i> Email
+                  <i className="fa fa-envelope-o"></i> Correo Electronico
                 </span>{" "}
-                email: ejemplocorreo@hotmail.com
+                E-mail: seghyg@hotmail.com
               </p>
             </div>
           </div>

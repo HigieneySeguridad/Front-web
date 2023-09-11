@@ -1,4 +1,3 @@
-import React from 'react'
 import { Header } from "../components/Header"
 import { Features } from "../components/Features";
 import { Cards } from "../components/Cards";
@@ -15,7 +14,7 @@ export const HomePage = () => {
         <Services  />
         <Features />
         <Cards />
-        <Gallery  /> 
+        {/* <Gallery  />  */}
         <Team  />
         <Contact  /> 
         

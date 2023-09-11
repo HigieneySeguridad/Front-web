@@ -1,8 +1,11 @@
-import React from 'react'
+
 
 export const Cards = () => {
   return (
-<div className='cards'>
+<>
+
+   <div className="cards background-cards">
+   
     <div className='container_cards'>
       
       <div className='card'>
@@ -13,7 +16,7 @@ export const Cards = () => {
             <p>Aqui encontraras todos los detalles de la pagina con solo un click en el boton
                
             </p>
-            <a href="#">Leer Más alla</a>
+            <a href="#">Leer Más</a>
          </div>
       </div>
       <div className='card'>
@@ -34,9 +37,9 @@ export const Cards = () => {
             <a href="#">Leer Más</a>
          </div>
       </div>
-      
+      </div>
     </div>
-</div>
+</>
   )
 }
 

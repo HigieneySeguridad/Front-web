@@ -1,7 +1,7 @@
 import React from 'react'
 import { Header } from "../components/Header"
 import { Features } from "../components/Features";
-import { About } from "../components/About";
+import { Cards } from "../components/Cards";
 import { Services } from "../components/Services";
 import { Gallery } from "../components/Gallery";
 import { Team } from "../components/Team";
@@ -12,10 +12,10 @@ export const HomePage = () => {
   return (
     <>
         <Header/>
-        <Features />
         <Services  />
-        <About  />
-        <Gallery  />
+        <Features />
+        <Cards />
+        {/* <Gallery  /> */}
         <Team  />
         <Contact  /> 
         

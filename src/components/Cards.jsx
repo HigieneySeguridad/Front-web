@@ -13,7 +13,7 @@ export const Cards = () => {
             <p>Aqui encontraras todos los detalles de la pagina con solo un click en el boton
                
             </p>
-            <a href="#">Leer Más</a>
+            <a href="#">Leer Más aca</a>
          </div>
       </div>
       <div className='card'>

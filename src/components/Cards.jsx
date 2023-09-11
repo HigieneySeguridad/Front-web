@@ -9,16 +9,11 @@ export const Cards = () => {
          <div className='circle'>
             <h2>Detalles</h2>
          </div>
-         <div className='contento'>
-            <p>Aqui encontraras todos los detalles de la pagina con solo un click en el boton xd
+         <div className='content'>
+            <p>Aqui encontraras todos los detalles de la pagina con solo un click en el boton
                
             </p>
-            <a href="#">Leer Más</a>
-
-            <a href="#">Leer Más aca</a>
-
-            <a href="#">Leer Más Aqui</a>
-
+            <a href="#">Leer Más alla</a>
          </div>
       </div>
       <div className='card'>

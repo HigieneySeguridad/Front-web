@@ -9,7 +9,7 @@ export const Cards = () => {
          <div className='circle'>
             <h2>Detalles</h2>
          </div>
-         <div className='contenta'>
+         <div className='content'>
             <p>Aqui encontraras todos los detalles de la pagina con solo un click en el boton
                
             </p>

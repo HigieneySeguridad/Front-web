@@ -2,9 +2,10 @@
 
 export const Cards = () => {
   return (
-<>
-
-   <div className="cards background-cards">
+   <div id="cards" className="cards background-cards" 
+   data-aos="flip-right"
+   data-aos-easing="ease-out-cubic"
+   data-aos-duration="2000">
    
     <div className='container_cards'>
       
@@ -39,7 +40,7 @@ export const Cards = () => {
       </div>
       </div>
     </div>
-</>
+
   )
 }
 

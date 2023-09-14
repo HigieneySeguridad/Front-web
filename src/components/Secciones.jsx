@@ -1,7 +1,10 @@
 
-export const Features = () => {
+export const Secciones = () => {
   return (
-    <div id="features" className="text-center">
+
+  
+
+    <div id="features" className="text-center" data-aos="zoom-in">
       <div className="container">
         <div className="col-md-10 col-md-offset-1 section-title">
           <h2>Secciones Informativas</h2>
@@ -43,5 +46,6 @@ export const Features = () => {
         </div>
       </div>
     </div>
+
   );
 };

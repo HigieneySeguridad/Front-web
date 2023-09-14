@@ -1,8 +1,10 @@
 import React from "react";
-
 export const Services = () => {
   return (
-    <div id="services" className="text-center">
+
+  
+
+    <div id="services" className="text-center" data-aos="zoom-in" >
       <div className="container">
         <div className="section-title">
           <h2>Nuestros Servicios</h2>
@@ -42,6 +44,7 @@ export const Services = () => {
                 </div>
         </div>
       </div>
+
     </div>
   );
 };

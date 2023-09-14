@@ -44,7 +44,7 @@ export const Login = () => {
     </button>
 </div> <br />
 <img src="./img/icono.png" className='iconoForm'/>
-<p className= 'p '>@ Coryright HyS Formosa 2023</p>
+<p className= 'p '>@ Coryright POLOSEG Formosa 2023</p>
 <span></span>
 </form>
       <div className="fondoimagen">

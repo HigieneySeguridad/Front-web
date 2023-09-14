@@ -16,17 +16,20 @@
     width: 110%;
   }
 }
-.fondoimagen{
-  background-image: url('/img/imagenesFondos/seguridad.jpg');
-  background-repeat: no-repeat;
-  background-size: 100%;
-  margin-left: 450px;
-  height: 100vh;
-}
 
 body{
   scroll-behavior: smooth;
 }
+
+
+.fondoimagen{
+  background-image: url(/public/img/imagenesFondos/seguridad-ocupacional.jpg);
+  background-size: cover;
+  margin-left: 600px;
+  height: 100vh;
+}
+
+
 /*boton para volver atrás */
 
 .button-back {
@@ -42,7 +45,6 @@ body{
   cursor: pointer;
   border-radius: 5px;
   border-color: #ffaf00;
-  background: #ffffff;
   color: black;
  }
  
@@ -120,9 +122,9 @@ body{
   position: absolute;
   flex-direction: column;
   gap: 10px;
-  background-color: #ffffff;
+  background: white;
   padding: 36px;
-  width: 450px;
+  width: 600px;
   height: 100%;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
@@ -148,6 +150,8 @@ body{
   align-items: center;
   padding-left: 10px;
   transition: 0.2s ease-in-out;
+  color: #151717;
+ 
 }
 
 .input {
@@ -156,6 +160,7 @@ body{
   border: none;
   width: 85%;
   height: 100%;
+  background: transparent;
 }
 
 .input:focus {
@@ -222,6 +227,7 @@ body{
   align-items: center;
   font-weight: 500;
   gap: 10px;
+  color: #151717;
   border: 1px solid #ededef;
   background-color: white;
   cursor: pointer;
@@ -239,23 +245,20 @@ body{
 }
 
 .cards{
-  display: flex;
-  justify-content: center;
-  align-items: center;
   min-height: 100vh;
 }
+
 .background-cards{
-  background-image: url('/img/imagenesFondos/fondocontacto.jpg');
+  background-image: url('/img/imagenesFondos/fondocontacto.png');
   -webkit-background-size: cover;
   background-size: cover;
   background-repeat: no-repeat;
- 
+  margin-top: 100px;
   
 }
 .container_cards{
   position: absolute;
   width: 1150px;
-  padding: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -266,14 +269,14 @@ body{
   position: relative;
   width: 300px;
   height: 420px;
-  background-color: #fff;
+  background-color: #666666;
   margin: 20px;
   border-radius: 20px;
   overflow: hidden;
   transition: .5s ease-in-out;
 }
 .container_cards:hover .card{
-  filter: blur(20px);
+  filter: blur(4px);
   transform: scale(.9);
   opacity: .5;
 }
@@ -304,7 +307,7 @@ body{
   position: relative;
   width: 100%;
   height: 100%;
-  background: #000;
+  background: #00000088;
   clip-path: circle(180px at center 0);
   text-align: center;
   transition: 1s ease-in-out;
@@ -322,7 +325,7 @@ body{
   text-align: center;
 }
 .container_cards .card .content p {
-  color: #666;
+  color: #ffffff;
   transition: .5s ease-in-out;
 }
 .container_cards .card .content a {
@@ -333,6 +336,7 @@ body{
   text-decoration: none;
   margin-top: 20px;
   transition: .8s ease-in-out;
+  color: #151717;
 }
 .container_cards .card:nth-child(1) .circle,
 .container_cards .card:nth-child(1) .content a{
@@ -360,4 +364,3 @@ body{
     color: #fff;
   }
 }
-

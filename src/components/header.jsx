@@ -1,33 +1,64 @@
-import { Navigation } from "./Navigation"
+import {Link} from "react-router-dom"
 
 export const Header = () => {
+
   return (
-    <>
-    <Navigation/>
-     <header id="header">
-      <div className="intro">
-        <div className="overlay">
-          <div className="container">
-            <div className="row">
-              <div className="col-md-8 col-md-offset-2 intro-text">
-                <h1>
-                  Seguridad e Higiene Industrial
-                  <span></span>
-                </h1>
-                <p>En nuestro sitio web encontrarás toda la información que necesitas para cumplir con los requisitos de seguridad e higiene industrial.</p>
-                <a
-                  href="#features"
-                  className="btn btn-custom btn-lg page-scroll"
-                >
-                  Leer Más
-                </a>{" "}
-              </div>
-            </div>
-          </div>
+    <nav id="menu" className="navbar navbar-default navbar-fixed-top">
+      <div className="container">
+        <div className="navbar-header">
+        <img src="./img/icono.png" height="45" viewBox="0 0 32 32" width="45"/>
+          <a className="navbar-brand page-scroll">
+            <Link to = "/">POLOSEG</Link>
+          </a>{" "}
+          
+        </div>
+
+        <div
+          className="collapse navbar-collapse"
+          id="bs-example-navbar-collapse-1"
+        >
+          <ul className="nav navbar-nav navbar-right">
+            <li>
+            
+            <a href="#services" className="page-scroll">
+                Servicios
+              </a>
+            </li>
+            <li>
+              <a href="#features" className="page-scroll">
+                Secciones
+              </a>
+              
+            </li>
+            <li>
+            <a href="#cards" className="page-scroll">
+                Info
+            </a>
+            </li>
+            <li>
+              <a href="#gallery" className="page-scroll">
+                Galeria
+              </a>
+            </li>
+            <li>
+            <a href="#team" className="page-scroll">
+                Equipo
+              </a>
+            </li>
+            <li>
+              <a href="#contact" className="page-scroll">
+                Contacto
+              </a>
+            </li>
+            <li>
+              <button className="button-login">
+                <Link to = "/login"><span style={{color: "black"}}>Iniciar Sesion</span></Link>
+              </button>
+       
+            </li>
+          </ul>
         </div>
       </div>
-    </header>
-    </>
-   
+    </nav>
   );
 };

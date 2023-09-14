@@ -1,23 +1,25 @@
-import { Header } from "../components/Header"
-import { Features } from "../components/Features";
+import { Intro } from "../components/Intro"
 import { Cards } from "../components/Cards";
 import { Services } from "../components/Services";
 import { Gallery } from "../components/Gallery";
 import { Team } from "../components/Team";
 import { Contact } from "../components/Contact";
+import { Secciones } from "../components/Secciones";
+import { Footer } from "../components/Footer";
 
 
 export const HomePage = () => {
   return (
     <>
-        <Header/>
+
+        <Intro/>
         <Services  />
-        <Features />
+        <Secciones />
         <Cards />
-        {/* <Gallery  />  */}
+        {/* <Gallery  /> */}  
         <Team  />
         <Contact  /> 
-        
+        <Footer /> 
 
     </>
   )

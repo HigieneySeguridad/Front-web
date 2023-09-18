@@ -35,11 +35,7 @@ export const Header = () => {
                 Info
             </a>
             </li>
-            <li>
-              <a href="#gallery" className="page-scroll">
-                Galeria
-              </a>
-            </li>
+           
             <li>
             <a href="#team" className="page-scroll">
                 Equipo
@@ -52,7 +48,7 @@ export const Header = () => {
             </li>
             <li>
               <button className="button-login">
-                <Link to = "/login"><span style={{color: "black"}}>Iniciar Sesion</span></Link>
+                <Link to = "/login"><span>Iniciar Sesion</span></Link>
               </button>
        
             </li>

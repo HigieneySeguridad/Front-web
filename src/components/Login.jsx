@@ -1,8 +1,11 @@
 import { Link } from 'react-router-dom';
-export const Login = () => {
+import { Header } from "./Header"
 
+
+export const Login = () => {
     return (
 <>
+<Header/>
 <form className="form">
       <button className='button-back'>
            <svg height="20" width="20" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 1000 1024">
@@ -28,30 +31,15 @@ export const Login = () => {
     </div>
   
   <div className="flex-row">
-    <span className="span">Olvidaste tu contraseña?</span>
+    <a className="link-form">Olvidaste tu contraseña?</a>
   </div>
   <button className="button-submit">Iniciar Sesion</button>
-  <p className="p">No tienes cuenta? <span className="span">Solicitar</span></p>
-  <p className="p line">O con</p>
-  <div className="flex-row">
-    <button className="btn-cuentas google">
-    <img height="20" viewBox="0 0 32 32" width="20" src="./img/redes/buscar.png"/>
-      Google    
-    </button>
-    <button className="btn-cuentas gitHub">
-    <img height="20" viewBox="0 0 32 32" width="20" src="./img/redes/github.png"/>
-     GitHub     
-    </button>
-</div> <br />
+  <p className="p">No tienes cuenta? <a className="link-form">Solicitar</a></p>
 <img src="./img/icono.png" className='iconoForm'/>
 <p className= 'p '>@ Coryright POLOSEG Formosa 2023</p>
-<span></span>
 </form>
-      <div className="fondoimagen">
-        
-      </div>
-</>
-    
 
+
+</>
 );  
 }

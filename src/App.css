@@ -34,11 +34,14 @@ body{
 
 .button-back {
   display: flex;
+  position: absolute;
+  top: 5px;
+  right: 20px;
   height: 3em;
   width: 100px;
   align-items: center;
   justify-content: center;
-  background-color: #ffffff;
+  background-color: transparent;
   border-radius: 3px;
   letter-spacing: 1px;
   transition: all 0.2s linear;
@@ -72,12 +75,13 @@ body{
   position: relative;
   padding: 10px;
   font-size: 18px;
-  border: 2px solid rgb(255, 251, 0);
+  border: 2px solid rgb(255, 115, 0);
   border-radius: 34px;
   background-color: transparent;
   font-weight: 600;
   transition: all 0.3s cubic-bezier(0.23, 1, 0.320, 1);
   overflow: hidden;
+ 
 }
 
 .button-login::before {
@@ -90,12 +94,11 @@ body{
   border-radius: inherit;
   scale: 0;
   z-index: -1;
-  background-color: rgb(255, 255, 255);
+  background-color: rgb(255, 115, 0);
   transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1);
 }
 
 .button-login:hover {
-  
   scale: 1.1;
   box-shadow: 0 0px 20px rgba(193, 163, 98,0.4);
 }
@@ -110,7 +113,7 @@ body{
 .form-h2{
   font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   text-transform: uppercase;
-  margin: 60px 0px 20px;
+  margin: 30px 0px ;
   font-weight: 700;
   font-size: 36px;
   color: #333;
@@ -120,12 +123,14 @@ body{
 .form {
   display: flex;
   position: absolute;
+  top: 100px;
+  left: 40%;
   flex-direction: column;
   gap: 10px;
-  background: white;
-  padding: 36px;
-  width: 600px;
-  height: 100%;
+  background: linear-gradient(to right, #b1b493, #ffffff);
+  padding: 34px;
+  width: 400px;
+  height: 600px;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
@@ -143,7 +148,7 @@ body{
 }
 
 .inputForm {
-  border: 1.5px solid #26b314;
+  border: 2px solid #88847e;
   border-radius: 10px;
   height: 60px;
   display: flex;
@@ -158,8 +163,8 @@ body{
   margin-left: 10px;
   border-radius: 10px;
   border: none;
-  width: 85%;
-  height: 100%;
+  width: 80%;
+  height: 70px;
   background: transparent;
 }
 
@@ -168,7 +173,7 @@ body{
 }
 
 .inputForm:focus-within {
-  border: 1.5px solid #1517c2;
+  border: 2px solid #cc0d0d;
 }
 
 .flex-row {
@@ -185,64 +190,40 @@ body{
   font-weight: 400;
 }
 
-.span {
-  font-size: 14px;
-  margin-left: 5px;
-  color: #5c56b8;
-  font-weight: 500;
-  cursor: pointer;
-}
 
 .button-submit {
-  margin: 20px 0 10px 0;
+
   background-color: #151717;
   border: none;
   color: white;
   font-size: 15px;
   font-weight: 500;
   border-radius: 10px;
-  height: 50px;
+  height: 100px;
   width: 100%;
   cursor: pointer;
 }
 
 .button-submit:hover {
-  background-color: #252727;
+  background-color: #c77d0d;
 }
 
 .p {
   text-align: center;
-  color: black;
+  color: rgb(0, 0, 0);
   font-size: 14px;
   margin: 5px 0;
-}
-
-.btn-cuentas {
-  margin-top: 10px;
-  width: 100%;
-  height: 50px;
-  border-radius: 10px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-weight: 500;
-  gap: 10px;
-  color: #151717;
-  border: 1px solid #ededef;
-  background-color: white;
-  cursor: pointer;
-  transition: 0.2s ease-in-out;
-}
-
-.btn-cuentas:hover {
-  border: 1px solid #2d79f3;
-  ;
 }
 .iconoForm{
   height: 45px;
   width: 45px;
   align-self: center;
 }
+
+
+
+
+
 
 .cards{
   min-height: 100vh;
@@ -269,7 +250,7 @@ body{
   position: relative;
   width: 300px;
   height: 420px;
-  background-color: #666666;
+  background-color: #614b2fd8;
   margin: 20px;
   border-radius: 20px;
   overflow: hidden;

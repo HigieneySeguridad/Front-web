@@ -13,8 +13,7 @@ export const Contact = () => {
               <div className="section-title">
                 <h2>Contáctanos</h2>
                 <p>
-                  Por favor complete el siguiente formulario para enviarnos un correo electrónico y lo haremos
-                  Responderemos a usted lo antes posible.
+                  Por favor complete el siguiente formulario para enviarnos un correo electrónico y lo responderemos lo antes posible.
                 </p>
               </div>
               <form name="sentMessage">

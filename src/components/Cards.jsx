@@ -11,30 +11,44 @@ export const Cards = () => {
       
       <div className='card'>
          <div className='circle'>
-            <h2>Detalles</h2>
+            <h2>Misión</h2>
          </div>
          <div className='content'>
-            <p>Aqui encontraras todos los detalles de la pagina con solo un click en el boton
-               
+            <p>
+            Nuestro software se encarga de proporcionar las mejores soluciones a las necesidades en Higiene y Seguridad en el trabajo y Gestión Ambiental, priorizando minimizar los riesgos y costos laborales.
             </p>
             <a href="#">Leer Más</a>
          </div>
       </div>
       <div className='card'>
          <div className='circle'>
-            <h2>Consultas</h2>
+            <h2>Vision</h2>
          </div>
          <div className='content'>
-            <p>Aqui puedes enviar consultas respondiendo un formulario breve</p>
+            <p>
+            Consideramos que la prevención es una herramienta fundamental para mejorar el desempeño de la empresa, favoreciendo la reducción de costos por accidentes de trabajo, evitando sanciones o multas. 
+            </p>
             <a href="#">Leer Más</a>
          </div>
       </div>
       <div className='card'>
          <div className='circle'>
-            <h2>Contenido</h2>
+            <h2>Objetivos</h2>
          </div>
          <div className='content'>
-            <p>Dale a Leer Mas para saber todo el contenido</p>
+           <li>
+            <p>
+               Mejorar la calidad en materia de seguridad e higiene industrial de la empresa.
+            </p>
+           </li>
+           
+           <li>
+           <p>
+              Aumentar la rentabilidad y productividad de manera segura y confiable
+           </p>
+
+           </li>
+
             <a href="#">Leer Más</a>
          </div>
       </div>

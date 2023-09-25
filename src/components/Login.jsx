@@ -6,6 +6,7 @@ export const Login = () => {
     return (
 <>
 <Header/>
+<div className='fondopag'>
 <form className="form">
       <button className='button-back'>
            <svg height="20" width="20" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 1000 1024">
@@ -34,11 +35,12 @@ export const Login = () => {
     <a className="link-form">Olvidaste tu contraseña?</a>
   </div>
   <button className="button-submit">Iniciar Sesion</button>
-  <p className="p">No tienes cuenta? <a className="link-form">Solicitar</a></p>
+  <p className="p">No tienes cuenta? <Link to="/register">Registrarme</Link></p>
 <img src="./img/icono.png" className='iconoForm'/>
 <p className= 'p '>@ Coryright POLOSEG Formosa 2023</p>
 </form>
-
+  
+</div>
 
 </>
 );  

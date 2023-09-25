@@ -20,8 +20,9 @@ export const Services = () => {
                   {" "}
                   <i className='fa fa-wordpress'></i>
                   <div className="service-desc">
-                    <h3>Capacitaciones</h3>
-                    <p>Nuestros cursos están diseñados para proporcionar a su equipo las habilidades y el conocimiento necesarios para mantener un entorno de trabajo seguro y saludable. Con instructores altamente calificados y contenido actualizado, estamos comprometidos en ayudar a su organización a cumplir con las regulaciones y reducir los riesgos. ¡Invierta en la seguridad de su equipo hoy mismo!</p>
+                    <h3>Cumplimiento Normativo</h3>
+                    <p>Nos basamos en el cumplimiento de la legislación vigente, priorizando brindar el mejor soporte y asistencia técnica a nuestros clientes.
+Nuestra misión consiste en diagnosticar de manera precisa la necesidad de cada compañía. Evaluando pormenorizadamente los riesgos en los puestos, áreas y procesos productivos de trabajo, priorizando aumentar la calidad de vida de cada trabajador o colaborador, disminuyendo así la posibilidad de ocurrencia de contingencias en las empresas.</p>
                   </div>
                 </div>
 

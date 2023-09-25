@@ -5,7 +5,7 @@ html {
   -webkit-font-smoothing: antialiased !important;
   color: #ffffff;
   font-weight: 400;
-  background: black;
+  background: linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(253,29,29,1) 50%, rgba(252,176,69,1) 100%);
 }
 h2,
 h3,
@@ -18,11 +18,14 @@ h2 {
   font-weight: 700;
   font-size: 36px;
   color: #f8f8f8;
+  text-align: center;
+  align-content: center;
+  align-items: center;
 }
 h3 {
   font-size: 20px;
   font-weight: 600;
-  color: #fd9960;
+  color: #000000;
 }
 h4 {
   font-size: 18px;
@@ -352,26 +355,6 @@ li:hover{
 .color-link-footer:hover {
   color: #d3aee7;
   text-shadow: 1px 1px 6px #fff;
-}
-
-
-/* Team Section */
-#team {
-  display: grid;
-}
-#team h4 {
-  margin: 5px 0;
-}
-#team .team-img {
-  width: 240px;
-}
-#team .thumbnail {
-  background: transparent;
-  border: 0;
-}
-#team .thumbnail .caption {
-  padding: 10px 0 0;
-  color: #ffffff;
 }
 /* Contact Section */
 #contact {

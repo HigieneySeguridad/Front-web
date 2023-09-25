@@ -97,7 +97,13 @@ body{
   background-color: rgb(255, 115, 0);
   transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1);
 }
-
+.fondopag{
+  background: linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(253,29,29,1) 50%, rgba(252,176,69,1) 100%);
+  width: 2000px;
+  height: 900px;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
 .button-login:hover {
   scale: 1.1;
   box-shadow: 0 0px 20px rgba(193, 163, 98,0.4);
@@ -127,7 +133,7 @@ body{
   left: 40%;
   flex-direction: column;
   gap: 10px;
-  background: linear-gradient(to right, #b1b493, #ffffff);
+  background: #ffffff;
   padding: 34px;
   width: 400px;
   height: 600px;
@@ -154,7 +160,6 @@ body{
   display: flex;
   align-items: center;
   padding-left: 10px;
-  transition: 0.2s ease-in-out;
   color: #151717;
  
 }
@@ -219,11 +224,6 @@ body{
   width: 45px;
   align-self: center;
 }
-
-
-
-
-
 
 .cards{
   min-height: 100vh;

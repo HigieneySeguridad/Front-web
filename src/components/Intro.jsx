@@ -8,9 +8,13 @@ export const Intro = () => {
      data-aos="fade-right"
      data-aos-offset="300"
      data-aos-easing="ease-in-sine"
-     
+        
       >
+        <video onLoadedMetadata="this.muted=true" autoPlay loop
+        src="img/imagenesFondos/video-fondo.mov" className="videofondo">
+        </video>
         <div className="overlay">
+          
           <div className="container">
             <div className="row">
               <div className="col-md-8 col-md-offset-2 intro-text">

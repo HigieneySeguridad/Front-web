@@ -21,7 +21,7 @@ export const Team = () => {
               ratione saepe, perferendis ipsam alias quam. Libero illum maxime,
               unde itaque ratione "
             </div>
-            <h2>Madison Goldbeck</h2>
+            <h3>Madison Goldbeck</h3>
             <span>Senior Developer</span>
 
             <div className="social-icon">
@@ -47,7 +47,7 @@ export const Team = () => {
               en la comprobación y actualización del software existente y 
               en el desarrollo de nuevas funcionalidades de software."
             </div>
-            <h2>Paniagua Nahuel</h2>
+            <h3>Paniagua Nahuel</h3>
             <span>Developer Web</span>
 
             <div className="social-icon">
@@ -73,7 +73,7 @@ export const Team = () => {
               ratione saepe, perferendis ipsam alias quam. Libero illum maxime,
               unde itaque ratione "
             </div>
-            <h2>James Bond</h2>
+            <h3>James Bond</h3>
             <span>CEO</span>
 
             <div className="social-icon">

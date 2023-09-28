@@ -6,9 +6,9 @@ export const Cards = () => {
    data-aos="flip-right"
    data-aos-easing="ease-out-cubic"
    data-aos-duration="2000">
-   
+          <h1>Nuestras Propuestas</h1>
+           
     <div className='container_cards'>
-      
       <div className='card'>
          <div className='circle'>
             <h2>Misión</h2>
@@ -36,18 +36,18 @@ export const Cards = () => {
             <h2>Objetivos</h2>
          </div>
          <div className='content'>
-           <li>
-            <p>
-               Mejorar la calidad en materia de seguridad e higiene industrial de la empresa.
-            </p>
-           </li>
            
-           <li>
+            <p>
+               * Mejorar la calidad en materia de seguridad e higiene industrial de la empresa.
+            </p>
+         
+           
+           
            <p>
-              Aumentar la rentabilidad y productividad de manera segura y confiable
+              * Aumentar la rentabilidad y productividad de manera segura y confiable
            </p>
 
-           </li>
+          
 
             <a href="#">Leer Más</a>
          </div>

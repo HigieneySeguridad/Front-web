@@ -12,7 +12,7 @@ export const Footer = () => {
            <li><a href="#"><img className="icons-footer2 icons-responsive" src="img/redes/social-wsp.webp" /></a></li>
            <li><a href="#"><img className="icons-footer2 icons-responsive" src="img/redes/email-icon-sa-footer.webp"/></a></li>
          </ul>
-         <h6 className="text-responsive-footer" style={{textAlign: "center"}}><strong>Agencia Seguridad e Higiene</strong> <a className="color-link-footer" >POLOSEG</a> · Todos los derechos reservados.</h6>
+         <h6 className="text-responsive-footer" style={{textAlign: "center"}}>Agencia Seguridad e Higiene <strong><a className="color-link-footer">POLOSEG</a></strong> · Todos los derechos reservados.</h6>
        </div>
    </div>
    </footer>

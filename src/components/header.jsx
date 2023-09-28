@@ -7,9 +7,12 @@ export const Header = () => {
       <div className="container">
         <div className="navbar-header">
         <img src="./img/icono.png" height="45" viewBox="0 0 32 32" width="45"/>
+        
           <a className="navbar-brand page-scroll">
-            <Link to = "/">POLOSEG</Link>
-          </a>{" "}
+          <Link to = "/">POLOSEG</Link>
+          </a>
+        
+          
           
         </div>
 
@@ -32,7 +35,7 @@ export const Header = () => {
             </li>
             <li>
             <a href="#cards" className="page-scroll">
-                Info
+                Información
             </a>
             </li>
            
@@ -48,7 +51,7 @@ export const Header = () => {
             </li>
             <li>
               <button className="button-login">
-                <Link to = "/login"><span>Iniciar Sesion</span></Link>
+                <Link to = "/login"><a>Iniciar Sesion</a></Link>
               </button>
        
             </li>

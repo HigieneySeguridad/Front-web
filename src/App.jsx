@@ -4,6 +4,7 @@ import { LoginPage } from "./pages/LoginPage"
 import { Register } from "./components/Register"
 import "./App.css";
 import { HomePage } from './pages/HomePage';
+import { Form1 } from './components/Form1';
 
 
 const App = () => {
@@ -15,7 +16,8 @@ const App = () => {
             <Route path="/" element={<LandingPage/>} />
             <Route path="/login" element={<LoginPage/>}/>   
             <Route path='/homepage' element={<HomePage/>}/>
-            <Route path="/register" element={<Register/>}/>   
+            <Route path="/register" element={<Register/>}/> 
+            <Route path='/form' element={<Form1/>}/>
           </Routes>
     </Router>
     </>

@@ -1,6 +1,17 @@
 import "../aside.css"
-import {Link} from "react-router-dom"
+import {Link, Navigate} from "react-router-dom"
+import {useState} from "react"
 export const Aside = () => {
+  const [logout, setLogout] = useState(false)
+  const handleLogout = () => {
+    setLogout(true)
+    alert("Has cerrado sesión!")
+    console.log("Has cerrado sesion")
+  };
+
+   if(logout){
+    return <Navigate to="/"/>;
+   }
     return(
 <>
     <div className="sidebar">
@@ -42,43 +53,24 @@ export const Aside = () => {
               <span className="links-name">Configuración</span>
             </a>
           </li>
-         {/*  <li>
+           <li>
             <a href="#!">
               <i className="bx bx-pie-chart-alt-2"></i>
-              <span className="links-name">Analytics</span>
-            </a>
-           
+              <span className="links-name">Solicitar Permiso</span>
+            </a>     
           </li>
-          <li>
-            <a href="#!">
-              <i className="bx bx-folder"></i>
-              <span className="links--name">File Manager</span>
-            </a>
-            
-          </li>
-          <li>
-            <a href="#!">
-              <i className="bx bx-cart-alt"></i>
-              <span className="links-name">Order</span>
-            </a>
-          
-          </li>
-          <li>
-            <a href="#!">
-              <i className="bx bx-heart"></i>
-              <span className="links-name">Saved</span>
-            </a>
-           
-          </li> */}
-         
+
         </ul>
       </nav>
       <div className="profile">
       <img src="./img/icono.png" height="45" viewBox="0 0 32 32" width="45"/> <br />
            <h6>POLOSEG</h6>
-        <a href="#!" className="logout">
-          <i className="bx bx-log-out" id="logout"><strong>Cerrar Sesión</strong> </i>
+        <a className="logout">
+          <i className="bx bx-log-out" id="logout">
+          <button id="logout" onClick={handleLogout}><strong>Cerrar Sesión</strong></button>
+          </i>
         </a>
+        
       </div>
     </div>
 

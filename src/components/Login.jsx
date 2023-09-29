@@ -35,7 +35,7 @@ export const Login = () => {
     <a className="link-form">Olvidaste tu contraseña?</a>
   </div>
   <button className="button-submit">Iniciar Sesion</button>
-  <p className="p">No tienes cuenta? <Link to="/register">Registrarme</Link></p>
+  <p className="p">No tienes cuenta? <a href="http://localhost:5173/#contact">Solicitar</a></p>
 <img src="./img/icono.png" className='iconoForm'/>
 <p className= 'p '>@ Coryright POLOSEG Formosa 2023</p>
 </form>

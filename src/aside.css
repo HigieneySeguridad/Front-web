@@ -25,7 +25,7 @@
 }
 
 .logo_content .logo i {
-    font-size: 28px;
+    font-size: 38px;
     margin-right: 5px;
 }
 
@@ -84,18 +84,22 @@
 
 .profile{
     position: absolute;
+    align-content: center;
     bottom: 0;
     left: 0;
     color: white;
-    margin-left: 20px;
+    margin-left: 50px;
     margin-bottom: 20px;
+    text-align: center;
 }
 .profile a{
-   
     color: white;
+    font-size: 17px;
     text-align: center;
-    align-content: center;
 }
 .profile a:hover{
     color: chocolate;
+}
+h6{
+    color: rgb(241, 189, 15);
 }

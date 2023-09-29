@@ -74,6 +74,8 @@ export const Aside = () => {
         </ul>
       </nav>
       <div className="profile">
+      <img src="./img/icono.png" height="45" viewBox="0 0 32 32" width="45"/> <br />
+           <h6>POLOSEG</h6>
         <a href="#!" className="logout">
           <i className="bx bx-log-out" id="logout"><strong>Cerrar Sesión</strong> </i>
         </a>

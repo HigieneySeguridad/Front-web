@@ -488,12 +488,11 @@ label {
 }
 /* Footer Section*/
 footer {
-  position: relative;
   width: 800px;
   bottom: 0px;
   align-content: center;
   margin-left: 550px;
-  
+  align-self: flex-end;
 }
 
 @media (max-width: 768px) {

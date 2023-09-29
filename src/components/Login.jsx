@@ -60,7 +60,7 @@ export const Login = () => {
   <div className="flex-column">
     <label>Usuario</label></div>
     <div className="inputForm">
-      <img height="20" viewBox="0 0 32 32" width="20" src="./img/redes/usuario.png"/>
+      <img height="20" width="20" src="./img/redes/usuario.png"/>
       <input 
       type="text" 
       name='user'

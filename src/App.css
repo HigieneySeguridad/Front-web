@@ -41,7 +41,7 @@ body{
 .button-back {
   display: flex;
   position: absolute;
-  top: 5px;
+  top: 20px;
   right: 20px;
   height: 3em;
   width: 100px;

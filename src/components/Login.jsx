@@ -1,9 +1,8 @@
-import { Link, Navigate } from 'react-router-dom';
+import { Navigate } from 'react-router-dom';
 import { Header } from "./Header"
 import { useState } from 'react';
 
-
-export const Login = () => {
+export const Login = ({usuario}) => {
   const [user, setUser] = useState('');
   const [password, setPassword] = useState('');
   const [loggedIn, setLoggedIn] = useState(false)
@@ -19,43 +18,46 @@ export const Login = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-
+  
     const iniciarSesion = {
-        user,
-        password
-    }
-
+      user,
+      password,
+    };
+  
     try {
-        await fetch('http://localhost:3000/login', {
+      const respuesta = await fetch('http://localhost:3000/login', {
         method: 'POST',
         headers: {
-            'Content-Type': 'application/json',
-          },
-        body: JSON.stringify(iniciarSesion)
-        })
-       console.log("Has iniciado sesión correctamente");
-       setLoggedIn(true);
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(iniciarSesion),
+      });
+  
+      if (respuesta.status === 200) {
+        // Credenciales válidas; manejar el resultado aquí
+        alert('Has iniciado sesión correctamente');
+        console.log('Has iniciado sesión correctamente');
+        setLoggedIn(true); // Redirigir al usuario solo cuando las credenciales son válidas
+      } else {
+        // Credenciales inválidas; mostrar mensaje de error
+        alert('Error, revise sus credenciales');
+        console.error('Error al iniciar sesión:', respuesta.status);
+      }
     } catch (error) {
-      console.error('Error al iniciar:', error.message);
-    
+      // Manejar errores de red u otros errores
+      alert('Error de red: ' + error.message);
+      console.error('Error de red:', error.message);
     }
-  }
+  };
+  
   if (loggedIn) {
-    alert("iniciaste sesion");
     return <Navigate to="/homepage" />;
   }
     return (     
 <>
 <Header/>
 <div className='fondopag'>
-<form className="form" onSubmit={handleSubmit}>
-      <button className='button-back'>
-           <svg height="20" width="20" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 1000 1024">
-            <path d="M874.690416 495.52477c0 11.2973-9.168824 20.466124-20.466124 20.466124l-604.773963 0 188.083679 188.083679c7.992021 7.992021 7.992021 20.947078 0 28.939099-4.001127 3.990894-9.240455 5.996574-14.46955 5.996574-5.239328 0-10.478655-1.995447-14.479783-5.996574l-223.00912-223.00912c-3.837398-3.837398-5.996574-9.046027-5.996574-14.46955 0-5.433756 2.159176-10.632151 5.996574-14.46955l223.019353-223.029586c7.992021-7.992021 20.957311-7.992021 28.949332 0 7.992021 8.002254 7.992021 20.957311 0 28.949332l-188.073446 188.073446 604.753497 0C865.521592 475.058646 874.690416 484.217237 874.690416 495.52477z">
-            </path>
-            </svg>
-        <Link to="/">Volver</Link>
-        </button>
+<form className="form">
       <h2 className='form-h2'>Iniciar Sesión</h2>
   <div className="flex-column">
     <label>Usuario</label></div>
@@ -89,7 +91,7 @@ export const Login = () => {
   <div className="flex-row">
     <a className="link-form">Olvidaste tu contraseña?</a>
   </div>
-  <button className="button-submit">Iniciar Sesion</button>
+  <button type='submit' className="button-submit" onClick={handleSubmit}>Iniciar Sesion</button>
   <p className="p">No tienes cuenta? <a href="http://localhost:5173/#contact">Solicitar</a></p>
 <img src="./img/icono.png" className='iconoForm'/>
 <p className= 'p '>@ Coryright POLOSEG Formosa 2023</p>

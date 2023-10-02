@@ -1,7 +1,8 @@
 import "../aside.css"
 import {Link, Navigate} from "react-router-dom"
 import {useState} from "react"
-export const Aside = () => {
+
+export const Aside = ( {usuario} ) => {
   const [logout, setLogout] = useState(false)
   const handleLogout = () => {
     setLogout(true)
@@ -18,7 +19,9 @@ export const Aside = () => {
       <div className="logo-content">
         <div className="logo">
           <i className="bx bx-user"></i>
-          <div className="logo-name" style={{marginLeft: 30}}>Usuario</div>
+          <div className="logo-name" style={{marginLeft: 30}}>
+              Hola {usuario}!
+          </div>
         </div>
         <a href="#"><i className="bx bx-menu" id="btn"></i></a>
         

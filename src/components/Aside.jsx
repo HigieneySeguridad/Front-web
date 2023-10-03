@@ -2,7 +2,7 @@ import "../aside.css"
 import {Link, Navigate} from "react-router-dom"
 import {useState} from "react"
 
-export const Aside = ( {usuario} ) => {
+export const Aside = () => {
   const [logout, setLogout] = useState(false)
   const handleLogout = () => {
     setLogout(true)
@@ -20,7 +20,7 @@ export const Aside = ( {usuario} ) => {
         <div className="logo">
           <i className="bx bx-user"></i>
           <div className="logo-name" style={{marginLeft: 30}}>
-              Hola {usuario}!
+              Hola usuario!
           </div>
         </div>
         <a href="#"><i className="bx bx-menu" id="btn"></i></a>
@@ -30,17 +30,17 @@ export const Aside = ( {usuario} ) => {
         <ul>
 
           <li>
-            <a href="#!">
+            <Link to={"/homepage"}>
                 <i className="bx bx-grid-alt"></i>
                 <span className="links-name">Panel de Control</span>
-            </a>
+            </Link>
           </li>
 
           <li>
-            <a href="#!">
+            <Link to={"/register"}>
               <i className="bx bx-user"></i>
-              <span className="links-name"><Link to="/register">Crear Usuarios</Link></span>
-            </a>
+              <span className="links-name">Crear Usuarios</span>
+            </Link>
           </li>
 
           <li>
@@ -59,8 +59,14 @@ export const Aside = ( {usuario} ) => {
            <li>
             <a href="#!">
               <i className="bx bx-pie-chart-alt-2"></i>
-              <span className="links-name">Solicitar Permiso</span>
+              <span className="links-name">Confirmar Permiso</span>
             </a>     
+          </li>
+          <li>
+            <Link to={"/form"}>
+              <i className="bx bx-pie-chart-alt-2"></i>
+              <span className="links-name">Formularios Prueba</span>
+            </Link>     
           </li>
 
         </ul>

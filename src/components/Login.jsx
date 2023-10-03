@@ -2,7 +2,7 @@ import { Navigate } from 'react-router-dom';
 import { Header } from "./Header"
 import { useState } from 'react';
 
-export const Login = ({usuario}) => {
+export const Login = () => {
   const [user, setUser] = useState('');
   const [password, setPassword] = useState('');
   const [loggedIn, setLoggedIn] = useState(false)

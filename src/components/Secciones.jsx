@@ -11,7 +11,7 @@ export const Secciones = () => {
         </div>
         <div className="row">
 
-                <div className="col-xs-6 col-md-3">
+                <div className="col-md-3">
               
                   <i className='fa fa-comments-o'></i>
                   <h3>Seguridad Eléctrica</h3>
@@ -19,7 +19,7 @@ export const Secciones = () => {
 
                 </div>
 
-                <div className="col-xs-6 col-md-3">
+                <div className="col-md-3">
               
                   <i className='fa fa-bullhorn'></i>
                   <h3>Manejo de Maquinaria Pesada</h3>
@@ -27,7 +27,7 @@ export const Secciones = () => {
                   
                 </div>
 
-                <div className="col-xs-6 col-md-3">
+                <div className="col-md-3">
               
                   <i className='fa fa-group'></i>
                   <h3>Prevención de Incendios</h3>
@@ -35,7 +35,7 @@ export const Secciones = () => {
                   
                 </div>
 
-                <div className="col-xs-6 col-md-3">
+                <div className="col-md-3">
               
                   <i className='fa fa-magic'></i>
                   <h3>Limpieza y Desinfección</h3>

@@ -49,10 +49,10 @@ const fetchUsuario = async () => {
                 <tbody>
                     {usuarios.map((usuario, i)=>(
                 <tr key={i}>
-                     <td>{usuario.user}</td>
-                     <td>{usuario.role}</td>
-                     <td>{usuario.fecha}</td>
-                     <td>
+                     <td className='panel'>{usuario.user}</td>
+                     <td className='panel'>{usuario.role}</td>
+                     <td className='panel'>{usuario.fecha}</td>
+                     <td className='panel'>
                     <button 
                     type='button'
                     className='btn btn-danger'

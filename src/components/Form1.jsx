@@ -1,12 +1,15 @@
+import {Aside} from "./Aside"
 
 export const Form1 = () => {
   return (
+    <>
+    <Aside/>
     <div className='container'>
     <div className='table-responsive'>
     <table border="1">
     <thead>
         <tr>
-            <th colSpan={6} style={{background: 'skyblue'}}>Elemento de Protección Personal</th>
+            <th colSpan={6} style={{background: 'skyblue'}}>Elementos de Protección Personal</th>
         </tr>
       <tr>
         <th style={{background: 'skyblue'}}>Protección de Cabeza y Cuerpo</th>
@@ -174,58 +177,58 @@ export const Form1 = () => {
         <tbody>
                 <tr>
                     <td><input type="checkbox" name="" id="" /> A- Atrapado en</td>
-                    <td><input type="checkbox" name="" id="" /> O- Caida de objetos por desplome o desprendimiento</td>
+                    <td><input type="checkbox" name="" id="" /> N- Caida de objetos por desplome o desprendimiento</td>
                 </tr>
                 <tr>
                     <td><input type="checkbox" name="" id="" /> B- Atrapado entre</td>
-                    <td><input type="checkbox" name="" id="" /> P- Atrapamiento por vuelco de maquinarias</td>
+                    <td><input type="checkbox" name="" id="" /> O- Atrapamiento por vuelco de maquinarias</td>
                 </tr>
                 <tr>
                     <td><input type="checkbox" name="" id="" /> C- Atrapado bajo</td>
-                    <td><input type="checkbox" name="" id="" /> Q- Atropellos,golpes,choques contra o con vehiculos</td>
+                    <td><input type="checkbox" name="" id="" /> P- Atropellos,golpes,choques contra o con vehiculos</td>
                 </tr>
                 <tr>
                     <td><input type="checkbox" name="" id="" /> D- Corte/punciones/laceraciones</td>
-                    <td><input type="checkbox" name="" id="" /> R- Accidientes en vehiculos terrestres</td>
+                    <td><input type="checkbox" name="" id="" /> Q- Accidientes en vehiculos terrestres</td>
                 </tr>
                 <tr>
                     <td><input type="checkbox" name="" id="" /> E- Exposicion Calor/Frio (carga termica) </td>
-                    <td><input type="checkbox" name="" id="" /> S- Hundimiento</td>
+                    <td><input type="checkbox" name="" id="" /> R- Hundimiento</td>
                 </tr>
                 <tr>
                     <td><input type="checkbox" name="" id="" /> F- Caida de objetos por manipulacion</td>
-                    <td><input type="checkbox" name="" id="" /> T- Descarga electrica</td>
+                    <td><input type="checkbox" name="" id="" /> S- Descarga electrica</td>
                 </tr>
                 <tr>
-                    <td><input type="checkbox" name="" id="" /> H- Ignicion</td>
-                    <td><input type="checkbox" name="" id="" /> U- Resbalon/tropiezo/caida</td>
+                    <td><input type="checkbox" name="" id="" /> G- Ignicion</td>
+                    <td><input type="checkbox" name="" id="" /> T- Resbalon/tropiezo/caida</td>
                 </tr>
                 <tr>
-                    <td><input type="checkbox" name="" id="" /> I- Sobreesfuerzo</td>
-                    <td><input type="checkbox" name="" id="" /> V- Picadura y/o mordeduras de animales e insectos</td>
+                    <td><input type="checkbox" name="" id="" /> H- Sobreesfuerzo</td>
+                    <td><input type="checkbox" name="" id="" /> U- Picadura y/o mordeduras de animales e insectos</td>
                 </tr>
                 <tr>
-                    <td><input type="checkbox" name="" id="" /> J- Golpeado por</td>
-                    <td><input type="checkbox" name="" id="" /> W- Quemaduras</td>
+                    <td><input type="checkbox" name="" id="" /> I- Golpeado por</td>
+                    <td><input type="checkbox" name="" id="" /> V- Quemaduras</td>
                 </tr>
                 <tr>
-                    <td><input type="checkbox" name="" id="" /> K- Golpe contra</td>
-                    <td><input type="checkbox" name="" id="" /> X- Explosion/incendio</td>
+                    <td><input type="checkbox" name="" id="" /> J- Golpe contra</td>
+                    <td><input type="checkbox" name="" id="" /> W- Explosion/incendio</td>
                 </tr>
                 <tr>
-                    <td><input type="checkbox" name="" id="" /> L- Proyeccion de particulas/salpicaduras</td>
-                    <td><input type="checkbox" name="" id="" /> Y- Asfixia/Desmayo</td>
+                    <td><input type="checkbox" name="" id="" /> K- Proyeccion de particulas/salpicaduras</td>
+                    <td><input type="checkbox" name="" id="" /> X- Asfixia/Desmayo</td>
                 </tr>
                 <tr>
-                    <td><input type="checkbox" name="" id="" /> LL- Caida de personas a mismo nivel</td>
-                    <td><input type="checkbox" name="" id="" /> Z-Problemas respiratorios</td>
+                    <td><input type="checkbox" name="" id="" /> L- Caida de personas a mismo nivel</td>
+                    <td><input type="checkbox" name="" id="" /> Y-Problemas respiratorios</td>
                 </tr>
                 <tr>
-                    <td><input type="checkbox" name="" id="" /> M- Caida de personas a distinto nivel</td>
-                    <td><input type="checkbox" name="" id="" /> Otro</td>
+                    <td><input type="checkbox" name="" id="" /> LL- Caida de personas a distinto nivel</td>
+                    <td><input type="checkbox" name="" id="" /> Z- Otro</td>
                 </tr>
                 <tr>
-                    <td><input type="checkbox" name="" id="" /> N- Caida a instalaciones de bajo nivel</td>
+                    <td><input type="checkbox" name="" id="" /> M- Caida a instalaciones de bajo nivel</td>
                     <td></td>
                 </tr>
         </tbody>
@@ -252,6 +255,7 @@ export const Form1 = () => {
   </table>
     </div>
 </div>
+</>
   )
 }
 

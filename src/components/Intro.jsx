@@ -13,6 +13,7 @@ export const Intro = () => {
         <video onLoadedMetadata="this.muted=true" autoPlay loop
         src="img/imagenesFondos/video-fondo.mov" className="videofondo">
         </video>
+        
         <div className="overlay">
           
           <div className="container">
@@ -20,15 +21,14 @@ export const Intro = () => {
               <div className="col-md-8 col-md-offset-2 intro-text">
                 <h1>
                   Seguridad e Higiene Industrial
-                  <span></span>
                 </h1>
                 <p>En nuestro sitio web encontrarás toda la información que necesitas para cumplir con los requisitos de seguridad e higiene industrial.</p>
                 <a
                   href="#features"
-                  className="btn btn-custom btn-lg page-scroll"
+                  className="btn-custom"
                 >
                   Leer Más
-                </a>{" "}
+                </a>
               </div>
             </div>
           </div>

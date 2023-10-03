@@ -279,10 +279,17 @@ table span {
   color: black;
  
 }
-
 table input {
   margin-left: 5px;
 }
+
+.panel{
+  text-align: center;
+  padding: 10px;
+  color: black;
+  border: 2px solid #000308;
+}
+
 #cards h1{
     font: 62.5% "Signika", Arial, Helvetica, sans-serif;
     color: #003A70;

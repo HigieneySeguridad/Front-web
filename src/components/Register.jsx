@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
 import { Header } from "./Header"
+import { Aside } from "./Aside"
 
 export function Register() {
   const [user, setUser] = useState('');
@@ -47,6 +47,7 @@ export function Register() {
 
   return ( 
     <>
+    <Aside/>
     <Header/>
 <form onSubmit={handleSubmit} className='form'>
 <h2 className='form-h2'>Crear Usuario</h2>

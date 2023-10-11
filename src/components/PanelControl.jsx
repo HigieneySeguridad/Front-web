@@ -32,7 +32,7 @@ const fetchUsuario = async () => {
   },[]);
 
   return (
-    <div className='container'>
+    <div className='container' id='content-area'>
         <div className='section-title'>
         <h2>Panel de Control</h2>
         </div>

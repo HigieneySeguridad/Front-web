@@ -4,17 +4,23 @@ import {useState} from "react"
 
 export const Aside = () => {
   const [logout, setLogout] = useState(false)
+  const [asideVisible, setAsideVisible] = useState(true);
   const handleLogout = () => {
     setLogout(true)
     alert("Has cerrado sesión!")
     console.log("Has cerrado sesion")
+  };
+  const toggleAside = () => {
+    setAsideVisible(!asideVisible);
   };
 
    if(logout){
     return <Navigate to="/"/>;
    }
     return(
-<>
+<>   
+    <button style={{color: 'black'}} onClick={toggleAside} className="button-login">Mostrar Aside</button>
+    <aside style={{ display: asideVisible ? 'block' : 'none' }}>
     <div className="sidebar">
       <div className="logo-content">
         <div className="logo">
@@ -23,10 +29,13 @@ export const Aside = () => {
               Hola usuario!
           </div>
         </div>
-        <a href="#"><i className="bx bx-menu" id="btn"></i></a>
+          <button onClick={toggleAside} className="bx bx-menu" id="btn" style={{background: 'transparent', border: 'none'}}>
+          </button>
+       
+       
         
       </div>
-      <nav className="ul-list">
+      <nav className="ul-list main-menu">
         <ul>
 
           <li>
@@ -68,6 +77,12 @@ export const Aside = () => {
               <span className="links-name">Formularios Prueba</span>
             </Link>     
           </li>
+          <li>
+            <Link to={"/chart"}>
+              <i className="bx bx-pie-chart-alt-2"></i>
+              <span className="links-name">Gráficos</span>
+            </Link>     
+          </li>
 
         </ul>
       </nav>
@@ -82,7 +97,7 @@ export const Aside = () => {
         
       </div>
     </div>
-
+    </aside>
 </>
 );
 };

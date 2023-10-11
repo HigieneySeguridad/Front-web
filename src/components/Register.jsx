@@ -5,7 +5,6 @@ import { Aside } from "./Aside"
 export function Register() {
   const [user, setUser] = useState('');
   const [password, setPassword] = useState('');
-  const [mensaje, setMensaje] = useState('');
   const [role, setRole] = useState('');
 
 
@@ -37,11 +36,10 @@ export function Register() {
           },
         body: JSON.stringify(crearUsuario)
         })
-       setMensaje("Usuario creado correctamente")
+        alert("Usuario registrado con éxito")
        console.log("Usuario creado correctamente")
     } catch (error) {
       console.error('Error de red:', error);
-      setMensaje('Error de red al registrar el usuario');
     }
   }
 
@@ -82,16 +80,10 @@ export function Register() {
         value={role}
         onChange={handleInputChange}
       > 
-        <option value="nada" disabled>Seleccione una opción</option>
         <option value="Operario">Operario</option>
         <option value="Inspector">Inspector</option>
      </select>
   <button type="submit" style={{height: 50}} className="button-submit">Crear usuario</button> <br />
-  {mensaje && <div 
-  className="alert alert-success" 
-  role="alert"
-  
-  >{mensaje}</div>} 
 <img src="./img/icono.png"  style={{marginTop: 25}} className='iconoForm'/>
 <p className= 'p '>@ Coryright POLOSEG Formosa 2023</p>
 </form>

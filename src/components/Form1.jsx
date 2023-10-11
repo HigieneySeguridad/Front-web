@@ -1,5 +1,5 @@
 import {Aside} from "./Aside"
-
+import {ComentarioConFoto} from "./Comments"
 export const Form1 = () => {
   return (
     <>
@@ -77,6 +77,7 @@ export const Form1 = () => {
         
       </tr>
     </tbody>
+    <ComentarioConFoto/>
   </table>
     </div>
  <br /> <br />

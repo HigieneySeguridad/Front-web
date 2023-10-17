@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Header } from "./Header"
 import { Aside } from "./Aside"
 
-export function Register() {
+export const Register = () => {
   const [user, setUser] = useState('');
   const [password, setPassword] = useState('');
   const [role, setRole] = useState('');
@@ -82,6 +82,7 @@ export function Register() {
       > 
         <option value="Operario">Operario</option>
         <option value="Inspector">Inspector</option>
+        <option value="Inspector-Externo">Inspector Externo</option>
      </select>
   <button type="submit" style={{height: 50}} className="button-submit">Crear usuario</button> <br />
 <img src="./img/icono.png"  style={{marginTop: 25}} className='iconoForm'/>

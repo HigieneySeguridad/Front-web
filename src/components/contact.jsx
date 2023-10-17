@@ -2,9 +2,6 @@
 export const Contact = () => {
  
   return (
-
-
-
     <div data-aos="zoom-in">
       <div id="contact">
         <div className="container">

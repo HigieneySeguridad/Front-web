@@ -4,100 +4,100 @@ import {useState} from "react"
 
 export const Aside = () => {
   const [logout, setLogout] = useState(false)
-  const [asideVisible, setAsideVisible] = useState(true);
   const handleLogout = () => {
     setLogout(true)
     alert("Has cerrado sesión!")
     console.log("Has cerrado sesion")
   };
-  const toggleAside = () => {
-    setAsideVisible(!asideVisible);
-  };
-
    if(logout){
     return <Navigate to="/"/>;
    }
+ 
     return(
 <>   
-    <button style={{color: 'black'}} onClick={toggleAside} className="button-login">Mostrar Aside</button>
-    <aside style={{ display: asideVisible ? 'block' : 'none' }}>
-    <div className="sidebar">
-      <div className="logo-content">
-        <div className="logo">
-          <i className="bx bx-user"></i>
-          <div className="logo-name" style={{marginLeft: 30}}>
-              Hola usuario!
-          </div>
+<div className="sidebar">
+
+  <div className="logo-details">
+    <i className='bx bxl-c-plus-plus icon'></i>
+    <div className="logo_name">CodingStella</div>
+    <i className='bx bx-menu' id="btn"></i>
+  </div>
+
+  <ul className="nav-list">
+
+    <li>
+      <i className='bx bx-search'></i>
+      <input type="text" placeholder="Buscando..."/>
+      <span className="tooltip">Buscar</span>
+    </li>
+
+    <li>
+      <Link to={"/homepage"}>
+        <i className='bx bx-grid-alt'></i>
+        <span className="links_name">Administración</span>
+      </Link>
+      <span className="tooltip">Administración</span>
+    </li>
+
+    <li>
+      <Link to={"/register"}>
+        <i className='bx bx-user'></i>
+        <span className="links_name">Usuarios</span>
+      </Link>
+      <span className="tooltip">Usuarios</span>
+    </li>
+    <li>
+      <a href="#">
+        <i className='bx bx-chat'></i>
+        <span className="links_name">Notificaciones</span>
+      </a>
+      <span className="tooltip">Notificaciones</span>
+    </li>
+    <li>
+      <Link to={"/chart"}>
+        <i className='bx bx-pie-chart-alt-2'></i>
+        <select className="links_name">
+          <option value="Mensual">Mensual</option>
+          <option value="Anual">Anual</option>
+        </select>
+      </Link>
+      <select className="tooltip">
+          <option value="Mensual">Mensual</option>
+          <option value="Anual">Anual</option>
+      </select>
+    </li>
+    <li>
+      <a href="#">
+        <i className='bx bx-folder'></i>
+        <span className="links_name">Archivos</span>
+      </a>
+      <span className="tooltip">Archivos</span>
+    </li>
+
+    <li>
+      <a href="#">
+        <i className='bx bx-cog'></i>
+        <span className="links_name">Configuración</span>
+      </a>
+      <span className="tooltip">Configuración</span>
+    </li>
+    <li className="profile">
+      <div className="profile-details">
+        <img src="./img/icono.png" alt="profileImg" height= "45" width="45"/>
+        <h6>POLOSEG</h6>
+        <div className="name_job">
+          <div className="name">Usuario</div>
+          <div className="job">Nose</div>
         </div>
-          <button onClick={toggleAside} className="bx bx-menu" id="btn" style={{background: 'transparent', border: 'none'}}>
-          </button>
-       
-       
-        
       </div>
-      <nav className="ul-list main-menu">
-        <ul>
-
-          <li>
-            <Link to={"/homepage"}>
-                <i className="bx bx-grid-alt"></i>
-                <span className="links-name">Panel de Control</span>
-            </Link>
-          </li>
-
-          <li>
-            <Link to={"/register"}>
-              <i className="bx bx-user"></i>
-              <span className="links-name">Crear Usuarios</span>
-            </Link>
-          </li>
-
-          <li>
-            <a href="#!">
-              <i className="bx bx-chat"></i>
-              <span className="links-name">Notificaciones</span>
-            </a>
-          </li>
-
-          <li>
-            <a href="#!">
-              <i className="bx bx-cog"></i>
-              <span className="links-name">Configuración</span>
-            </a>
-          </li>
-           <li>
-            <a href="#!">
-              <i className="bx bx-pie-chart-alt-2"></i>
-              <span className="links-name">Confirmar Permiso</span>
-            </a>     
-          </li>
-          <li>
-            <Link to={"/form"}>
-              <i className="bx bx-pie-chart-alt-2"></i>
-              <span className="links-name">Formularios Prueba</span>
-            </Link>     
-          </li>
-          <li>
-            <Link to={"/chart"}>
-              <i className="bx bx-pie-chart-alt-2"></i>
-              <span className="links-name">Gráficos</span>
-            </Link>     
-          </li>
-
-        </ul>
-      </nav>
-      <div className="profile">
-      <img src="./img/icono.png" height="45"  width="45"/> <br />
-           <h6>POLOSEG</h6>
-        <a className="logout">
-          <i className="bx bx-log-out" id="logout">
-          <button id="logout" onClick={handleLogout}><strong>Cerrar Sesión</strong></button>
-          </i>
-        </a>
-        
-      </div>
-    </div>
-    </aside>
+      <a>
+      <i className='bx bx-log-out' id="log_out">
+      <button onClick={handleLogout}><strong>Cerrar Sesión</strong></button>
+      </i>
+      </a>
+    </li>
+  </ul>
+</div>
 </>
 );
 };

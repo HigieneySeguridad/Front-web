@@ -1,8 +1,5 @@
 export const Services = () => {
   return (
-
-  
-
     <div id="services" className="text-center" data-aos="zoom-in" >
       <div className="container">
         <div className="section-title">

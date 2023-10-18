@@ -312,10 +312,25 @@ a:focus,
 }
 
 /*Footer*/
-.contenedor-limite {
-  max-width: 1030px;
-  margin: 0 auto;
+footer {
+  width: 100%;
+  bottom: 0px;
+  align-content: center;
+  align-self: flex-end;
 }
+@media (max-width: 768px) {
+  footer {
+      width: 70%;
+  }
+}
+
+/* Estilos para pantallas pequeñas (móviles) */
+@media (max-width: 480px) {
+  footer {
+      width: 90%;
+  }
+}
+
 .icons-footer2 {
   width: 60px;
   padding: 5px;
@@ -485,17 +500,4 @@ label {
   color: #608dfd;
   background: #fff;
 }
-/* Footer Section*/
-footer {
-  width: 800px;
-  bottom: 0px;
-  align-content: center;
-  margin-left: 550px;
-  align-self: flex-end;
-}
 
-@media (max-width: 768px) {
-  #about img {
-    margin: 50px 0;
-  }
-}

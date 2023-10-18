@@ -3,7 +3,9 @@ import {Link, Navigate} from "react-router-dom"
 import {useState} from "react"
 
 export const Aside = () => {
-  const [logout, setLogout] = useState(false)
+  const [logout, setLogout] = useState(false);
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+
   const handleLogout = () => {
     setLogout(true)
     alert("Has cerrado sesión!")
@@ -12,24 +14,38 @@ export const Aside = () => {
    if(logout){
     return <Navigate to="/"/>;
    }
- 
+
+  const toggleSidebar = () => {
+    setIsSidebarOpen(!isSidebarOpen);
+  };
+
+  const menuBtnChange = () => {
+    if (isSidebarOpen) {
+      
+      return "bx bx-menu";
+    } else {
+      
+      return "bx bx-menu";
+    }
+  };
     return(
 <>   
-<div className="sidebar">
+<div className={`sidebar ${isSidebarOpen ? 'open' : ''}`}>
 
   <div className="logo-details">
-    <i className='bx bxl-c-plus-plus icon'></i>
-    <div className="logo_name">CodingStella</div>
-    <i className='bx bx-menu' id="btn"></i>
+     
+    
+
+    <div className="logo_name">
+    <img src="./img/icono.png" alt="profileImg" height= "25" width="25"/>
+      POLOSEG
+      </div>
+    <button onClick={toggleSidebar} style={{border: 'none', background: 'transparent'}}>
+        <i className={menuBtnChange()} id="btn"></i>
+    </button>
   </div>
 
   <ul className="nav-list">
-
-    <li>
-      <i className='bx bx-search'></i>
-      <input type="text" placeholder="Buscando..."/>
-      <span className="tooltip">Buscar</span>
-    </li>
 
     <li>
       <Link to={"/homepage"}>
@@ -56,15 +72,9 @@ export const Aside = () => {
     <li>
       <Link to={"/chart"}>
         <i className='bx bx-pie-chart-alt-2'></i>
-        <select className="links_name">
-          <option value="Mensual">Mensual</option>
-          <option value="Anual">Anual</option>
-        </select>
+        <span className="links_name">Gráficos</span>
       </Link>
-      <select className="tooltip">
-          <option value="Mensual">Mensual</option>
-          <option value="Anual">Anual</option>
-      </select>
+      <span className="tooltip">Gráficos</span>
     </li>
     <li>
       <a href="#">
@@ -84,19 +94,19 @@ export const Aside = () => {
     <li className="profile">
       <div className="profile-details">
         <img src="./img/icono.png" alt="profileImg" height= "45" width="45"/>
-        <h6>POLOSEG</h6>
         <div className="name_job">
           <div className="name">Usuario</div>
           <div className="job">Nose</div>
         </div>
       </div>
-      <a>
-      <i className='bx bx-log-out' id="log_out">
-      <button onClick={handleLogout}><strong>Cerrar Sesión</strong></button>
-      </i>
-      </a>
+
+     
+    <button onClick={handleLogout} style={{border: 'none', background: 'transparent'}}>
+      <i className='bx bx-log-out' id="log_out"></i>
+    </button>
     </li>
   </ul>
+  
 </div>
 </>
 );

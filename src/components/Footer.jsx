@@ -6,7 +6,7 @@ export const Footer = () => {
     return (
       <footer>
          <div className="color-footer">
-          <div className="contenedor-limite padding-footer">
+          <div className=" padding-footer">
               <h4 className="text-responsive-footer">© Copyright POLOSEG All Rights Reserved.</h4>
               <ul className="links-footer">
                 <li><a href="#"><img className="icons-footer2 icons-responsive" src="img/redes/facebook-icon-sa-footer.webp"/></a></li>
@@ -23,7 +23,7 @@ export const Footer = () => {
       return (
         <footer style={{position: 'absolute', bottom: 0}}>
            <div className="color-footer">
-            <div className="contenedor-limite padding-footer">
+            <div className=" padding-footer">
                 <h4 className="text-responsive-footer">© Copyright POLOSEG All Rights Reserved.</h4>
                 <ul className="links-footer">
                   <li><a href="#"><img className="icons-footer2 icons-responsive" src="img/redes/facebook-icon-sa-footer.webp"/></a></li>

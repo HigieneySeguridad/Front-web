@@ -74,6 +74,7 @@
   list-style: none;
 }
 .sidebar li .tooltip {
+  font-family: "Poppins", sans-serif;
   position: absolute;
   top: -20px;
   left: calc(100% + 15px);
@@ -88,6 +89,7 @@
   white-space: nowrap;
   pointer-events: none;
   transition: 0s;
+  color: black;
 }
 .sidebar li:hover .tooltip {
   opacity: 1;

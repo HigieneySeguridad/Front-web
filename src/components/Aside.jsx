@@ -64,14 +64,14 @@ export const Aside = () => {
     </li>
     <li>
       <a href="#">
-        <i className='bx bx-chat'></i>
+        <i className='bx bx-notification'></i>
         <span className="links_name">Notificaciones</span>
       </a>
       <span className="tooltip">Notificaciones</span>
     </li>
     <li>
       <Link to={"/chart"}>
-        <i className='bx bx-pie-chart-alt-2'></i>
+        <i className='bx bx-bar-chart-alt-2'></i>
         <span className="links_name">Gráficos</span>
       </Link>
       <span className="tooltip">Gráficos</span>
@@ -91,6 +91,15 @@ export const Aside = () => {
       </a>
       <span className="tooltip">Configuración</span>
     </li>
+    
+    <li>
+      <Link to={"/form"}>
+        <i className='bx bx-receipt'></i>
+        <span className="links_name">Formularios</span>
+      </Link>
+      <span className="tooltip">Formularios</span>
+    </li>
+
     <li className="profile">
       <div className="profile-details">
         <img src="./img/icono.png" alt="profileImg" height= "45" width="45"/>

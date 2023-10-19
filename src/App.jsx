@@ -12,7 +12,6 @@ const App = () => {
     <>
     <Router>
           <Routes>
-
             <Route path="/" element={<LandingPage/>} />
             <Route path='/login' element= {<Login/>}/>
             <Route path='/homepage' element={<HomePage/>}/>

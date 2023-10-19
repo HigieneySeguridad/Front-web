@@ -24,7 +24,6 @@ export const Login = () => {
       password,
     };
   
-    try {
       const respuesta = await fetch('http://localhost:3000/login', {
         method: 'POST',
         headers: {
@@ -32,22 +31,23 @@ export const Login = () => {
         },
         body: JSON.stringify(iniciarSesion),
       });
-  
+     
       if (respuesta.status === 200) {
         // Credenciales válidas; manejar el resultado aquí
         alert('Has iniciado sesión correctamente');
         console.log('Has iniciado sesión correctamente');
         setLoggedIn(true); // Redirigir al usuario solo cuando las credenciales son válidas
-      } else {
-        // Credenciales inválidas; mostrar mensaje de error
-        alert('Error, revise sus credenciales');
-        console.error('Error al iniciar sesión:', respuesta.status);
+      } 
+
+      if (respuesta.status ===401){
+       alert("Error revise sus datos")
+       console.log(await respuesta.json())
+      } 
+      if (respuesta.status === 429){
+        alert("Error demasiados intentos, espere 1 minuto")
+        console.log(await respuesta.text())
       }
-    } catch (error) {
-      // Manejar errores de red u otros errores
-      alert('Error de red: ' + error.message);
-      console.error('Error de red:', error.message);
-    }
+      
   };
   
   if (loggedIn) {

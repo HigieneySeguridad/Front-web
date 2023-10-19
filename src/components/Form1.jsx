@@ -77,8 +77,9 @@ export const Form1 = () => {
         
       </tr>
     </tbody>
-    <ComentarioConFoto/>
   </table>
+  <br />
+  <ComentarioConFoto/>
     </div>
  <br /> <br />
     <div className="table-responsive">
@@ -164,6 +165,8 @@ export const Form1 = () => {
                 </tr>
         </tbody>
         </table>
+        <br />
+        <ComentarioConFoto/>
     </div>
     <br /> <br />
     <div className="table-responsive">

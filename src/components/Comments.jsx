@@ -20,7 +20,7 @@ export const ComentarioConFoto = () => {
   };
 
   return (
-    <div className='comentario'>
+    <div className='comentario container'>
       <TextField
         label="Escribe un comentario"
         fullWidth
@@ -48,16 +48,17 @@ export const ComentarioConFoto = () => {
           type="file"
           onChange={handlePhotoInputChange}
         />
-        <label htmlFor="photo-input">
+      <Button onClick={() => setIsDropdownOpen(!isDropdownOpen)}>
+        {isDropdownOpen ? 'Cerrar' : 'Abrir'} cuadro de texto
+      </Button> <br />
+        <label htmlFor="photo-input" style={{color: 'black'}}>
           <IconButton color="primary" component="span">
             <AddPhotoAlternateIcon />
           </IconButton>
           Adjuntar foto
         </label>
       </div>
-      <Button onClick={() => setIsDropdownOpen(!isDropdownOpen)}>
-        {isDropdownOpen ? 'Cerrar' : 'Abrir'} cuadro de texto
-      </Button>
+     
     </div>
   );
 }

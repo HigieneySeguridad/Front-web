@@ -80,7 +80,7 @@ export const Header = () => {
             </li>
             <li>
               <button className="button-login">
-                <Link to = "/login"><a>Iniciar Sesion</a></Link>
+                <Link to = "/login">Iniciar Sesion</Link>
               </button>
 
             </li>

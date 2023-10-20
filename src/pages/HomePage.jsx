@@ -1,4 +1,3 @@
-import {Footer} from "../components/Footer"
 import {Aside} from "../components/Aside"
 import { PanelControl } from "../components/PanelControl"
 
@@ -7,7 +6,6 @@ export const HomePage = () => {
    <>
    <PanelControl/>
    <Aside/>
-   <Footer/>
    
    </>
   )

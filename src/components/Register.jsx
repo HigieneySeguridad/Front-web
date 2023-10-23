@@ -5,7 +5,7 @@ import { Aside } from "./Aside"
 export const Register = () => {
   const [user, setUser] = useState('');
   const [password, setPassword] = useState('');
-  const [role, setRole] = useState('');
+  const [role, setRole] = useState('Operario');
 
 
   const handleInputChange = (event) => {
@@ -27,20 +27,23 @@ export const Register = () => {
         password,
         role
     }
-
-    try {
-        await fetch('http://localhost:3000/registrar', {
+        const respuesta = await fetch('http://localhost:3000/registrar', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
           },
         body: JSON.stringify(crearUsuario)
         })
-        alert("Usuario registrado con éxito")
-       console.log("Usuario creado correctamente")
-    } catch (error) {
-      console.error('Error de red:', error);
-    }
+      
+        if (respuesta.ok){
+          alert("Usuario registrado con éxito")
+          console.log("Usuario creado correctamente")
+  
+        } else {
+          alert("Error al crear usuario")
+          console.log("Error al crear el usuario")
+        }
+       
   }
 
   return ( 
@@ -79,6 +82,7 @@ export const Register = () => {
         name='role'
         value={role}
         onChange={handleInputChange}
+        required
       > 
         <option value="Operario">Operario</option>
         <option value="Inspector">Inspector</option>

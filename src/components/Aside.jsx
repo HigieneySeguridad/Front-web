@@ -1,6 +1,6 @@
 import "../aside.css"
-import {Link, Navigate} from "react-router-dom"
-import {useState} from "react"
+import {Link, Navigate} from "react-router-dom";
+import {useState} from "react";
 
 export const Aside = () => {
   const [logout, setLogout] = useState(false);
@@ -33,9 +33,6 @@ export const Aside = () => {
 <div className={`sidebar ${isSidebarOpen ? 'open' : ''}`}>
 
   <div className="logo-details">
-     
-    
-
     <div className="logo_name">
     <img src="./img/icono.png" alt="profileImg" height= "25" width="25"/>
       POLOSEG

@@ -5,7 +5,7 @@ import { useState } from 'react';
 export const Login = () => {
   const [user, setUser] = useState('');
   const [password, setPassword] = useState('');
-  const [loggedIn, setLoggedIn] = useState(false)
+  const [loggedIn, setLoggedIn] = useState(false);
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
@@ -31,7 +31,7 @@ export const Login = () => {
         },
         body: JSON.stringify(iniciarSesion),
       });
-     
+
       if (respuesta.status === 200) {
         // Credenciales válidas; manejar el resultado aquí
         alert('Has iniciado sesión correctamente');

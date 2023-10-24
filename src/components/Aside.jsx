@@ -1,6 +1,7 @@
 import "../aside.css"
 import {Link, Navigate} from "react-router-dom";
 import {useState} from "react";
+import Swal from 'sweetalert2'
 
 export const Aside = () => {
   const [logout, setLogout] = useState(false);
@@ -8,8 +9,11 @@ export const Aside = () => {
 
   const handleLogout = () => {
     setLogout(true)
-    alert("Has cerrado sesión!")
     console.log("Has cerrado sesion")
+    Swal.fire({
+      icon: 'warning',
+      title: 'Has cerrado sesion'
+    })
   };
    if(logout){
     return <Navigate to="/"/>;

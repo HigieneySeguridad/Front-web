@@ -1,16 +1,19 @@
 import {useState, useEffect} from 'react'
 import axios from "axios"
-
+import Swal from 'sweetalert2'
 
 export const PanelControl = () => {
 const [usuarios, setUsuarios] = useState([]);
-
 const baseUrl = "http://localhost:3000/registrar";
 
 const fetchUsuario = async () => {
     try {
       const response = await axios.get(baseUrl);
-      setUsuarios(response.data);
+
+      if(response.status === 200){
+        setUsuarios(response.data);
+      }
+      
     } catch (error) {
       console.log(error.message);
     }
@@ -21,7 +24,10 @@ const fetchUsuario = async () => {
       await axios.delete(`http://localhost:3000/registrar/${id}`);
       fetchUsuario();
       console.log('Usuario eliminado correctamente');
-      alert('Usuario eliminado!');
+      Swal.fire({
+        icon: 'success',
+        title: 'Usuario eliminado correctamente'
+      })
     } catch (error) {
       console.log(error.message);
     }
@@ -49,7 +55,7 @@ const fetchUsuario = async () => {
                 <tbody>
                     {usuarios.map((usuario, i)=>(
                 <tr key={i}>
-                     <td className='panel'>{usuario.user}</td>
+                     <td className='panel'>{usuario.username}</td>
                      <td className='panel'>{usuario.role}</td>
                      <td className='panel'>{usuario.fecha}</td>
                      <td className='panel'>

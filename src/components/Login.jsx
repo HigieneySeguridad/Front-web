@@ -1,16 +1,17 @@
 import { Navigate } from 'react-router-dom';
 import { Header } from "./Header"
 import { useState } from 'react';
+import Swal from 'sweetalert2'
 
 export const Login = () => {
-  const [user, setUser] = useState('');
+  const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [loggedIn, setLoggedIn] = useState(false);
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
-    if (name === 'user') {
-      setUser(value);
+    if (name === 'username') {
+      setUsername(value);
     } else if (name === 'password') {
       setPassword(value);
     } 
@@ -20,7 +21,7 @@ export const Login = () => {
     event.preventDefault();
   
     const iniciarSesion = {
-      user,
+      username,
       password,
     };
   
@@ -33,18 +34,26 @@ export const Login = () => {
       });
 
       if (respuesta.status === 200) {
-        // Credenciales válidas; manejar el resultado aquí
-        alert('Has iniciado sesión correctamente');
+        Swal.fire({
+          icon: 'success',
+          title: 'Has iniciado sesion correctamente'
+        })
         console.log('Has iniciado sesión correctamente');
         setLoggedIn(true); // Redirigir al usuario solo cuando las credenciales son válidas
       } 
 
       if (respuesta.status ===401){
-       alert("Error revise sus datos")
+        Swal.fire({
+          icon: 'error',
+          title: 'Revisa tus datos'
+        })
        console.log(await respuesta.json())
       } 
       if (respuesta.status === 429){
-        alert("Error demasiados intentos, espere 1 minuto")
+        Swal.fire({
+          icon: 'info',
+          title: 'Has hecho muchos intentos, espera 1 minuto'
+        })
         console.log(await respuesta.text())
       }
       
@@ -65,10 +74,10 @@ export const Login = () => {
       <img height="20" width="20" src="./img/redes/usuario.png"/>
       <input 
       type="text" 
-      name='user'
+      name='username'
       className="input" 
       placeholder="Ingresa tu Usuario"
-      value={user}
+      value={username}
       onChange={handleInputChange}
       />
     </div>

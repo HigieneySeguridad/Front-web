@@ -1,17 +1,19 @@
 import { useState } from 'react';
 import { Header } from "./Header"
 import { Aside } from "./Aside"
+import Swal from 'sweetalert2'
+
 
 export const Register = () => {
-  const [user, setUser] = useState('');
+  const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [role, setRole] = useState('Operario');
 
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
-    if (name === 'user') {
-      setUser(value);
+    if (name === 'username') {
+      setUsername(value);
     } else if (name === 'password') {
       setPassword(value);
     } else if (name === 'role') {
@@ -23,7 +25,7 @@ export const Register = () => {
     event.preventDefault();
 
     const crearUsuario = {
-        user,
+        username,
         password,
         role
     }
@@ -36,13 +38,18 @@ export const Register = () => {
         })
       
         if (respuesta.ok){
-          alert("Usuario registrado con éxito")
+          Swal.fire({
+            icon: 'success',
+            title: 'Usuario creado'
+          })
           console.log("Usuario creado correctamente")
   
-        } else {
-          alert("Error al crear usuario")
-          console.log("Error al crear el usuario")
-        }
+        } else if (respuesta.status === 409){
+          Swal.fire({
+            icon: 'error',
+            title: 'Error, el usuario ya existe'
+          })
+        } else (console.log("Error al crear el usuario"))
        
   }
 
@@ -55,8 +62,8 @@ export const Register = () => {
   <div className="flex-column"><label>Usuario</label></div>
     <input
           type="text"
-          name="user"
-          value={user}
+          name="username"
+          value={username}
           onChange={handleInputChange}
           placeholder='Usuario'
           className="inputForm"

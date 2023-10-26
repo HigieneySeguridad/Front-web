@@ -1,12 +1,13 @@
-import { Navigate } from 'react-router-dom';
-import { Header } from "./Header"
-import { useState } from 'react';
+import { Header } from "../components/Header"
 import Swal from 'sweetalert2'
+import { useContext, useState } from 'react'
+import { UserContext } from '../context/userContext'
+import { userType } from '../context/userTypes'
 
 export const Login = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  const [loggedIn, setLoggedIn] = useState(false);
+  const { stateDispatch } = useContext(UserContext)
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
@@ -25,7 +26,7 @@ export const Login = () => {
       password,
     };
   
-      const respuesta = await fetch('http://localhost:3000/login', {
+      const peticion = await fetch('http://localhost:3000/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -33,35 +34,38 @@ export const Login = () => {
         body: JSON.stringify(iniciarSesion),
       });
 
-      if (respuesta.status === 200) {
+      if (peticion.status === 200) {
         Swal.fire({
           icon: 'success',
           title: 'Has iniciado sesion correctamente'
         })
         console.log('Has iniciado sesión correctamente');
-        setLoggedIn(true); // Redirigir al usuario solo cuando las credenciales son válidas
       } 
 
-      if (respuesta.status ===401){
+      if (peticion.status ===401){
         Swal.fire({
           icon: 'error',
           title: 'Revisa tus datos'
         })
        console.log(await respuesta.json())
       } 
-      if (respuesta.status === 429){
+      if (peticion.status === 429){
         Swal.fire({
           icon: 'info',
           title: 'Has hecho muchos intentos, espera 1 minuto'
         })
         console.log(await respuesta.text())
       }
+      const response = await peticion.json()
+
+      stateDispatch({
+        type: userType.login,
+        token: response.token,
+        nombre: response.nombre
+      })
       
   };
   
-  if (loggedIn) {
-    return <Navigate to="/homepage" />;
-  }
     return (     
 <>
 <Header/>

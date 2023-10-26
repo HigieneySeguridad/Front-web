@@ -1,6 +1,8 @@
 import {Aside} from "./Aside"
 import {ComentarioConFoto} from "./Comments"
-export const Form1 = () => {
+
+
+export const Permisos = () => {
   return (
     <>
     <Aside/>

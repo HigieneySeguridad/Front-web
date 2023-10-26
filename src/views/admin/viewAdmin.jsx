@@ -1,41 +1,44 @@
-import "../views/aside.css"
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import {Link} from "react-router-dom";
-import {useState} from "react";
+import "../aside.css"
 import Swal from 'sweetalert2'
-import { UserContext } from "../context/UserContext";
-import { userType } from '../context/userTypes'
+import { PanelControl } from '../../components/PanelControl'
+import { UserContext } from '../../context/userContext'
+import { userType } from '../../context/userTypes'
 
-export const Aside = () => {
-  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
-  const { state, stateDispatch } = useContext(UserContext)
 
-  const handleLogout = () => {
-    stateDispatch({
-      type: userType.logOut
-    })
-    Swal.fire({
-      icon: 'warning',
-      title: 'Has cerrado sesion'
-    })
-  };
 
-  const toggleSidebar = () => {
-    setIsSidebarOpen(!isSidebarOpen);
-  };
 
-  const menuBtnChange = () => {
-    if (isSidebarOpen) {
-      
-      return "bx bx-menu";
-    } else {
-      
-      return "bx bx-menu";
+export const ViewAdmin = () => {
+    const { state, stateDispatch } = useContext(UserContext);
+    const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+
+    const handleLogout = ()=>{
+        stateDispatch({
+          type: userType.logOut
+        })
+        Swal.fire({
+            icon: 'warning',
+            title: 'Has cerrado sesion'
+          })
     }
-  };
-
-return(
-      <div className={`sidebar ${isSidebarOpen ? 'open' : ''}`}>
+    const toggleSidebar = () => {
+        setIsSidebarOpen(!isSidebarOpen);
+      };
+    
+      const menuBtnChange = () => {
+        if (isSidebarOpen) {
+          
+          return "bx bx-menu";
+        } else {
+          
+          return "bx bx-menu";
+            
+    }}
+  return (
+    <>
+    <PanelControl/>
+ <div className={`sidebar ${isSidebarOpen ? 'open' : ''}`}>
 
   <div className="logo-details">
     <div className="logo_name">
@@ -48,9 +51,9 @@ return(
   </div>
 
   <ul className="nav-list">
-
+    
     <li>
-      <Link to={"/admin"}>
+      <Link to={"/panel"}>
         <i className='bx bx-grid-alt'></i>
         <span className="links_name">Administración</span>
       </Link>
@@ -95,7 +98,7 @@ return(
     </li>
     
     <li>
-      <Link to={"/permisos"}>
+      <Link to={"/form"}>
         <i className='bx bx-receipt'></i>
         <span className="links_name">Formularios</span>
       </Link>
@@ -107,7 +110,7 @@ return(
         <img src="./img/icono.png" alt="profileImg" height= "45" width="45"/>
         <div className="name_job">
           <div className="name">Bienvenido:</div>
-          <div className="job">{state.username}</div>
+          <div className="job">{state.nombre}</div>
         </div>
       </div>
 
@@ -117,8 +120,7 @@ return(
     </button>
     </li>
   </ul>
-  
 </div>
-
-  )}
-  
+    </>
+  )
+}

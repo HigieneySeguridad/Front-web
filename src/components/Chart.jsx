@@ -1,5 +1,5 @@
 
-import {Aside} from "./Aside"
+import { Aside } from "./Aside"
 
 import {
   Chart as ChartJS,

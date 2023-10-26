@@ -1,8 +1,47 @@
 import {Aside} from "./Aside"
-import {ComentarioConFoto} from "./Comments"
-
+import Swal from 'sweetalert2'
 
 export const Permisos = () => {
+
+    const submitPicture = async () => {
+        const { value: file } = await Swal.fire({
+            title: 'Select image',
+            input: 'file',
+            inputAttributes: {
+              'accept': 'image/*',
+              'aria-label': 'Upload your profile picture'
+            }
+          })
+          
+          if (file) {
+            const reader = new FileReader()
+            reader.onload = (e) => {
+              Swal.fire({
+                title: 'Your uploaded picture',
+                imageUrl: e.target.result,
+                imageAlt: 'The uploaded picture'
+              })
+            }
+            reader.readAsDataURL(file)
+          }
+        }
+
+
+      const submitText = async ()=>{
+        const { value: text } = await Swal.fire({
+            input: 'textarea',
+            inputLabel: 'Message',
+            inputPlaceholder: 'Type your message here...',
+            inputAttributes: {
+              'aria-label': 'Type your message here'
+            },
+            showCancelButton: true
+          })
+          
+          if (text) {
+            Swal.fire(text)
+          }
+      }
   return (
     <>
     <Aside/>
@@ -81,7 +120,8 @@ export const Permisos = () => {
     </tbody>
   </table>
   <br />
-  <ComentarioConFoto/>
+  <button onClick={submitText} className="btn btn-info" style={{marginLeft: 50, marginRight: 15}}>Escribe un comentario</button>
+  <button onClick={submitPicture} className="btn btn-info">Sube tu foto</button>
     </div>
  <br /> <br />
     <div className="table-responsive">
@@ -168,7 +208,8 @@ export const Permisos = () => {
         </tbody>
         </table>
         <br />
-        <ComentarioConFoto/>
+        <button onClick={submitText} className="btn btn-danger" style={{marginLeft: 50, marginRight: 15}}>Escribe un comentario</button>
+        <button onClick={submitPicture} className="btn btn-danger">Sube tu foto</button>
     </div>
     <br /> <br />
     <div className="table-responsive">
@@ -176,7 +217,7 @@ export const Permisos = () => {
         <table>
             <thead>
             <tr>
-            <th colSpan={6} style={{background: 'yellow'}}>Riesgos y consecuencias</th>
+            <th colSpan={6} style={{background: '#FFA33C'}}>Riesgos y consecuencias</th>
            </tr>
             </thead>
        
@@ -238,7 +279,9 @@ export const Permisos = () => {
                     <td></td>
                 </tr>
         </tbody>
-        </table>
+        </table> <br />
+        <button onClick={submitText} className="btn btn-warning" style={{marginLeft: 50, marginRight: 15}}>Escribe un comentario</button>
+        <button onClick={submitPicture} className="btn btn-warning">Sube tu foto</button>
     </div>
     <br /><br />
     <div className="table-responsive">
@@ -258,7 +301,9 @@ export const Permisos = () => {
         </tr>
        
     </tbody>
-  </table>
+  </table> <br />
+  <button onClick={submitText} className="btn btn-success" style={{marginLeft: 50, marginRight: 15}}>Escribe un comentario</button>
+  <button onClick={submitPicture} className="btn btn-success">Sube tu foto</button>
     </div>
 </div>
 </>

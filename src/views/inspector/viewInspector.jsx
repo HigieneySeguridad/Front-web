@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import { useContext, useState } from 'react'
 import "../aside.css"
 import Swal from 'sweetalert2'
 import { Chart } from '../../components/Chart'
@@ -69,7 +69,7 @@ export const ViewInspector = () => {
       <img src="./img/icono.png" alt="profileImg" height= "45" width="45"/>
       <div className="name_job">
       <div className="name">Bienvenido:</div>
-    <div className="job">{state.username}</div>
+    <div className="job">{state.nombre}</div>
       </div>
     </div>
 

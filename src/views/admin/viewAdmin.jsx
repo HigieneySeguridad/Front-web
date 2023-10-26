@@ -1,13 +1,10 @@
-import React, { useContext, useState } from 'react'
+import  { useContext, useState } from 'react'
 import {Link} from "react-router-dom";
 import "../aside.css"
 import Swal from 'sweetalert2'
 import { PanelControl } from '../../components/PanelControl'
 import { UserContext } from '../../context/userContext'
 import { userType } from '../../context/userTypes'
-
-
-
 
 export const ViewAdmin = () => {
     const { state, stateDispatch } = useContext(UserContext);

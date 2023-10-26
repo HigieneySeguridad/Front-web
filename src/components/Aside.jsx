@@ -1,9 +1,9 @@
 import "../views/aside.css"
-import React, { useContext } from 'react'
+import { useContext } from 'react'
 import {Link} from "react-router-dom";
 import {useState} from "react";
 import Swal from 'sweetalert2'
-import { UserContext } from "../context/UserContext";
+import { UserContext } from "../context/userContext";
 import { userType } from '../context/userTypes'
 
 export const Aside = () => {
@@ -49,13 +49,19 @@ return(
 
   <ul className="nav-list">
 
-    <li>
+    {
+      state.role === "admin" &&
+      <li>
       <Link to={"/admin"}>
         <i className='bx bx-grid-alt'></i>
         <span className="links_name">Administración</span>
       </Link>
       <span className="tooltip">Administración</span>
     </li>
+
+    }
+
+
 
     <li>
       <Link to={"/register"}>
@@ -107,7 +113,7 @@ return(
         <img src="./img/icono.png" alt="profileImg" height= "45" width="45"/>
         <div className="name_job">
           <div className="name">Bienvenido:</div>
-          <div className="job">{state.username}</div>
+          <div className="job"><strong>{state.username}</strong></div>
         </div>
       </div>
 

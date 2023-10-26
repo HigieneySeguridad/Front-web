@@ -3,7 +3,6 @@ import { Header } from "./Header"
 import { Aside } from "./Aside"
 import Swal from 'sweetalert2'
 
-
 export const Register = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
@@ -42,8 +41,8 @@ export const Register = () => {
             icon: 'success',
             title: 'Usuario creado'
           })
+        
           console.log("Usuario creado correctamente")
-  
         } else if (respuesta.status === 409){
           Swal.fire({
             icon: 'error',

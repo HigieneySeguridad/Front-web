@@ -11,6 +11,8 @@ import { ViewOperario } from '../views/operario/viewOperario';
 import { Chart } from '../components/Chart';
 import PrivateRoutes from './PrivateRoutes'
 import PublicRoutes from './PublicRoutes'
+import AdminRoutes from './AdminRoutes';
+import InspectorRoutes from './InspectorRoutes';
 
 
 export const AppRouter = () => {
@@ -25,14 +27,21 @@ export const AppRouter = () => {
             </Route>
             
             <Route element={<PrivateRoutes/>}>
-            <Route path='/admin' element={<ViewAdmin/>}/>
-            <Route path='/chart' element={<Chart/>}/>
-            <Route path='/panel' element={<PanelControl/>}/>
-            <Route path='/register' element={<Register/>}/>
-            <Route path='/permisos' element={<Permisos/>}/>
-            <Route path='/operario' element={<ViewOperario/>}/>
-            <Route path='/inspector' element={<ViewInspector/>}/>
-            <Route path='/inspectorExt' element={<ViewInspectorExt/>}/>
+
+            <Route element={<AdminRoutes/>}>
+              <Route path='/admin' element={<ViewAdmin/>}/>
+              <Route path='/chart' element={<Chart/>}/>
+            </Route>
+
+            <Route element={<InspectorRoutes/>}>
+              <Route path='/panel' element={<PanelControl/>}/>
+              <Route path='/register' element={<Register/>}/>
+              <Route path='/permisos' element={<Permisos/>}/>
+              <Route path='/operario' element={<ViewOperario/>}/>
+              <Route path='/inspector' element={<ViewInspector/>}/>
+              <Route path='/inspectorExt' element={<ViewInspectorExt/>}/>
+            </Route>
+            
             </Route>
           </Routes>
     </Router>

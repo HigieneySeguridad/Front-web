@@ -47,21 +47,22 @@ export const Login = () => {
           icon: 'error',
           title: 'Revisa tus datos'
         })
-       console.log(await respuesta.json())
+       console.log(await peticion.json())
       } 
       if (peticion.status === 429){
         Swal.fire({
           icon: 'info',
           title: 'Has hecho muchos intentos, espera 1 minuto'
         })
-        console.log(await respuesta.text())
+        console.log(await peticion.text())
       }
       const response = await peticion.json()
 
       stateDispatch({
         type: userType.login,
         token: response.token,
-        nombre: response.nombre
+        nombre: response.nombre,
+        role: response.role
       })
       
   };

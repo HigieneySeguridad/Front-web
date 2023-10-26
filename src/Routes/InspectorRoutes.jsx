@@ -2,15 +2,13 @@ import { useContext } from 'react'
 import { UserContext } from '../context/userContext';
 import { Navigate, Outlet } from 'react-router-dom';
 
-const PublicRoutes = () => {
+const InspectorRoutes = () => {
 
     const {state} = useContext(UserContext);
 
-    console.log(state)
-
   return (
-    !state.isLogged ? <Outlet/> : <Navigate to={'/admin'}/> 
+    state.role === "Admin" || state.role === "Inspector" ? <Outlet/> : <Navigate to={'/'}/>
   )
 }
 
-export default PublicRoutes
+export default InspectorRoutes

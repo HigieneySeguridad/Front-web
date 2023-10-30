@@ -9,7 +9,7 @@ const PublicRoutes = () => {
     console.log(state)
 
   return (
-    !state.isLogged ? <Outlet/> : <Navigate to={'/admin'}/> 
+    !state.isLogged ? <Outlet/> : <Navigate to={'/panel'}/> 
   )
 }
 

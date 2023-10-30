@@ -13,12 +13,10 @@ export const Intro = () => {
                autoPlay loop className="videofondo"
                src="img/imagenesFondos/video-fondo.mov">
         </video>
-
-        
         <div className="overlay">
           <div className="container">
             <div className="row">
-              <div className="col-md-8 col-md-offset-2 intro-text">
+              <div className="col-md-8 col-md-offset-2">
                 <h1>
                   Seguridad e Higiene Industrial
                 </h1>

@@ -46,6 +46,7 @@ export const Permisos = () => {
     <>
     <Aside/>
     <div className='container'>
+      <h2 className="section-title" style={{color: "#012970"}}>Permisos de Trabajo</h2>
     <div className='table-responsive'>
     <table border="1">
     <thead>

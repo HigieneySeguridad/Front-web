@@ -1,6 +1,7 @@
 import {useState, useEffect} from 'react'
 import axios from "axios"
 import Swal from 'sweetalert2'
+import { Aside } from './Aside';
 
 export const PanelControl = () => {
 const [usuarios, setUsuarios] = useState([]);
@@ -38,6 +39,8 @@ const fetchUsuario = async () => {
   },[]);
 
   return (
+    <>
+    <Aside/>
     <div className='container' id='content-area'>
         <div className='section-title'>
         <h2>Panel de Control</h2>
@@ -73,6 +76,7 @@ const fetchUsuario = async () => {
             </table>
         </div>
     </div>
+    </>
   )
 }
 

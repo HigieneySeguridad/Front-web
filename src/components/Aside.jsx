@@ -50,9 +50,9 @@ return(
   <ul className="nav-list">
 
     {
-      state.role === "admin" &&
+      state.role === "Admin" &&
       <li>
-      <Link to={"/admin"}>
+      <Link to={"/panel"}>
         <i className='bx bx-grid-alt'></i>
         <span className="links_name">Administración</span>
       </Link>
@@ -60,9 +60,8 @@ return(
     </li>
 
     }
-
-
-
+    {
+      state.role === "Admin" &&
     <li>
       <Link to={"/register"}>
         <i className='bx bx-user'></i>
@@ -70,13 +69,9 @@ return(
       </Link>
       <span className="tooltip">Usuarios</span>
     </li>
-    <li>
-      <a href="#">
-        <i className='bx bx-notification'></i>
-        <span className="links_name">Notificaciones</span>
-      </a>
-      <span className="tooltip">Notificaciones</span>
-    </li>
+    }
+    {
+      state.role === "Admin" || state.role === "Inspector" || state.role === "Inspector-Ext" &&
     <li>
       <Link to={"/chart"}>
         <i className='bx bx-bar-chart-alt-2'></i>
@@ -84,6 +79,16 @@ return(
       </Link>
       <span className="tooltip">Gráficos</span>
     </li>
+    }
+    <li>
+      <a href="#">
+        <i className='bx bx-notification'></i>
+        <span className="links_name">Notificaciones</span>
+      </a>
+      <span className="tooltip">Notificaciones</span>
+    </li>
+  {
+    state.role === "Operario" &&
     <li>
       <a href="#">
         <i className='bx bx-folder'></i>
@@ -91,7 +96,7 @@ return(
       </a>
       <span className="tooltip">Archivos</span>
     </li>
-
+  }
     <li>
       <a href="#">
         <i className='bx bx-cog'></i>
@@ -99,25 +104,26 @@ return(
       </a>
       <span className="tooltip">Configuración</span>
     </li>
-    
-    <li>
+    {
+      state.role === "Operario" &&
+      <li>
       <Link to={"/permisos"}>
         <i className='bx bx-receipt'></i>
         <span className="links_name">Formularios</span>
       </Link>
       <span className="tooltip">Formularios</span>
     </li>
-
+    }
+    
     <li className="profile">
       <div className="profile-details">
         <img src="./img/icono.png" alt="profileImg" height= "45" width="45"/>
         <div className="name_job">
           <div className="name">Bienvenido:</div>
-          <div className="job"><strong>{state.username}</strong></div>
+          <div className="job"><strong>{state.nombre}</strong></div>
         </div>
       </div>
 
-     
     <button onClick={handleLogout} style={{border: 'none', background: 'transparent'}}>
       <i className='bx bx-log-out' id="log_out"></i>
     </button>

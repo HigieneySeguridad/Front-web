@@ -26,7 +26,6 @@ export const AppRouter = () => {
 
             <Route element={<AdminRoutes/>}>
               <Route path='/panel' element={<PanelControl/>}/> 
-              <Route path='/chart' element={<Chart/>}/>
               <Route path='/register' element={<Register/>}/>
               <Route path='/images' element={<Imagenes/>}/>
             </Route>

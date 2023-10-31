@@ -49,7 +49,7 @@ return(
   <ul className="nav-list">
 
     {
-      state.role === "Admin" &&
+      state.role === "Admin"  &&
       <li>
       <Link to={"/panel"}>
         <i className='bx bx-grid-alt'></i>
@@ -69,16 +69,19 @@ return(
       <span className="tooltip">Usuarios</span>
     </li>
     }
-    {
-      state.role === "Admin"  &&
+   {
+  state.role === "Admin" || state.role === "Operario" || state.role === "Inspector" ? (
     <li>
-      <Link to={"/chart"}>
-        <i className='bx bx-bar-chart-alt-2'></i>
-        <span className="links_name">Gráficos</span>
+      <Link to={state.role === "Admin" ? "/chart" : state.role === "Operario" ? "/permisos" : "/chart"}>
+        <i className={state.role === "Admin" ? "bx bx-bar-chart-alt-2" : state.role === "Operario" ? "bx bx-check" : "bx bx-bar-chart-alt-2"}></i>
+        <span className="links_name">{state.role === "Admin" ? "Gráficos" : state.role === "Operario" ? "Permisos" : "Gráficos"}</span>
       </Link>
-      <span className="tooltip">Gráficos</span>
+      <span className="tooltip">{state.role === "Admin" ? "Gráficos" : state.role === "Operario" ? "Permisos" : "Gráficos"}</span>
     </li>
-    }
+  ) : null
+}
+
+
     <li>
       <a href="#">
         <i className='bx bx-notification'></i>

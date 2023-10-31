@@ -1,29 +1,37 @@
 import {Aside} from "./Aside"
 import Swal from 'sweetalert2'
+import axios from 'axios';
+import { useState } from "react";
 
 export const Permisos = () => {
+  const [selectedFile, setSelectedFile] = useState(null);
+
+  const handleFileChange = (event) => {
+    setSelectedFile(event.target.files[0]);
+  };
 
     const submitPicture = async () => {
-        const { value: file } = await Swal.fire({
-            title: 'Select image',
-            input: 'file',
-            inputAttributes: {
-              'accept': 'image/*',
-              'aria-label': 'Upload your profile picture'
-            }
+        const formData = new FormData();
+        formData.append('image', selectedFile);
+
+        const response = await axios.post('http://localhost:3000/upload', formData);
+
+        if(response.status === 200){
+          Swal.fire({
+            icon: 'success',
+            title: 'Imagen subida'
           })
-          
-          if (file) {
-            const reader = new FileReader()
-            reader.onload = (e) => {
-              Swal.fire({
-                title: 'Your uploaded picture',
-                imageUrl: e.target.result,
-                imageAlt: 'The uploaded picture'
-              })
-            }
-            reader.readAsDataURL(file)
-          }
+          console.log("imagen subida")
+        }
+
+        if(response.status === 400){
+          Swal.fire({
+            icon: 'error',
+            title: 'Hubo un error al subir la imagen'
+          })
+          console.log("imagen no se subio")
+        }
+        
         }
 
 
@@ -121,8 +129,26 @@ export const Permisos = () => {
     </tbody>
   </table>
   <br />
-  <button onClick={submitText} className="btn btn-info" style={{marginLeft: 50, marginRight: 15}}>Escribe un comentario</button>
-  <button onClick={submitPicture} className="btn btn-info">Sube tu foto</button>
+ 
+  <div>
+      <label htmlFor="fileInput" className="btn btn-info" style={{ marginLeft: 50, marginRight: 15 }}>
+        Seleccione una imagen
+      </label>
+      <input
+        type="file"
+        accept="image/*"
+        id="fileInput"  // Asociar el id del input con el atributo for del label
+        onChange={handleFileChange}
+        style={{ display: 'none' }}  // Ocultar el input (puede variar según tu estilo)
+      />
+      <button onClick={submitPicture} className="btn btn-info" style={{marginRight: 15}}>
+        Subir
+      </button>
+      <button onClick={submitText} className="btn btn-info">
+        Escribe un comentario
+      </button>
+  </div>
+
     </div>
  <br /> <br />
     <div className="table-responsive">
@@ -209,8 +235,24 @@ export const Permisos = () => {
         </tbody>
         </table>
         <br />
-        <button onClick={submitText} className="btn btn-danger" style={{marginLeft: 50, marginRight: 15}}>Escribe un comentario</button>
-        <button onClick={submitPicture} className="btn btn-danger">Sube tu foto</button>
+        <div>
+              <label htmlFor="fileInput" className="btn btn-danger" style={{ marginLeft: 50, marginRight: 15 }}>
+                Seleccione una imagen
+              </label>
+              <input
+                type="file"
+                accept="image/*"
+                id="fileInput"  // Asociar el id del input con el atributo for del label
+                onChange={handleFileChange}
+                style={{ display: 'none' }}  // Ocultar el input (puede variar según tu estilo)
+              />
+              <button onClick={submitPicture} className="btn btn-danger" style={{marginRight: 15}}>
+                Subir
+              </button>
+              <button onClick={submitText} className="btn btn-danger">
+                Escribe un comentario
+              </button>
+        </div>
     </div>
     <br /> <br />
     <div className="table-responsive">
@@ -281,8 +323,24 @@ export const Permisos = () => {
                 </tr>
         </tbody>
         </table> <br />
-        <button onClick={submitText} className="btn btn-warning" style={{marginLeft: 50, marginRight: 15}}>Escribe un comentario</button>
-        <button onClick={submitPicture} className="btn btn-warning">Sube tu foto</button>
+        <div>
+            <label htmlFor="fileInput" className="btn btn-warning" style={{ marginLeft: 50, marginRight: 15 }}>
+              Seleccione una imagen
+            </label>
+            <input
+              type="file"
+              accept="image/*"
+              id="fileInput"  // Asociar el id del input con el atributo for del label
+              onChange={handleFileChange}
+              style={{ display: 'none' }}  // Ocultar el input (puede variar según tu estilo)
+            />
+            <button onClick={submitPicture} className="btn btn-warning" style={{marginRight: 15}}>
+              Subir
+            </button>
+            <button onClick={submitText} className="btn btn-warning">
+              Escribe un comentario
+            </button>
+        </div>
     </div>
     <br /><br />
     <div className="table-responsive">
@@ -303,8 +361,24 @@ export const Permisos = () => {
        
     </tbody>
   </table> <br />
-  <button onClick={submitText} className="btn btn-success" style={{marginLeft: 50, marginRight: 15}}>Escribe un comentario</button>
-  <button onClick={submitPicture} className="btn btn-success">Sube tu foto</button>
+  <div>
+      <label htmlFor="fileInput" className="btn btn-success" style={{ marginLeft: 50, marginRight: 15 }}>
+        Seleccione una imagen
+      </label>
+      <input
+        type="file"
+        accept="image/*"
+        id="fileInput"  // Asociar el id del input con el atributo for del label
+        onChange={handleFileChange}
+        style={{ display: 'none' }}  // Ocultar el input (puede variar según tu estilo)
+      />
+      <button onClick={submitPicture} className="btn btn-success" style={{marginRight: 15}}>
+        Subir
+      </button>
+      <button onClick={submitText} className="btn btn-success">
+        Escribe un comentario
+      </button>
+  </div>
     </div>
 </div>
 </>

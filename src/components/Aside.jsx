@@ -1,7 +1,6 @@
 import "../views/aside.css"
-import { useContext } from 'react'
 import {Link} from "react-router-dom";
-import {useState} from "react";
+import {useState, useContext} from "react";
 import Swal from 'sweetalert2'
 import { UserContext } from "../context/userContext";
 import { userType } from '../context/userTypes'
@@ -71,7 +70,7 @@ return(
     </li>
     }
     {
-      state.role === "Admin" || state.role === "Inspector" || state.role === "Inspector-Ext" &&
+      state.role === "Admin"  &&
     <li>
       <Link to={"/chart"}>
         <i className='bx bx-bar-chart-alt-2'></i>
@@ -88,12 +87,12 @@ return(
       <span className="tooltip">Notificaciones</span>
     </li>
   {
-    state.role === "Operario" &&
+    state.role === "Admin" &&
     <li>
-      <a href="#">
+      <Link to ={"/images"}>
         <i className='bx bx-folder'></i>
         <span className="links_name">Archivos</span>
-      </a>
+      </Link>
       <span className="tooltip">Archivos</span>
     </li>
   }
@@ -105,7 +104,7 @@ return(
       <span className="tooltip">Configuración</span>
     </li>
     {
-      state.role === "Operario" &&
+      state.role === "Admin" &&
       <li>
       <Link to={"/permisos"}>
         <i className='bx bx-receipt'></i>

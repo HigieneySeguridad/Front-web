@@ -10,7 +10,7 @@ import PublicRoutes from './PublicRoutes'
 import AdminRoutes from './AdminRoutes';
 import InspectorRoutes from './InspectorRoutes';
 import OperarioRoutes from "./OperarioRoutes"
-
+import { Imagenes } from '../components/Images';
 export const AppRouter = () => {
   return (
     <>
@@ -28,6 +28,7 @@ export const AppRouter = () => {
               <Route path='/panel' element={<PanelControl/>}/> 
               <Route path='/chart' element={<Chart/>}/>
               <Route path='/register' element={<Register/>}/>
+              <Route path='/images' element={<Imagenes/>}/>
             </Route>
 
             <Route element={<InspectorRoutes/>}>

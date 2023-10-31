@@ -1,12 +1,22 @@
-import { Bar } from 'react-chartjs-2';
+import { Line } from 'react-chartjs-2';
 import faker from 'faker'; 
 import { Aside } from './Aside';
-import { Chart as ChartJS,CategoryScale,LinearScale,BarElement,Title,Tooltip,Legend } from 'chart.js';
+import {
+  Chart as ChartJS,
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  LineElement,
+  Title,
+  Tooltip,
+  Legend,
+} from 'chart.js';
 
 ChartJS.register(
   CategoryScale,
   LinearScale,
-  BarElement,
+  PointElement,
+  LineElement,
   Title,
   Tooltip,
   Legend
@@ -14,7 +24,7 @@ ChartJS.register(
 
 export const Chart = () => {
 
-  const options = {
+const options = {
     responsive: true,
     plugins: {
       legend: {
@@ -22,24 +32,26 @@ export const Chart = () => {
       },
       title: {
         display: true,
-        text: 'Chart.js Bar Chart',
+        text: 'Gráfico Lineal de Protecciones Corporales',
       },
     },
-  };
+};
 
-  const labels = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
+const labels = ['Cabeza y Cuerpo', 'Ojos y Cara', 'Auditiva', 'Manos', 'Respiratoria', 'Pies'];
 
-  const data = {
+const data = {
     labels,
     datasets: [
       {
-        label: 'Dataset 1',
-        data: labels.map(() => faker.datatype.number({ min: 0, max: 1000 })),
+        label: 'Mes 1',
+        data: labels.map(() => faker.datatype.number({ min: 0, max: 10 })),
+        borderColor: 'rgb(255, 99, 132)',
         backgroundColor: 'rgba(255, 99, 132, 0.5)',
       },
       {
-        label: 'Dataset 2',
-        data: labels.map(() => faker.datatype.number({ min: 0, max: 1000 })),
+        label: 'Mes 2',
+        data: labels.map(() => faker.datatype.number({ min: 0, max: 10 })),
+        borderColor: 'rgb(53, 162, 235)',
         backgroundColor: 'rgba(53, 162, 235, 0.5)',
       },
     ],
@@ -48,7 +60,7 @@ export const Chart = () => {
   return (
     <div>
       <Aside/>
-      <Bar data={data} options={options} />
+      <Line options={options} data={data} />
     </div>
   );
 };

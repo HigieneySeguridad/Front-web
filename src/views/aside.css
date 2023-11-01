@@ -16,10 +16,19 @@
   padding: 6px 14px;
   z-index: 99;
   transition: all 0.5s ease;
+ 
 }
 .sidebar.open {
   width: 250px;
 }
+
+.main {
+  margin-left: 10px; /* Margen cuando el sidebar está abierto */
+  transition: margin-left 0.3s; /* Agregar transición para que sea suave */
+  flex-grow: 1; /* El contenido principal ocupa el espacio restante */
+}
+
+
 .sidebar .logo-details {
   height: 60px;
   display: flex;

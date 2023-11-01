@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { Header } from "./Header"
-import { Aside } from "./Aside"
 import Swal from 'sweetalert2'
 
 export const Register = () => {
@@ -54,7 +53,6 @@ export const Register = () => {
 
   return ( 
     <>
-    <Aside/>
     <Header/>
 <form onSubmit={handleSubmit} className='form'>
 <h2 className='form-h2'>Crear Usuario</h2>

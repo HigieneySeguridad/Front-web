@@ -243,6 +243,10 @@ body{
   border-radius: 10px;
   padding-left: 10px;
 }
+
+.table-responsive{
+  margin-bottom: 100px;
+}
 table {
   width: 90%;
   border-collapse: collapse;
@@ -252,22 +256,33 @@ table {
 }
 
 /* Estilos para pantallas medianas */
+@media (max-width: 984px) {
+  table {
+      width: 75%;
+  }
+}
+
 @media (max-width: 768px) {
   table {
-      width: 70%;
+      width: 72%;
   }
 }
 
 /* Estilos para pantallas pequeñas (móviles) */
-@media (max-width: 480px) {
+@media (max-width: 510px) {
   table {
       width: 100%;
   }
   td {
-      display: block;
+      display: grid;
+      place-items: center;
   }
+  th {
+    display: grid;
+    place-items: center;
+}
   td input {
-      width: 100%;
+      width: 80%;
   }
 }
 th {
@@ -433,4 +448,10 @@ div .comentario{
   width: 150px;
   height: 50px;
   font-size: 15px;
+}
+
+
+.div-graficos{
+  margin-bottom: 70px;
+  height: 320px;
 }

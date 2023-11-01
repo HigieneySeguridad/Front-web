@@ -1,6 +1,6 @@
 import "../views/aside.css"
 import {Link} from "react-router-dom";
-import {useState, useContext} from "react";
+import {useState, useContext, useEffect} from "react";
 import Swal from 'sweetalert2'
 import { UserContext } from "../context/userContext";
 import { userType } from '../context/userTypes'
@@ -8,6 +8,8 @@ import { userType } from '../context/userTypes'
 export const Aside = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const { state, stateDispatch } = useContext(UserContext)
+  const [tokenExpiration, setTokenExpiration] = useState(3600);
+
 
   const handleLogout = () => {
     stateDispatch({
@@ -33,8 +35,23 @@ export const Aside = () => {
     }
   };
 
+
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      if (tokenExpiration > 0) {
+        setTokenExpiration(tokenExpiration - 1);
+      } else {
+        // Token has expired, handle accordingly
+        clearInterval(intervalId);
+      }
+    }, 1000); // Update every second
+
+    return () => clearInterval(intervalId);
+  }, [tokenExpiration]);
+
+
 return(
-      <div className={`sidebar ${isSidebarOpen ? 'open' : ''}`}>
+  <div className={`sidebar ${isSidebarOpen ? 'open' : ''}`}>
 
   <div className="logo-details">
     <div className="logo_name">
@@ -69,18 +86,41 @@ return(
       <span className="tooltip">Usuarios</span>
     </li>
     }
-   {
-  state.role === "Admin" || state.role === "Operario" || state.role === "Inspector" ? (
+  {
+  state.role === "Admin" && (
     <li>
-      <Link to={state.role === "Admin" ? "/chart" : state.role === "Operario" ? "/permisos" : "/chart"}>
-        <i className={state.role === "Admin" ? "bx bx-bar-chart-alt-2" : state.role === "Operario" ? "bx bx-check" : "bx bx-bar-chart-alt-2"}></i>
-        <span className="links_name">{state.role === "Admin" ? "Gráficos" : state.role === "Operario" ? "Permisos" : "Gráficos"}</span>
+      <Link to="/chart">
+        <i className="bx bx-bar-chart-alt-2"></i>
+        <span className="links_name">Gráficos</span>
       </Link>
-      <span className="tooltip">{state.role === "Admin" ? "Gráficos" : state.role === "Operario" ? "Permisos" : "Gráficos"}</span>
+      <span className="tooltip">Gráficos</span>
     </li>
-  ) : null
+  )
 }
 
+{
+  state.role === "Operario" && (
+    <li>
+      <Link to="/permisos">
+        <i className="bx bx-check"></i>
+        <span className="links_name">Permisos</span>
+      </Link>
+      <span className="tooltip">Permisos</span>
+    </li>
+  )
+}
+
+{
+  state.role === "Inspector" && (
+    <li>
+      <Link to="/chart">
+        <i className="bx bx-bar-chart-alt-2"></i>
+        <span className="links_name">Gráficos</span>
+      </Link>
+      <span className="tooltip">Gráficos</span>
+    </li>
+  )
+}
 
     <li>
       <a href="#">
@@ -121,8 +161,9 @@ return(
       <div className="profile-details">
         <img src="./img/icono.png" alt="profileImg" height= "45" width="45"/>
         <div className="name_job">
-          <div className="name">Bienvenido:</div>
-          <div className="job"><strong>{state.nombre}</strong></div>
+          <div className="job"><strong>Usuario: {state.nombre}</strong>
+          <p className="job">Sesion: {Math.floor(tokenExpiration / 60)} min y {tokenExpiration % 60}seg</p>
+          </div>
         </div>
       </div>
 

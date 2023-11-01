@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-import { Aside } from './Aside';
 import Swal from "sweetalert2"
 
 const divStyle = {
@@ -65,8 +64,8 @@ export const Imagenes = () => {
 
   return (
     <>
-    <div>
-        <Aside/>
+    <div className='main'>
+
       <div className='section-title'>
         <h2>Archivos subidos:</h2>
       </div>

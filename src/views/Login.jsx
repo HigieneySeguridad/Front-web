@@ -7,7 +7,7 @@ import { userType } from '../context/userTypes'
 export const Login = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  const { stateDispatch } = useContext(UserContext)
+  const { stateDispatch } = useContext(UserContext);
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
@@ -62,10 +62,13 @@ export const Login = () => {
         type: userType.login,
         token: response.token,
         nombre: response.nombre,
-        role: response.role
+        role: response.role,
+        time: response.time
       })
       
+      
   };
+  
   
     return (     
 <>

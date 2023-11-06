@@ -50,8 +50,8 @@ export const Medidas = () => {
             }
         }
   return (
-    <div className="table-responsive">
-    <table>
+    <div className="table-responsive small">
+    <table className="table table-striped table-sm">
     <thead>
          <tr>
           <th colSpan={6} style={{background: 'green'}}>Medidas de control y mitigación</th>

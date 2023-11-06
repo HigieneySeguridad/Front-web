@@ -12,6 +12,7 @@ import InspectorRoutes from './InspectorRoutes';
 import OperarioRoutes from "./OperarioRoutes"
 import { Imagenes } from '../components/Images';
 import { Aside } from '../components/Aside';
+import { Dashboard } from '../components/Dashboard/Dashboard';
 
 export const AppRouter = () => {
   return (
@@ -27,6 +28,7 @@ export const AppRouter = () => {
             <Route element={<> <Aside/> <PrivateRoutes/> </>}>
 
             <Route element={<AdminRoutes/>}>
+              <Route path='/dashboard' element={<Dashboard/>}/> 
               <Route path='/panel' element={<PanelControl/>}/> 
               <Route path='/register' element={<Register/>}/>
               <Route path='/chart' element={<Chart/>}/>

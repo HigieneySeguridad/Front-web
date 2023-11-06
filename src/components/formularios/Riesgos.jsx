@@ -53,7 +53,7 @@ export const Riesgos = () => {
   return (
     <div className="table-responsive">
 
-    <table>
+    <table className="table table-striped table-sm">
         <thead>
         <tr>
         <th colSpan={6} style={{background: '#FFA33C'}}>Riesgos y consecuencias</th>

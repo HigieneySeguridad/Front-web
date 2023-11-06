@@ -60,18 +60,18 @@ export const ProteccionPersonal = () => {
         }
   return (
     <div style={{marginBottom: 70}}>
-    <table>
+    <table className="table table-striped table-sm">
     <thead>
         <tr>
             <th colSpan={6} style={{background: 'skyblue'}}>Elementos de Protección Personal</th>
         </tr>
       <tr>
-        <th style={{background: 'skyblue'}}>Protección de Cabeza y Cuerpo</th>
-        <th style={{background: 'skyblue'}}>Protección de Ojos y Cara</th>
-        <th style={{background: 'skyblue'}}>Protección Auditiva</th>
-        <th style={{background: 'skyblue'}}>Protección de Manos</th>
-        <th style={{background: 'skyblue'}}>Protección Respiratoria</th>
-        <th style={{background: 'skyblue'}}>Protección de Pies</th>
+        <th style={{background: 'skyblue'}} scope="col">Protección de Cabeza y Cuerpo</th>
+        <th style={{background: 'skyblue'}} scope="col">Protección de Ojos y Cara</th>
+        <th style={{background: 'skyblue'}} scope="col">Protección Auditiva</th>
+        <th style={{background: 'skyblue'}} scope="col">Protección de Manos</th>
+        <th style={{background: 'skyblue'}} scope="col">Protección Respiratoria</th>
+        <th style={{background: 'skyblue'}} scope="col">Protección de Pies</th>
       </tr>
     </thead>
     <tbody>

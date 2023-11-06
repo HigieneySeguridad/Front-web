@@ -52,7 +52,7 @@ export const Peligros = () => {
   return (
     <div className="table-responsive">
 
-    <table>
+    <table className="table table-striped table-sm">
         <thead>
         <tr>
         <th colSpan={6} style={{background: 'red'}}>Peligros</th>

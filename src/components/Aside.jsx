@@ -70,9 +70,9 @@ return(
       <li>
       <Link to={"/panel"}>
         <i className='bx bx-grid-alt'></i>
-        <span className="links_name">Administración</span>
+        <span className="links_name">Administrar</span>
       </Link>
-      <span className="tooltip">Administración</span>
+      <span className="tooltip">Administrar</span>
     </li>
 
     }
@@ -81,9 +81,9 @@ return(
     <li>
       <Link to={"/register"}>
         <i className='bx bx-user'></i>
-        <span className="links_name">Usuarios</span>
+        <span className="links_name">Crear Usuarios</span>
       </Link>
-      <span className="tooltip">Usuarios</span>
+      <span className="tooltip">Crear Usuarios</span>
     </li>
     }
   {
@@ -140,11 +140,11 @@ return(
     </li>
   }
     <li>
-      <a href="#">
-        <i className='bx bx-cog'></i>
-        <span className="links_name">Configuración</span>
+      <a href={"/dashboard"}>
+        <i className='bx bx-bar-chart-alt-2'></i>
+        <span className="links_name">Dashboard</span>
       </a>
-      <span className="tooltip">Configuración</span>
+      <span className="tooltip">Dashboard</span>
     </li>
     {
       state.role === "Admin" &&
@@ -161,7 +161,7 @@ return(
       <div className="profile-details">
         <img src="./img/icono.png" alt="profileImg" height= "45" width="45"/>
         <div className="name_job">
-          <div className="job"><strong>Usuario: {state.nombre}</strong>
+          <div className="job"><strong>{state.nombre}</strong>
           <p className="job">Sesion: {Math.floor(tokenExpiration / 60)} min y {tokenExpiration % 60}seg</p>
           </div>
         </div>

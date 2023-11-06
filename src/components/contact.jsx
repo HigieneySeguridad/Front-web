@@ -2,11 +2,9 @@
 export const Contact = () => {
  
   return (
-    <div data-aos="zoom-in">
-      <div id="contact">
-        <div className="container">
-          <div className="col-md-8">
-            <div className="row">
+      <div id="contact" data-aos="zoom-in">
+        <div className="contact-container">
+          <div className="contact-form col-md-6">
               <div className="section-title">
                 <h2>Contáctanos</h2>
                 <p>
@@ -61,9 +59,9 @@ export const Contact = () => {
                   Completar y Enviar
                 </button>
               </form>
-            </div>
           </div>
-          <div className="col-md-3 col-md-offset-1 contact-info">
+
+          <div className="col-md-3 contact-info">
             <div className="contact-item">
               <h3>Información de Contacto</h3>
               <p>
@@ -90,19 +88,8 @@ export const Contact = () => {
               </p>
             </div>
           </div>
-          <div className="col-md-12">
-            <div className="row">
-              <div className="social">
-                
-              </div>
-            </div>
-          </div>
         </div>
       </div>
-
-
-
-    </div>
 
   );
 };

@@ -86,7 +86,7 @@ export const Medidas = () => {
   
         try {
           console.log('Valores true', checkboxesSeleccionados, comentario );
-          const response = await axios.post('http://localhost:3000/formularios/proteccion', {checkboxes: checkboxesSeleccionados, comentario } );
+          const response = await axios.post('http://localhost:3000/formularios/medidas', {checkboxes: checkboxesSeleccionados, comentario } );
     
           if (response.status === 200) {
             console.log('Enviado correctamente');
@@ -121,7 +121,7 @@ export const Medidas = () => {
             <td><input type="checkbox" id="A" checked={checkboxValues.checkbox1} onChange={() => handleCheckboxChange('checkbox1')}/> A- Ojos y mente en tarea</td>
             <td><input type="checkbox" id="K" checked={checkboxValues.checkbox2} onChange={() => handleCheckboxChange('checkbox2')}/> K- Señalización/delimitación</td>
             <td><input type="checkbox" id="T" checked={checkboxValues.checkbox3} onChange={() => handleCheckboxChange('checkbox3')}/> T- Luces Encendidas</td>
-            <td><input type="checkbox" id="AD" checked={checkboxValues.checkbox4} onChange={() => handleCheckboxChange('checkbox4')}/> AD- Kit antiderrame</td>
+            <td><input type="checkbox" id="AD"checked={checkboxValues.checkbox4} onChange={() => handleCheckboxChange('checkbox4')}/> AD- Kit antiderrame</td>
         </tr>
         <tr>
             <td><input type="checkbox" id="B" checked={checkboxValues.checkbox5} onChange={() => handleCheckboxChange('checkbox5')}/> B- Persona Guía</td>

@@ -86,7 +86,7 @@ export const Riesgos = () => {
   
         try {
           console.log('Valores true', checkboxesSeleccionados, comentario );
-          const response = await axios.post('http://localhost:3000/formularios/proteccion', {checkboxes: checkboxesSeleccionados, comentario } );
+          const response = await axios.post('http://localhost:3000/formularios/riesgos', {checkboxes: checkboxesSeleccionados, comentario } );
     
           if (response.status === 200) {
             console.log('Enviado correctamente');
@@ -106,7 +106,9 @@ export const Riesgos = () => {
           console.error('Error al enviar el formulario', error);
         }
       };
-    
+
+
+
   return (
     <div>
     <table className="table table-striped table-sm">

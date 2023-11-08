@@ -1,6 +1,6 @@
 import { Medidas } from './Medidas';
 import { Peligros } from './Peligros';
-import { ProteccionPersonal } from './Protecciones/ProteccionPersonal';
+import { ProteccionPersonal } from './ProteccionPersonal';
 import { Riesgos } from './Riesgos';
 
 export const Permisos = () => {

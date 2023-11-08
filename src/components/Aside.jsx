@@ -1,15 +1,13 @@
 import "../views/aside.css"
 import {Link} from "react-router-dom";
-import {useState, useContext, useEffect} from "react";
+import {useState, useContext } from "react";
 import Swal from 'sweetalert2'
 import { UserContext } from "../context/userContext";
 import { userType } from '../context/userTypes'
 
 export const Aside = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
-  const { state, stateDispatch } = useContext(UserContext)
-  const [tokenExpiration, setTokenExpiration] = useState(3600);
-
+  const { state, stateDispatch } = useContext(UserContext);
 
   const handleLogout = () => {
     stateDispatch({
@@ -34,21 +32,6 @@ export const Aside = () => {
       return "bx bx-menu";
     }
   };
-
-
-  useEffect(() => {
-    const intervalId = setInterval(() => {
-      if (tokenExpiration > 0) {
-        setTokenExpiration(tokenExpiration - 1);
-      } else {
-        // Token has expired, handle accordingly
-        clearInterval(intervalId);
-      }
-    }, 1000); // Update every second
-
-    return () => clearInterval(intervalId);
-  }, [tokenExpiration]);
-
 
 return(
   <div className={`sidebar ${isSidebarOpen ? 'open' : ''}`}>
@@ -162,7 +145,6 @@ return(
         <img src="./img/icono.png" alt="profileImg" height= "45" width="45"/>
         <div className="name_job">
           <div className="job"><strong>{state.nombre}</strong>
-          <p className="job">Sesion: {Math.floor(tokenExpiration / 60)} min y {tokenExpiration % 60}seg</p>
           </div>
         </div>
       </div>

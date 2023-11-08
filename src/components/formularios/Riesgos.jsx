@@ -1,39 +1,66 @@
-import {useState} from 'react'
+import { useState } from "react";
 import Swal from "sweetalert2"
 import axios from "axios"
 
-
 export const Riesgos = () => {
-    const [selectedFile, setSelectedFile] = useState(null);
+    const [comentario, setComentario] = useState("");
+    const [checkboxValues, setCheckboxValues] = useState({
+        checkbox1: false,
+        checkbox2: false,
+        checkbox3: false,
+        checkbox4: false,
+        checkbox5: false,
+        checkbox6: false,
+        checkbox7: false,
+        checkbox8: false,
+        checkbox9: false,
+        checkbox10: false,
+        checkbox11: false,
+        checkbox12: false,
+        checkbox13: false,
+        checkbox14: false,
+        checkbox15: false,
+        checkbox16: false,
+        checkbox17: false,
+        checkbox18: false,
+        checkbox19: false,
+        checkbox20: false,
+        checkbox21: false,
+        checkbox22: false,
+        checkbox23: false,
+        checkbox24: false,
+        checkbox25: false,
+        checkbox26: false,
+        checkbox27: false,
+        checkbox28: false,
+        checkbox29: false,
+        checkbox30: false,
+        checkbox31: false,
+        checkbox32: false,
+        checkbox33: false,
+        checkbox34: false,
+        checkbox35: false,
+        checkbox36: false,
+        checkbox37: false,
+        checkbox38: false,
+        checkbox39: false,
+        checkbox40: false,
+        checkbox41: false
+      });
 
-  const handleFileChange = (event) => {
-    setSelectedFile(event.target.files[0]);
-  };
+      const handleCheckboxChange = (name) => {
+        setCheckboxValues({
+          ...checkboxValues,
+          [name]: !checkboxValues[name],
+        });
+      };
 
-    const submitPicture = async () => {
-        const formData = new FormData();
-        formData.append('image', selectedFile);
-
-        const response = await axios.post('http://localhost:3000/upload', formData);
-
-        if(response.status === 200){
-          Swal.fire({
-            icon: 'success',
-            title: 'Imagen subida'
-          })
-          console.log("imagen subida")
-        }
-
-        if(response.status === 400){
-          Swal.fire({
-            icon: 'error',
-            title: 'Hubo un error al subir la imagen'
-          })
-          console.log("imagen no se subio")
-        }
-        
-        }
-
+      const checkboxesSeleccionados = Object.keys(checkboxValues)
+      .filter((key) => checkboxValues[key])
+      .reduce((acc, key) => {
+        acc[key] = true;
+        return acc;
+      }, {});
 
       const submitText = async ()=>{
         const { value: text } = await Swal.fire({
@@ -47,97 +74,112 @@ export const Riesgos = () => {
           })
           
           if (text) {
-            Swal.fire(text)
-          }
+            Swal.fire({
+              title: 'Tu comentario: ',
+              text
+            })
+           setComentario(text)
+        }
       }
-  return (
-    <div className="table-responsive">
 
+    const guardarFormulario = async () => {
+  
+        try {
+          console.log('Valores true', checkboxesSeleccionados, comentario );
+          const response = await axios.post('http://localhost:3000/formularios/proteccion', {checkboxes: checkboxesSeleccionados, comentario } );
+    
+          if (response.status === 200) {
+            console.log('Enviado correctamente');
+            await Swal.fire({
+              title: 'Guardado correctamente',
+              icon: 'success'
+            })
+          } else {
+            console.log('No se pudo enviar el formulario');
+          }
+        } catch (error) {
+    
+          await Swal.fire({
+            title: 'No se pudo enviar',
+            icon: 'error'
+          })
+          console.error('Error al enviar el formulario', error);
+        }
+      };
+    
+  return (
+    <div>
     <table className="table table-striped table-sm">
         <thead>
         <tr>
-        <th colSpan={6} style={{background: '#FFA33C'}}>Riesgos y consecuencias</th>
+        <th colSpan={6} style={{background: '#FFD700'}}>Riesgos y consecuencias</th>
        </tr>
         </thead>
    
     <tbody>
             <tr>
-                <td><input type="checkbox" name="" id="" /> A- Atrapado en</td>
-                <td><input type="checkbox" name="" id="" /> N- Caida de objetos por desplome o desprendimiento</td>
+                <td><input type="checkbox" checked= {checkboxValues.checkbox1} onChange={() => handleCheckboxChange('checkbox1')}/> A- Atrapado en</td>
+                <td><input type="checkbox" checked= {checkboxValues.checkbox2} onChange={() => handleCheckboxChange('checkbox2')}/> N- Caida de objetos por desplome o desprendimiento</td>
             </tr>
             <tr>
-                <td><input type="checkbox" name="" id="" /> B- Atrapado entre</td>
-                <td><input type="checkbox" name="" id="" /> O- Atrapamiento por vuelco de maquinarias</td>
+                <td><input type="checkbox" checked= {checkboxValues.checkbox3} onChange={() => handleCheckboxChange('checkbox3')}/> B- Atrapado entre</td>
+                <td><input type="checkbox" checked= {checkboxValues.checkbox4} onChange={() => handleCheckboxChange('checkbox4')} /> O- Atrapamiento por vuelco de maquinarias</td>
             </tr>
             <tr>
-                <td><input type="checkbox" name="" id="" /> C- Atrapado bajo</td>
-                <td><input type="checkbox" name="" id="" /> P- Atropellos,golpes,choques contra o con vehiculos</td>
+                <td><input type="checkbox" checked= {checkboxValues.checkbox5} onChange={() => handleCheckboxChange('checkbox5')} /> C- Atrapado bajo</td>
+                <td><input type="checkbox" checked= {checkboxValues.checkbox6} onChange={() => handleCheckboxChange('checkbox6')} /> P- Atropellos,golpes,choques contra o con vehiculos</td>
             </tr>
             <tr>
-                <td><input type="checkbox" name="" id="" /> D- Corte/punciones/laceraciones</td>
-                <td><input type="checkbox" name="" id="" /> Q- Accidientes en vehiculos terrestres</td>
+                <td><input type="checkbox" checked= {checkboxValues.checkbox7} onChange={() => handleCheckboxChange('checkbox7')} /> D- Corte/punciones/laceraciones</td>
+                <td><input type="checkbox" checked= {checkboxValues.checkbox8} onChange={() => handleCheckboxChange('checkbox8')} /> Q- Accidientes en vehiculos terrestres</td>
             </tr>
             <tr>
-                <td><input type="checkbox" name="" id="" /> E- Exposicion Calor/Frio (carga termica) </td>
-                <td><input type="checkbox" name="" id="" /> R- Hundimiento</td>
+                <td><input type="checkbox" checked= {checkboxValues.checkbox9} onChange={() => handleCheckboxChange('checkbox9')} /> E- Exposicion Calor/Frio (carga termica) </td>
+                <td><input type="checkbox" checked= {checkboxValues.checkbox10} onChange={() => handleCheckboxChange('checkbox10')} /> R- Hundimiento</td>
             </tr>
             <tr>
-                <td><input type="checkbox" name="" id="" /> F- Caida de objetos por manipulacion</td>
-                <td><input type="checkbox" name="" id="" /> S- Descarga electrica</td>
+                <td><input type="checkbox" checked= {checkboxValues.checkbox11} onChange={() => handleCheckboxChange('checkbox11')} /> F- Caida de objetos por manipulacion</td>
+                <td><input type="checkbox" checked= {checkboxValues.checkbox12} onChange={() => handleCheckboxChange('checkbox12')} /> S- Descarga electrica</td>
             </tr>
             <tr>
-                <td><input type="checkbox" name="" id="" /> G- Ignicion</td>
-                <td><input type="checkbox" name="" id="" /> T- Resbalon/tropiezo/caida</td>
+                <td><input type="checkbox" checked= {checkboxValues.checkbox13} onChange={() => handleCheckboxChange('checkbox13')} /> G- Ignicion</td>
+                <td><input type="checkbox" checked= {checkboxValues.checkbox14} onChange={() => handleCheckboxChange('checkbox14')} /> T- Resbalon/tropiezo/caida</td>
             </tr>
             <tr>
-                <td><input type="checkbox" name="" id="" /> H- Sobreesfuerzo</td>
-                <td><input type="checkbox" name="" id="" /> U- Picadura y/o mordeduras de animales e insectos</td>
+                <td><input type="checkbox" checked= {checkboxValues.checkbox15} onChange={() => handleCheckboxChange('checkbox15')} /> H- Sobreesfuerzo</td>
+                <td><input type="checkbox" checked= {checkboxValues.checkbox16} onChange={() => handleCheckboxChange('checkbox16')} /> U- Picadura y/o mordeduras de animales e insectos</td>
             </tr>
             <tr>
-                <td><input type="checkbox" name="" id="" /> I- Golpeado por</td>
-                <td><input type="checkbox" name="" id="" /> V- Quemaduras</td>
+                <td><input type="checkbox" checked= {checkboxValues.checkbox17} onChange={() => handleCheckboxChange('checkbox17')} /> I- Golpeado por</td>
+                <td><input type="checkbox" checked= {checkboxValues.checkbox18} onChange={() => handleCheckboxChange('checkbox18')} /> V- Quemaduras</td>
             </tr>
             <tr>
-                <td><input type="checkbox" name="" id="" /> J- Golpe contra</td>
-                <td><input type="checkbox" name="" id="" /> W- Explosion/incendio</td>
+                <td><input type="checkbox" checked= {checkboxValues.checkbox19} onChange={() => handleCheckboxChange('checkbox19')} /> J- Golpe contra</td>
+                <td><input type="checkbox" checked= {checkboxValues.checkbox20} onChange={() => handleCheckboxChange('checkbox20')} /> W- Explosion/incendio</td>
             </tr>
             <tr>
-                <td><input type="checkbox" name="" id="" /> K- Proyeccion de particulas/salpicaduras</td>
-                <td><input type="checkbox" name="" id="" /> X- Asfixia/Desmayo</td>
+                <td><input type="checkbox" checked= {checkboxValues.checkbox21} onChange={() => handleCheckboxChange('checkbox21')} /> K- Proyeccion de particulas/salpicaduras</td>
+                <td><input type="checkbox" checked= {checkboxValues.checkbox22} onChange={() => handleCheckboxChange('checkbox22')} /> X- Asfixia/Desmayo</td>
             </tr>
             <tr>
-                <td><input type="checkbox" name="" id="" /> L- Caida de personas a mismo nivel</td>
-                <td><input type="checkbox" name="" id="" /> Y-Problemas respiratorios</td>
+                <td><input type="checkbox" checked= {checkboxValues.checkbox23} onChange={() => handleCheckboxChange('checkbox23')} /> L- Caida de personas a mismo nivel</td>
+                <td><input type="checkbox" checked= {checkboxValues.checkbox24} onChange={() => handleCheckboxChange('checkbox24')} /> Y-Problemas respiratorios</td>
             </tr>
             <tr>
-                <td><input type="checkbox" name="" id="" /> LL- Caida de personas a distinto nivel</td>
-                <td><input type="checkbox" name="" id="" /> Z- Otro</td>
+                <td><input type="checkbox" checked= {checkboxValues.checkbox25} onChange={() => handleCheckboxChange('checkbox25')} /> LL- Caida de personas a distinto nivel</td>
+                <td><input type="checkbox" checked= {checkboxValues.checkbox26} onChange={() => handleCheckboxChange('checkbox26')} /> Z- Otro</td>
             </tr>
             <tr>
-                <td><input type="checkbox" name="" id="" /> M- Caida a instalaciones de bajo nivel</td>
+                <td><input type="checkbox" checked= {checkboxValues.checkbox27} onChange={() => handleCheckboxChange('checkbox27')} /> M- Caida a instalaciones de bajo nivel</td>
                 <td></td>
             </tr>
     </tbody>
-    </table> <br />
-    <div>
-        <label htmlFor="fileInput" className="btn btn-warning" style={{ marginLeft: 50, marginRight: 15 }}>
-          Seleccione una imagen
-        </label>
-        <input
-          type="file"
-          accept="image/*"
-          id="fileInput"  // Asociar el id del input con el atributo for del label
-          onChange={handleFileChange}
-          style={{ display: 'none' }}  // Ocultar el input (puede variar según tu estilo)
-        />
-        <button onClick={submitPicture} className="btn btn-warning" style={{marginRight: 15}}>
-          Subir
-        </button>
-        <button onClick={submitText} className="btn btn-warning">
-          Escribe un comentario
-        </button>
+    </table>
+  <div className="botonesGrupo">
+   <button onClick={submitText} style={{marginRight: 15}} className="btn btn-warning"> Escribe un comentario </button>
+   <button onClick={guardarFormulario} className="btn btn-warning">Enviar</button>
+  </div>
     </div>
-</div>
   )
 }
 

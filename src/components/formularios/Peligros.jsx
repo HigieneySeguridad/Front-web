@@ -1,38 +1,66 @@
-import {useState} from 'react'
+import { useState } from "react";
+import axios from  "axios"
 import Swal from "sweetalert2"
-import axios from "axios"
 
 export const Peligros = () => {
-    const [selectedFile, setSelectedFile] = useState(null);
+    const [comentario, setComentario] = useState("");
+    const [checkboxValues, setCheckboxValues] = useState({
+        checkbox1: false,
+        checkbox2: false,
+        checkbox3: false,
+        checkbox4: false,
+        checkbox5: false,
+        checkbox6: false,
+        checkbox7: false,
+        checkbox8: false,
+        checkbox9: false,
+        checkbox10: false,
+        checkbox11: false,
+        checkbox12: false,
+        checkbox13: false,
+        checkbox14: false,
+        checkbox15: false,
+        checkbox16: false,
+        checkbox17: false,
+        checkbox18: false,
+        checkbox19: false,
+        checkbox20: false,
+        checkbox21: false,
+        checkbox22: false,
+        checkbox23: false,
+        checkbox24: false,
+        checkbox25: false,
+        checkbox26: false,
+        checkbox27: false,
+        checkbox28: false,
+        checkbox29: false,
+        checkbox30: false,
+        checkbox31: false,
+        checkbox32: false,
+        checkbox33: false,
+        checkbox34: false,
+        checkbox35: false,
+        checkbox36: false,
+        checkbox37: false,
+        checkbox38: false,
+        checkbox39: false,
+        checkbox40: false,
+        checkbox41: false
+      });
 
-  const handleFileChange = (event) => {
-    setSelectedFile(event.target.files[0]);
-  };
+      const handleCheckboxChange = (name) => {
+        setCheckboxValues({
+          ...checkboxValues,
+          [name]: !checkboxValues[name],
+        });
+      };
 
-    const submitPicture = async () => {
-        const formData = new FormData();
-        formData.append('image', selectedFile);
-
-        const response = await axios.post('http://localhost:3000/upload', formData);
-
-        if(response.status === 200){
-          Swal.fire({
-            icon: 'success',
-            title: 'Imagen subida'
-          })
-          console.log("imagen subida")
-        }
-
-        if(response.status === 400){
-          Swal.fire({
-            icon: 'error',
-            title: 'Hubo un error al subir la imagen'
-          })
-          console.log("imagen no se subio")
-        }
-        
-        }
-
+      const checkboxesSeleccionados = Object.keys(checkboxValues)
+      .filter((key) => checkboxValues[key])
+      .reduce((acc, key) => {
+        acc[key] = true;
+        return acc;
+      }, {});
 
       const submitText = async ()=>{
         const { value: text } = await Swal.fire({
@@ -46,12 +74,34 @@ export const Peligros = () => {
           })
           
           if (text) {
-            Swal.fire(text)
-          }
+            Swal.fire({
+              title: 'Tu comentario: ',
+              text
+            })
+           setComentario(text)
+        }
       }
-  return (
-    <div className="table-responsive">
+  const guardarFormulario = async () => {
+    try {
+      console.log('Valores true', checkboxesSeleccionados, comentario);
+      const response = await axios.post('http://localhost:3000/formularios/peligros', {checkboxes: checkboxesSeleccionados, comentario});
 
+      if (response.status === 200) {
+        console.log('Enviado correctamente');
+        Swal.fire({
+          title: 'Enviado correctamente ',
+          icon: 'success'
+        })
+      } else {
+        console.log('No se pudo enviar el formulario');
+      }
+    } catch (error) {
+      console.error('Error al enviar el formulario', error);
+    }
+  };
+ 
+  return (
+    <div>
     <table className="table table-striped table-sm">
         <thead>
         <tr>
@@ -61,98 +111,83 @@ export const Peligros = () => {
    
     <tbody>
             <tr>
-                <td><input type="checkbox" name="" id="" /> 1- Animales ponzoñosos/venenosos</td>
-                <td><input type="checkbox" name="" id="" /> 15- Mala iluminacion </td>
-                <td><input type="checkbox" name="" id="" /> 29- Sustancias toxicas</td>
+                <td><input type="checkbox" checked={checkboxValues.checkbox1} onChange={() => handleCheckboxChange('checkbox1')}/> 1- Animales ponzoñosos/venenosos</td>
+                <td><input type="checkbox" checked={checkboxValues.checkbox2} onChange={() => handleCheckboxChange('checkbox2')}/> 15- Mala iluminacion </td>
+                <td><input type="checkbox" checked={checkboxValues.checkbox3} onChange={() => handleCheckboxChange('checkbox3')}/> 29- Sustancias toxicas</td>
             </tr>
             <tr>
-                <td><input type="checkbox" name="" id="" /> 2- Hidrocarburo/combustible</td>
-                <td><input type="checkbox" name="" id="" /> 16- Objetos/equipos caidos</td>
-                <td><input type="checkbox" name="" id="" /> 30- Liquidos inflamables</td>
+                <td><input type="checkbox" checked={checkboxValues.checkbox4} onChange={() => handleCheckboxChange('checkbox4')} /> 2- Hidrocarburo/combustible</td>
+                <td><input type="checkbox" checked={checkboxValues.checkbox5} onChange={() => handleCheckboxChange('checkbox5')}/> 16- Objetos/equipos caidos</td>
+                <td><input type="checkbox" checked={checkboxValues.checkbox6} onChange={() => handleCheckboxChange('checkbox6')} /> 30- Liquidos inflamables</td>
             </tr>
             <tr>
-                <td><input type="checkbox" name="" id="" /> 3- Sustancia corrosivas</td>
-                <td><input type="checkbox" name="" id="" /> 17- Liberacion/derrame</td>
-                <td><input type="checkbox" name="" id="" /> 31- Herramientas electricas/manuales/neumatica</td>
+                <td><input type="checkbox" checked={checkboxValues.checkbox7} onChange={() => handleCheckboxChange('checkbox7')} /> 3- Sustancia corrosivas</td>
+                <td><input type="checkbox" checked={checkboxValues.checkbox8} onChange={() => handleCheckboxChange('checkbox8')} /> 17- Liberacion/derrame</td>
+                <td><input type="checkbox" checked={checkboxValues.checkbox9} onChange={() => handleCheckboxChange('checkbox9')} /> 31- Herramientas electricas/manuales/neumatica</td>
             </tr>
             <tr>
-                <td><input type="checkbox" name="" id="" /> 4- Superficie fría/caliente</td>
-                <td><input type="checkbox" name="" id="" /> 18- Agentes biologicos </td>
-                <td><input type="checkbox" name="" id="" /> 32- Equipo/Material pesado</td>
+                <td><input type="checkbox" checked={checkboxValues.checkbox10} onChange={() => handleCheckboxChange('checkbox10')} /> 4- Superficie fría/caliente</td>
+                <td><input type="checkbox" checked={checkboxValues.checkbox11} onChange={() => handleCheckboxChange('checkbox11')} /> 18- Agentes biologicos </td>
+                <td><input type="checkbox" checked={checkboxValues.checkbox12} onChange={() => handleCheckboxChange('checkbox12')} /> 32- Equipo/Material pesado</td>
             </tr>
             <tr>
-                <td><input type="checkbox" name="" id="" /> 5- Comunicación restringida</td>
-                <td><input type="checkbox" name="" id="" /> 19- Equipos/insatalaciones a Presion</td>
-                <td><input type="checkbox" name="" id="" /> 33- Empleado nuevo</td>
+                <td><input type="checkbox" checked={checkboxValues.checkbox13} onChange={() => handleCheckboxChange('checkbox13')} /> 5- Comunicación restringida</td>
+                <td><input type="checkbox" checked={checkboxValues.checkbox14} onChange={() => handleCheckboxChange('checkbox14')} /> 19- Equipos/insatalaciones a Presion</td>
+                <td><input type="checkbox" checked={checkboxValues.checkbox15} onChange={() => handleCheckboxChange('checkbox15')} /> 33- Empleado nuevo</td>
             </tr>
             <tr>
-                <td><input type="checkbox" name="" id="" /> 6- Espacio confinado</td>
-                <td><input type="checkbox" name="" id="" /> 20- Radiacion </td>
-                <td><input type="checkbox" name="" id="" /> 34- Personal nuevo</td>
+                <td><input type="checkbox" checked={checkboxValues.checkbox16} onChange={() => handleCheckboxChange('checkbox16')} /> 6- Espacio confinado</td>
+                <td><input type="checkbox" checked={checkboxValues.checkbox17} onChange={() => handleCheckboxChange('checkbox17')} /> 20- Radiacion </td>
+                <td><input type="checkbox" checked={checkboxValues.checkbox18} onChange={() => handleCheckboxChange('checkbox18')} /> 34- Personal nuevo</td>
             </tr>
             <tr>
-                <td><input type="checkbox" name="" id="" /> 7- Espacio restringido</td>
-                <td><input type="checkbox" name="" id="" /> 21- Vision Restringida</td>
-                <td><input type="checkbox" name="" id="" /> 35- Tarea Nueva/Desconocida</td>
+                <td><input type="checkbox" checked={checkboxValues.checkbox19} onChange={() => handleCheckboxChange('checkbox19')} /> 7- Espacio restringido</td>
+                <td><input type="checkbox" checked={checkboxValues.checkbox20} onChange={() => handleCheckboxChange('checkbox20')} /> 21- Vision Restringida</td>
+                <td><input type="checkbox" checked={checkboxValues.checkbox21} onChange={() => handleCheckboxChange('checkbox21')} /> 35- Tarea Nueva/Desconocida</td>
             </tr>
             
             <tr>
-                <td><input type="checkbox" name="" id="" /> 8- Equipos electricos</td>
-                <td><input type="checkbox" name="" id="" /> 22- Peatones</td>
-                <td><input type="checkbox" name="" id="" /> 36- Polvo</td>
+                <td><input type="checkbox" checked={checkboxValues.checkbox22} onChange={() => handleCheckboxChange('checkbox22')} /> 8- Equipos electricos</td>
+                <td><input type="checkbox" checked={checkboxValues.checkbox23} onChange={() => handleCheckboxChange('checkbox23')} /> 22- Peatones</td>
+                <td><input type="checkbox" checked={checkboxValues.checkbox24} onChange={() => handleCheckboxChange('checkbox24')} /> 36- Polvo</td>
             </tr>
             <tr>
-                <td><input type="checkbox" name="" id="" /> 9- Animales sueltos</td>
-                <td><input type="checkbox" name="" id="" /> 23- Circulacion Vehicular</td>
-                <td><input type="checkbox" name="" id="" /> 37- Terreno inestable</td>
+                <td><input type="checkbox" checked={checkboxValues.checkbox25} onChange={() => handleCheckboxChange('checkbox25')} /> 9- Animales sueltos</td>
+                <td><input type="checkbox" checked={checkboxValues.checkbox26} onChange={() => handleCheckboxChange('checkbox26')} /> 23- Circulacion Vehicular</td>
+                <td><input type="checkbox" checked={checkboxValues.checkbox27} onChange={() => handleCheckboxChange('checkbox27')} /> 37- Terreno inestable</td>
             </tr>
             <tr>
-                <td><input type="checkbox" name="" id="" /> 10- Sustancia Asfixiante(gases-vapores)</td>
-                <td><input type="checkbox" name="" id="" /> 24- Ruido</td>
-                <td><input type="checkbox" name="" id="" /> 38- Terreno con Pendiente</td>
+                <td><input type="checkbox" checked={checkboxValues.checkbox28} onChange={() => handleCheckboxChange('checkbox28')} /> 10- Sustancia Asfixiante(gases-vapores)</td>
+                <td><input type="checkbox" checked={checkboxValues.checkbox29} onChange={() => handleCheckboxChange('checkbox29')} /> 24- Ruido</td>
+                <td><input type="checkbox" checked={checkboxValues.checkbox30} onChange={() => handleCheckboxChange('checkbox30')} /> 38- Terreno con Pendiente</td>
             </tr>
             <tr>
-                <td><input type="checkbox" name="" id="" /> 11- Trabajo en altura</td>
-                <td><input type="checkbox" name="" id="" /> 25- Explosivos</td>
-                <td><input type="checkbox" name="" id="" /> 39- Escaleras</td>
+                <td><input type="checkbox" checked={checkboxValues.checkbox31} onChange={() => handleCheckboxChange('checkbox31')} /> 11- Trabajo en altura</td>
+                <td><input type="checkbox" checked={checkboxValues.checkbox32} onChange={() => handleCheckboxChange('checkbox32')} /> 25- Explosivos</td>
+                <td><input type="checkbox" checked={checkboxValues.checkbox33} onChange={() => handleCheckboxChange('checkbox33')} /> 39- Escaleras</td>
             </tr>
             <tr>
-                <td><input type="checkbox" name="" id="" /> 12- H2S</td>
-                <td><input type="checkbox" name="" id="" /> 26- Camino polvoriento</td>
-                <td><input type="checkbox" name="" id="" /> 40- Elemento saliente</td>
+                <td><input type="checkbox" checked={checkboxValues.checkbox34} onChange={() => handleCheckboxChange('checkbox34')} /> 12- H2S</td>
+                <td><input type="checkbox" checked={checkboxValues.checkbox35} onChange={() => handleCheckboxChange('checkbox35')} /> 26- Camino polvoriento</td>
+                <td><input type="checkbox" checked={checkboxValues.checkbox36} onChange={() => handleCheckboxChange('checkbox36')} /> 40- Elemento saliente</td>
             </tr>
             <tr>
-                <td><input type="checkbox" name="" id="" /> 13- Equipo/Maquinaria de carga</td>
-                <td><input type="checkbox" name="" id="" /> 27- Sol/Lluvia/Granizo/Viento</td>
-                <td><input type="checkbox" name="" id="" /> 41- Otro</td>
+                <td><input type="checkbox" checked={checkboxValues.checkbox37} onChange={() => handleCheckboxChange('checkbox37')} /> 13- Equipo/Maquinaria de carga</td>
+                <td><input type="checkbox" checked={checkboxValues.checkbox38} onChange={() => handleCheckboxChange('checkbox38')} /> 27- Sol/Lluvia/Granizo/Viento</td>
+                <td><input type="checkbox" checked={checkboxValues.checkbox39} onChange={() => handleCheckboxChange('checkbox39')} /> 41- Otro</td>
             </tr>
             <tr>
-                <td><input type="checkbox" name="" id="" /> 14- Objetos en movimientos</td>
-                <td><input type="checkbox" name="" id="" /> 28- Superficies Resbaladizas</td>
+                <td><input type="checkbox" checked={checkboxValues.checkbox40} onChange={() => handleCheckboxChange('checkbox40')} /> 14- Objetos en movimientos</td>
+                <td><input type="checkbox" checked={checkboxValues.checkbox41} onChange={() => handleCheckboxChange('checkbox41')} /> 28- Superficies Resbaladizas</td>
                 <td></td>
             </tr>
     </tbody>
     </table>
-    <br />
-    <div>
-          <label htmlFor="fileInput" className="btn btn-danger" style={{ marginLeft: 50, marginRight: 15 }}>
-            Seleccione una imagen
-          </label>
-          <input
-            type="file"
-            accept="image/*"
-            id="fileInput"  // Asociar el id del input con el atributo for del label
-            onChange={handleFileChange}
-            style={{ display: 'none' }}  // Ocultar el input (puede variar según tu estilo)
-          />
-          <button onClick={submitPicture} className="btn btn-danger" style={{marginRight: 15}}>
-            Subir
-          </button>
-          <button onClick={submitText} className="btn btn-danger">
-            Escribe un comentario
-          </button>
+    <div className="botonesGrupo">
+      <button onClick={submitText} style={{marginRight: 15}} className="btn btn-danger"> Escribe un comentario </button>
+      <button onClick={guardarFormulario} className="btn btn-danger">Enviar</button>
     </div>
-</div>
+    </div>
   )
 }
 

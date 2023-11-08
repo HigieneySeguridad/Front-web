@@ -62,8 +62,7 @@ export const Login = () => {
         type: userType.login,
         token: response.token,
         nombre: response.nombre,
-        role: response.role,
-        time: response.time
+        role: response.role
       })
       
       

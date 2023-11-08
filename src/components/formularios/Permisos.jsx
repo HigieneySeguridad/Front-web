@@ -1,10 +1,9 @@
 import { Medidas } from './Medidas';
 import { Peligros } from './Peligros';
-import { ProteccionPersonal } from './ProteccionPersonal';
+import { ProteccionPersonal } from './Protecciones/ProteccionPersonal';
 import { Riesgos } from './Riesgos';
 
 export const Permisos = () => {
-
   return (
   <>
     <div className='container'>
@@ -12,10 +11,11 @@ export const Permisos = () => {
       <ProteccionPersonal/>
 
       <Peligros/>
-    
+      
       <Riesgos/>
-    
+      
       <Medidas/>
+           
     </div>
   </>
   )

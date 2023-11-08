@@ -58,7 +58,7 @@ const fetchUsuario = async () => {
                 <tr key={i}>
                      <td className='panel'>{usuario.username}</td>
                      <td className='panel'>{usuario.role}</td>
-                     <td className='panel'>{new Date(usuario.fecha).toLocaleString()}</td>
+                     <td className='panel'>{new Date(usuario.date).toLocaleString()}</td>
                      <td className='panel'>
                     <button 
                     type='button'

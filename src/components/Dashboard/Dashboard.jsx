@@ -1,94 +1,53 @@
-import { useEffect, useState } from 'react'
+
 import { Chart } from 'chart.js'
-import axios from "axios"
 import "./dashboard.css"
-import { Aside } from '../Aside'
+import { Aside } from '../Aside/Aside'
 
 export const Dashboard = () => {
-  const [chartData, setChartData] = useState({
-    labels: ['Protecciones', 'Peligros', 'Riegos', 'Medidas'],
-    datasets: [
-      {
-        label: 'Línea 1',
-        data: [],
+  const divCard = document.getElementById('miGrafico')
+  // eslint-disable-next-line no-unused-vars
+  const myChart = new Chart(divCard, {
+    type: 'line',
+    data: {
+      labels: [
+        'Sunday',
+        'Monday',
+        'Tuesday',
+        'Wednesday',
+        'Thursday',
+        'Friday',
+        'Saturday'
+      ],
+      datasets: [{
+        data: [
+          15339,
+          21345,
+          18483,
+          24003,
+          23489,
+          24092,
+          12034
+        ],
         lineTension: 0,
         backgroundColor: 'transparent',
         borderColor: '#007bff',
         borderWidth: 4,
         pointBackgroundColor: '#007bff'
-      },
-      {
-        label: 'Suma de "true"',
-        data: [], // Aquí guardaremos la suma de "true"
-        lineTension: 0,
-        backgroundColor: 'transparent',
-        borderColor: 'red', // Color para la línea de la suma
-        borderWidth: 4,
-        pointBackgroundColor: 'red'
-      }
-    ]
-  });
-
-  useEffect(() => {
-    // Realiza una solicitud GET para obtener los datos del servidor
-    axios.get('http://localhost:3000/formularios/proteccion') // Asegúrate de que la ruta coincida con la definida en tu servidor
-      .then((response) => {
-        const newData = response.data; // Los datos obtenidos del servidor
-
-        // Calcula la suma de "true" y actualiza el estado del componente
-        const sumaTrue = calcularSumaDeTrue(newData);
-        setChartData((prevChartData) => {
-          // Actualiza los datos en los conjuntos de datos, incluyendo la suma de "true"
-          const newDatasets = prevChartData.datasets.map((dataset, index) => ({
-            ...dataset,
-            data: index === 1 ? [sumaTrue] : newData[index], // Actualiza el conjunto de datos de la suma
-          }));
-          return { ...prevChartData, datasets: newDatasets };
-        });
-      })
-      .catch((error) => {
-        console.error('Error al obtener datos del servidor', error);
-      });
-  }, []);
-
-  useEffect(() => {
-    // Inicializa o actualiza el gráfico cuando cambien los datos
-    const ctx = document.getElementById('myChart');
-    const myChart = new Chart(ctx, {
-      type: 'line',
-      data: chartData,
-      options: {
-        plugins: {
-          legend: {
-            display: true
-          },
-          tooltip: {
-            boxPadding: 3
-          }
+      }]
+    },
+    options: {
+      plugins: {
+        legend: {
+          display: false
+        },
+        tooltip: {
+          boxPadding: 3
         }
       }
-    });
+    }
+  })
 
-    return () => {
-      myChart.destroy();
-    };
-  }, [chartData]);
 
-  // Función para calcular la suma de "true" en los valores de los checkboxes
-  const calcularSumaDeTrue = (datos) => {
-    let suma = 0;
-    datos.forEach((item) => {
-      if (item.checkboxes) {
-        Object.values(item.checkboxes).forEach((valor) => {
-          if (valor === 'true') {
-            suma++;
-          }
-        });
-      }
-    });
-    return suma;
-  };
-   
   return (
 <div className="container-fluid">
   <div className="row">
@@ -98,10 +57,10 @@ export const Dashboard = () => {
         <h2 style={{color: 'black'}}>Gráficos</h2>
       </div>
 
-      <canvas className="my-4 w-100" id="myChart" width="900" height="380"></canvas>
+      <canvas className="my-4 w-100" id="miGrafico" width="900" height="380"></canvas>
 
       <h2>Section title</h2>
-      <div className="table-responsive">
+      <div className="table-responsive small">
         <table className="table table-striped table-sm">
           <thead>
             <tr>
@@ -120,7 +79,111 @@ export const Dashboard = () => {
               <td>placeholder</td>
               <td>text</td>
             </tr>
-
+            <tr>
+              <td>1,002</td>
+              <td>placeholder</td>
+              <td>irrelevant</td>
+              <td>visual</td>
+              <td>layout</td>
+            </tr>
+            <tr>
+              <td>1,003</td>
+              <td>data</td>
+              <td>rich</td>
+              <td>dashboard</td>
+              <td>tabular</td>
+            </tr>
+            <tr>
+              <td>1,003</td>
+              <td>information</td>
+              <td>placeholder</td>
+              <td>illustrative</td>
+              <td>data</td>
+            </tr>
+            <tr>
+              <td>1,004</td>
+              <td>text</td>
+              <td>random</td>
+              <td>layout</td>
+              <td>dashboard</td>
+            </tr>
+            <tr>
+              <td>1,005</td>
+              <td>dashboard</td>
+              <td>irrelevant</td>
+              <td>text</td>
+              <td>placeholder</td>
+            </tr>
+            <tr>
+              <td>1,006</td>
+              <td>dashboard</td>
+              <td>illustrative</td>
+              <td>rich</td>
+              <td>data</td>
+            </tr>
+            <tr>
+              <td>1,007</td>
+              <td>placeholder</td>
+              <td>tabular</td>
+              <td>information</td>
+              <td>irrelevant</td>
+            </tr>
+            <tr>
+              <td>1,008</td>
+              <td>random</td>
+              <td>data</td>
+              <td>placeholder</td>
+              <td>text</td>
+            </tr>
+            <tr>
+              <td>1,009</td>
+              <td>placeholder</td>
+              <td>irrelevant</td>
+              <td>visual</td>
+              <td>layout</td>
+            </tr>
+            <tr>
+              <td>1,010</td>
+              <td>data</td>
+              <td>rich</td>
+              <td>dashboard</td>
+              <td>tabular</td>
+            </tr>
+            <tr>
+              <td>1,011</td>
+              <td>information</td>
+              <td>placeholder</td>
+              <td>illustrative</td>
+              <td>data</td>
+            </tr>
+            <tr>
+              <td>1,012</td>
+              <td>text</td>
+              <td>placeholder</td>
+              <td>layout</td>
+              <td>dashboard</td>
+            </tr>
+            <tr>
+              <td>1,013</td>
+              <td>dashboard</td>
+              <td>irrelevant</td>
+              <td>text</td>
+              <td>visual</td>
+            </tr>
+            <tr>
+              <td>1,014</td>
+              <td>dashboard</td>
+              <td>illustrative</td>
+              <td>rich</td>
+              <td>data</td>
+            </tr>
+            <tr>
+              <td>1,015</td>
+              <td>random</td>
+              <td>tabular</td>
+              <td>information</td>
+              <td>text</td>
+            </tr>
           </tbody>
         </table>
       </div>

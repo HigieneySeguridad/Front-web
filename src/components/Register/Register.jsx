@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Header } from "./header"
+import { Header } from "../Header/header"
 import Swal from 'sweetalert2'
 
 export const Register = () => {
@@ -82,7 +82,7 @@ export const Register = () => {
           placeholder='Contraseña'
           onChange={handleInputChange}
           className="inputForm"
-          autocomplete="off"
+          autoComplete="off"
           required
         />
       <button type="button" className="revelar" onClick={handleTogglePassword}>

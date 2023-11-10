@@ -432,3 +432,24 @@ div .comentario{
   margin-bottom: 70px;
   height: 320px;
 }
+
+.revelar {
+  position: absolute;
+  top: 46%;
+  right: 46px;
+  width: 30px;
+  height: 30px;
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+}
+.revelarLogin {
+  position: absolute;
+  top: 50%;
+  right: 46px;
+  width: 30px;
+  height: 30px;
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+}

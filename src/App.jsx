@@ -1,6 +1,6 @@
 import { useReducer } from "react"
 import { UserContext } from "./context/userContext"
-import { AppRouter } from "./views/appRouter";
+import { AppRouter } from "./Routes/appRouter";
 import { userReducer } from "./context/userReducer"
 import "./App.css";
 

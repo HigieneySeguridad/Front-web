@@ -1,4 +1,4 @@
-import { Header } from "../Header/header"
+import { Header } from "./header"
 
 export const Intro = () => {
   return (

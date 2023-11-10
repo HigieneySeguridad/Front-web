@@ -1,4 +1,4 @@
-import { Header } from "../components/Header/header"
+import { Header } from "../components/header"
 import Swal from 'sweetalert2'
 import { useContext, useState } from 'react'
 import { UserContext } from '../context/userContext'

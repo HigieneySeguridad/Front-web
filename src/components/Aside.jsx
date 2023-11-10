@@ -1,9 +1,9 @@
-import "./aside.css"
+import "../views/aside.css"
 import {Link} from "react-router-dom";
 import {useState, useContext } from "react";
 import Swal from 'sweetalert2'
-import { UserContext } from "../../context/userContext";
-import { userType } from '../../context/userTypes'
+import { UserContext } from "../context/userContext";
+import { userType } from '../context/userTypes'
 
 export const Aside = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -69,7 +69,18 @@ return(
       <span className="tooltip">Crear Usuarios</span>
     </li>
     }
-    
+  {
+  state.role === "Admin" && (
+    <li>
+      <Link to="/chart">
+        <i className="bx bx-bar-chart-alt-2"></i>
+        <span className="links_name">Gráficos</span>
+      </Link>
+      <span className="tooltip">Gráficos</span>
+    </li>
+  )
+}
+
 {
   state.role === "Operario" && (
     <li>
@@ -85,7 +96,7 @@ return(
 {
   state.role === "Inspector" && (
     <li>
-      <Link to="/dashboard">
+      <Link to="/chart">
         <i className="bx bx-bar-chart-alt-2"></i>
         <span className="links_name">Gráficos</span>
       </Link>
@@ -104,23 +115,20 @@ return(
   {
     state.role === "Admin" &&
     <li>
-      <Link to ={"/historial"}>
+      <Link to ={"/images"}>
         <i className='bx bx-folder'></i>
         <span className="links_name">Archivos</span>
       </Link>
       <span className="tooltip">Archivos</span>
     </li>
   }
-  { state.role === "Admin" &&
     <li>
-      <Link to={"/dashboard"}>
+      <a href={"/dashboard"}>
         <i className='bx bx-bar-chart-alt-2'></i>
         <span className="links_name">Dashboard</span>
-      </Link>
+      </a>
       <span className="tooltip">Dashboard</span>
     </li>
-  }
-    
     {
       state.role === "Admin" &&
       <li>

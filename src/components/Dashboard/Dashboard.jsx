@@ -1,53 +1,107 @@
-
-import { Chart } from 'chart.js'
+import { useEffect, useState } from 'react'
+import { Chart, registerables } from 'chart.js'
+import axios from "axios"
 import "./dashboard.css"
-import { Aside } from '../Aside/Aside'
+import { Aside } from '../Aside'
+
+
+Chart.register(...registerables);
 
 export const Dashboard = () => {
-  const divCard = document.getElementById('miGrafico')
-  // eslint-disable-next-line no-unused-vars
-  const myChart = new Chart(divCard, {
-    type: 'line',
-    data: {
-      labels: [
-        'Sunday',
-        'Monday',
-        'Tuesday',
-        'Wednesday',
-        'Thursday',
-        'Friday',
-        'Saturday'
-      ],
-      datasets: [{
-        data: [
-          15339,
-          21345,
-          18483,
-          24003,
-          23489,
-          24092,
-          12034
-        ],
-        lineTension: 0,
-        backgroundColor: 'transparent',
-        borderColor: '#007bff',
-        borderWidth: 4,
-        pointBackgroundColor: '#007bff'
-      }]
-    },
-    options: {
-      plugins: {
-        legend: {
-          display: false
-        },
-        tooltip: {
-          boxPadding: 3
-        }
+  const [chartData, setChartData] = useState({
+    labels: ['Protecciones', 'Peligros', 'Riegos', 'Medidas'],
+    datasets: [
+      {
+        label: 'Valores del mes 1',
+        data: [],
+        backgroundColor: 'rgba(0, 123, 255, 0.7)', // Color de fondo para las barras
+        borderColor: 'rgba(0, 123, 255, 1)',
+        borderWidth: 1,
+      },
+      {
+        label: 'Valores del mes 2',
+        data: [],
+        backgroundColor: 'rgba(255, 0, 0, 0.7)', // Color de fondo para la barra de suma
+        borderColor: 'rgba(255, 0, 0, 1)',
+        borderWidth: 1,
+      },
+    ],
+  });
+  
+
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response1 = await axios.get('http://localhost:3000/formularios/proteccion');
+        const response2 = await axios.get('http://localhost:3000/formularios/peligros');
+        const response3 = await axios.get('http://localhost:3000/formularios/riesgos');
+        const response4 = await axios.get('http://localhost:3000/formularios/medidas');
+
+        const newData1 = response1.data;
+        const newData2 = response2.data;
+        const newData3 = response3.data;
+        const newData4 = response4.data;
+
+        const sumaTrue1 = calcularSumaDeTrue(newData1);
+        const sumaTrue2 = calcularSumaDeTrue(newData2);
+        const sumaTrue3 = calcularSumaDeTrue(newData3);
+        const sumaTrue4 = calcularSumaDeTrue(newData4);
+
+        setChartData((prevChartData) => {
+          const newDatasets = prevChartData.datasets.map((dataset, index) => ({
+            ...dataset,
+            data: index === 0 || index === 1 ? [sumaTrue1, sumaTrue2, sumaTrue3, sumaTrue4] : [newData1[index], newData2[index], newData3[index], newData4[index]],
+          }));
+          return { ...prevChartData, datasets: newDatasets };
+        });
+      
+      } catch (error) {
+        console.error('Error al obtener datos del servidor', error);
       }
-    }
-  })
+    };
 
+    fetchData();
+  }, []);
 
+  useEffect(() => {
+    const ctx = document.getElementById('myChart');
+    const myChart = new Chart(ctx, {
+      type: 'bar', // Cambia el tipo de gráfico a 'bar'
+      data: chartData,
+      options: {
+        plugins: {
+          legend: {
+            display: true,
+          },
+          tooltip: {
+            boxPadding: 3,
+          },
+        },
+      },
+    });
+  
+    return () => {
+      myChart.destroy();
+    };
+
+}, [chartData])
+
+ 
+  const calcularSumaDeTrue = (datos) => {
+    let suma = 0;
+    datos.forEach((item) => {
+      if (item.checkboxes) {
+        Object.values(item.checkboxes).forEach((valor) => {
+          if (valor === 'true') {
+            suma++;
+          }
+        });
+      }
+    });
+    return suma;
+  };
+   
   return (
 <div className="container-fluid">
   <div className="row">
@@ -57,10 +111,10 @@ export const Dashboard = () => {
         <h2 style={{color: 'black'}}>Gráficos</h2>
       </div>
 
-      <canvas className="my-4 w-100" id="miGrafico" width="900" height="380"></canvas>
+      <canvas className="my-4 w-100" id="myChart" width="900" height="380"></canvas>
 
       <h2>Section title</h2>
-      <div className="table-responsive small">
+      <div className="table-responsive">
         <table className="table table-striped table-sm">
           <thead>
             <tr>
@@ -80,110 +134,42 @@ export const Dashboard = () => {
               <td>text</td>
             </tr>
             <tr>
-              <td>1,002</td>
-              <td>placeholder</td>
-              <td>irrelevant</td>
-              <td>visual</td>
-              <td>layout</td>
-            </tr>
-            <tr>
-              <td>1,003</td>
-              <td>data</td>
-              <td>rich</td>
-              <td>dashboard</td>
-              <td>tabular</td>
-            </tr>
-            <tr>
-              <td>1,003</td>
-              <td>information</td>
-              <td>placeholder</td>
-              <td>illustrative</td>
-              <td>data</td>
-            </tr>
-            <tr>
-              <td>1,004</td>
-              <td>text</td>
-              <td>random</td>
-              <td>layout</td>
-              <td>dashboard</td>
-            </tr>
-            <tr>
-              <td>1,005</td>
-              <td>dashboard</td>
-              <td>irrelevant</td>
-              <td>text</td>
-              <td>placeholder</td>
-            </tr>
-            <tr>
-              <td>1,006</td>
-              <td>dashboard</td>
-              <td>illustrative</td>
-              <td>rich</td>
-              <td>data</td>
-            </tr>
-            <tr>
-              <td>1,007</td>
-              <td>placeholder</td>
-              <td>tabular</td>
-              <td>information</td>
-              <td>irrelevant</td>
-            </tr>
-            <tr>
-              <td>1,008</td>
+              <td>1,001</td>
               <td>random</td>
               <td>data</td>
               <td>placeholder</td>
               <td>text</td>
             </tr>
             <tr>
-              <td>1,009</td>
-              <td>placeholder</td>
-              <td>irrelevant</td>
-              <td>visual</td>
-              <td>layout</td>
-            </tr>
-            <tr>
-              <td>1,010</td>
-              <td>data</td>
-              <td>rich</td>
-              <td>dashboard</td>
-              <td>tabular</td>
-            </tr>
-            <tr>
-              <td>1,011</td>
-              <td>information</td>
-              <td>placeholder</td>
-              <td>illustrative</td>
-              <td>data</td>
-            </tr>
-            <tr>
-              <td>1,012</td>
-              <td>text</td>
-              <td>placeholder</td>
-              <td>layout</td>
-              <td>dashboard</td>
-            </tr>
-            <tr>
-              <td>1,013</td>
-              <td>dashboard</td>
-              <td>irrelevant</td>
-              <td>text</td>
-              <td>visual</td>
-            </tr>
-            <tr>
-              <td>1,014</td>
-              <td>dashboard</td>
-              <td>illustrative</td>
-              <td>rich</td>
-              <td>data</td>
-            </tr>
-            <tr>
-              <td>1,015</td>
+              <td>1,001</td>
               <td>random</td>
-              <td>tabular</td>
-              <td>information</td>
+              <td>data</td>
+              <td>placeholder</td>
               <td>text</td>
             </tr>
+            <tr>
+              <td>1,001</td>
+              <td>random</td>
+              <td>data</td>
+              <td>placeholder</td>
+              <td>text</td>
+            </tr>
+            <tr>
+              <td>1,001</td>
+              <td>random</td>
+              <td>data</td>
+              <td>placeholder</td>
+              <td>text</td>
+            </tr>
+            <tr>
+              <td>1,001</td>
+              <td>random</td>
+              <td>data</td>
+              <td>placeholder</td>
+              <td>text</td>
+            </tr>
+
+
           </tbody>
         </table>
       </div>

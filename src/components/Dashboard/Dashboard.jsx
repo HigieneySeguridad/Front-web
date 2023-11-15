@@ -1,6 +1,5 @@
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import { Chart, registerables } from 'chart.js'
-import axios from "axios"
 import "./dashboard.css"
 import { Aside } from '../Aside'
 
@@ -8,125 +7,76 @@ import { Aside } from '../Aside'
 Chart.register(...registerables);
 
 export const Dashboard = () => {
-  const [chartData, setChartData] = useState({
-    labels: ['Protecciones', 'Peligros', 'Riesgos', 'Medidas'],
-    datasets: [
-      {
-        label: 'Valores del mes 1',
-        data: [],
-        backgroundColor: 'rgba(0, 123, 255, 0.7)', // Color de fondo para las barras
-        borderColor: 'rgba(0, 123, 255, 1)',
-        borderWidth: 1,
-      },
-      {
-        label: 'Valores del mes 2',
-        data: [],
-        backgroundColor: 'rgba(255, 0, 0, 0.7)', // Color de fondo para la barra de suma
-        borderColor: 'rgba(255, 0, 0, 1)',
-        borderWidth: 1,
-      },
-    ],
-  });
   
-
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response1 = await axios.get('http://localhost:3000/formularios/proteccion');
-        const response2 = await axios.get('http://localhost:3000/formularios/peligros');
-        const response3 = await axios.get('http://localhost:3000/formularios/riesgos');
-        const response4 = await axios.get('http://localhost:3000/formularios/medidas');
-
-        const newData1 = response1.data;
-        const newData2 = response2.data;
-        const newData3 = response3.data;
-        const newData4 = response4.data;
-
-        const sumaTrue1 = calcularSumaDeTrue(newData1);
-        const sumaTrue2 = calcularSumaDeTrue(newData2);
-        const sumaTrue3 = calcularSumaDeTrue(newData3);
-        const sumaTrue4 = calcularSumaDeTrue(newData4);
-
-        setChartData({
-          labels: ['Protecciones', 'Peligros', 'Riesgos', 'Medidas'],
-          datasets: [
-            {
-              label: 'Valores del mes 1',
-              data: [sumaTrue1, sumaTrue2, sumaTrue3, sumaTrue4],
-              backgroundColor: 'rgba(0, 123, 255, 0.7)',
-              borderColor: 'rgba(0, 123, 255, 1)',
-              borderWidth: 1,
-            },
-          ],
-        });
-      } catch (error) {
-        console.error('Error al obtener datos del servidor', error);
-      }
-    };
-
-    fetchData();
-  }, []);
+  const data = {
+    labels: [
+      'Red',
+      'Blue',
+      'Yellow'
+    ],
+    datasets: [{
+      label: 'My First Dataset',
+      data: [30, 5, 10],
+      backgroundColor: [
+        'rgb(255, 99, 132)',
+        'rgb(54, 162, 235)',
+        'rgb(255, 205, 86)'
+      ],
+      hoverOffset: 4
+    }]
+  };
 
   useEffect(() => {
     const ctx = document.getElementById('myChart');
+    const ctx2 = document.getElementById('myChart2');
     const myChart = new Chart(ctx, {
-      type: 'bar', // Cambia el tipo de gráfico a 'bar'
-      data: chartData,
-      options: {
-        plugins: {
-          legend: {
-            display: true,
-          },
-          tooltip: {
-            boxPadding: 3,
-          },
-        },
-      },
-    });
-  
+      type: 'doughnut',
+      data: data,
+    })
+    const myChart2 = new Chart(ctx2, {
+      type: 'doughnut',
+      data: data,
+    })
+
     return () => {
       myChart.destroy();
+      myChart2.destroy();
     };
 
-}, [chartData])
+})
 
- 
-  const calcularSumaDeTrue = (datos) => {
-    let suma = 0;
-    datos.forEach((item) => {
-      if (item.checkboxes) {
-        Object.values(item.checkboxes).forEach((valor) => {
-          if (valor === 'true') {
-            suma++;
-          }
-        });
-      }
-    });
-    return suma;
-  };
+
    
   return (
-<div className="container-fluid">
+<div className="container">
   <div className="row">
    <Aside/>
-    <main className="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+    <main className="col-md-9 ms-sm-auto col-lg-10 px-md-9">
       <div className="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
         <h2 style={{color: 'black'}}>Gráficos</h2>
       </div>
 
-      <canvas className="my-4 w-100" id="myChart" width="900" height="380"></canvas>
+      <div className='col-lg-9' id='contenedorChart'>
 
-      <h3>Section title</h3>
+          <div className='col-lg-6'>
+               <canvas id="myChart"></canvas>
+          </div>
+
+          <div className='col-lg-4' style={{marginLeft: 200}}>
+              <canvas id="myChart2"></canvas>
+          </div>
+          
+      </div>
+
+      <h3>Formularios enviados</h3>
       <div className="table-responsive small">
         <table className="table table-striped table-sm">
           <thead>
             <tr>
-              <th scope="col">#</th>
-              <th scope="col">Header</th>
-              <th scope="col">Header</th>
-              <th scope="col">Header</th>
-              <th scope="col">Header</th>
+              <th scope="col">N° FORM</th>
+              <th scope="col">Encargado</th>
+              <th scope="col">Estado</th>
+              <th scope="col" colSpan={2}>Comentario</th>
             </tr>
           </thead>
           <tbody>
@@ -135,43 +85,107 @@ export const Dashboard = () => {
               <td>random</td>
               <td>data</td>
               <td>placeholder</td>
-              <td>text</td>
+        
             </tr>
             <tr>
               <td>1,001</td>
               <td>random</td>
               <td>data</td>
               <td>placeholder</td>
-              <td>text</td>
+              
             </tr>
             <tr>
               <td>1,001</td>
               <td>random</td>
               <td>data</td>
               <td>placeholder</td>
-              <td>text</td>
+              
             </tr>
             <tr>
               <td>1,001</td>
               <td>random</td>
               <td>data</td>
               <td>placeholder</td>
-              <td>text</td>
+              
             </tr>
             <tr>
               <td>1,001</td>
               <td>random</td>
               <td>data</td>
               <td>placeholder</td>
-              <td>text</td>
+              
             </tr>
             <tr>
               <td>1,001</td>
               <td>random</td>
               <td>data</td>
               <td>placeholder</td>
-              <td>text</td>
+              
             </tr>
+            <tr>
+              <td>1,001</td>
+              <td>random</td>
+              <td>data</td>
+              <td>placeholder</td>
+              
+            </tr>
+            <tr>
+              <td>1,001</td>
+              <td>random</td>
+              <td>data</td>
+              <td>placeholder</td>
+              
+            </tr>
+            <tr>
+              <td>1,001</td>
+              <td>random</td>
+              <td>data</td>
+              <td>placeholder</td>
+              
+            </tr>
+            <tr>
+              <td>1,001</td>
+              <td>random</td>
+              <td>data</td>
+              <td>placeholder</td>
+              
+            </tr>
+            <tr>
+              <td>1,001</td>
+              <td>random</td>
+              <td>data</td>
+              <td>placeholder</td>
+              
+            </tr>
+            <tr>
+              <td>1,001</td>
+              <td>random</td>
+              <td>data</td>
+              <td>placeholder</td>
+              
+            </tr>
+            <tr>
+              <td>1,001</td>
+              <td>random</td>
+              <td>data</td>
+              <td>placeholder</td>
+              
+            </tr>
+            <tr>
+              <td>1,001</td>
+              <td>random</td>
+              <td>data</td>
+              <td>placeholder</td>
+              
+            </tr>
+            <tr>
+              <td>1,001</td>
+              <td>random</td>
+              <td>data</td>
+              <td>placeholder</td>
+              
+            </tr>
+            
 
 
           </tbody>

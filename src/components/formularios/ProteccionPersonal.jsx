@@ -80,13 +80,13 @@ export const ProteccionPersonal = () => {
   const guardarFormulario = async () => {
         try {
           console.log('Valores true', checkboxesSeleccionados, comentario);
-          const response = await axios.post('http://localhost:3000/formularios/proteccion', { checkboxes: checkboxesSeleccionados, comentario });
+          const response = await axios.post('http://localhost:3000/formularios', { checkboxes: checkboxesSeleccionados, comentario });
           if (response.length === 0) {
             await Swal.fire({
               title: 'Selecciona al menos 1 opcion',
               icon: 'error'
             });
-            return; // Exit the function if checkboxesSeleccionados is empty
+            return; 
           }
 
           if (response.status === 200) {
@@ -310,7 +310,7 @@ export const ProteccionPersonal = () => {
   </table>
   <div className="botonesGrupo">
    <button onClick={submitText} style={{marginRight: 15}} className="btn btn-info"> Escribe un comentario </button>
-   <button onClick={guardarFormulario} className="btn btn-info">Enviar</button>
+   <button onClick={guardarFormulario} className="btn btn-info">Guardar</button>
   </div>
    </div>
   )

@@ -82,7 +82,7 @@ export const Register = () => {
           placeholder='Contraseña'
           onChange={handleInputChange}
           className="inputForm"
-          autocomplete="off"
+          autoComplete="off"
           required
         />
       <button type="button" className="revelar" onClick={handleTogglePassword}>

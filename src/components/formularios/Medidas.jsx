@@ -95,10 +95,10 @@ export const Medidas = () => {
   
         try {
           console.log('Valores true', checkboxesSeleccionados, comentario );
-          const response = await axios.post('http://localhost:3000/formularios/medidas', {checkboxes: checkboxesSeleccionados, comentario } );
+          const response = await axios.post('http://localhost:3000/formularios', {checkboxes: checkboxesSeleccionados, comentario } );
     
           if (response.status === 200) {
-            console.log('Enviado correctamente');
+            console.log('Guardando formulario A');
             disabledTable()
             await Swal.fire({
               title: 'Guardado correctamente',
@@ -192,7 +192,7 @@ export const Medidas = () => {
   </table>
   <div className="botonesGrupo">
    <button onClick={submitText} style={{marginRight: 15}} className="btn btn-success"> Escribe un comentario </button>
-   <button onClick={guardarFormulario} className="btn btn-success">Enviar</button>
+   <button onClick={guardarFormulario} className="btn btn-success">Guardar</button>
   </div>
     </div>
   )

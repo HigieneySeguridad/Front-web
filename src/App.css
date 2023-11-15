@@ -471,3 +471,9 @@ div .comentario{
 #editarUsuarioForm label {
   color: rgb(233, 107, 17);
 }
+
+#contenedorChart{
+ display: flex;
+ place-items: center;
+ margin-bottom: 100px;
+}

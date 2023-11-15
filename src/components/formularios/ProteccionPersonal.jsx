@@ -72,34 +72,52 @@ export const ProteccionPersonal = () => {
         return acc;
       }, {});
 
+  const [tableEnabled, setTableEnabled] = useState(true);
+  const disabledTable = () => {
+        setTableEnabled(false);
+  };
+
   const guardarFormulario = async () => {
-  
-    try {
-      console.log('Valores true', checkboxesSeleccionados, comentario );
-      const response = await axios.post('http://localhost:3000/formularios/proteccion', {checkboxes: checkboxesSeleccionados, comentario } );
+        try {
+          console.log('Valores true', checkboxesSeleccionados, comentario);
+          const response = await axios.post('http://localhost:3000/formularios/proteccion', { checkboxes: checkboxesSeleccionados, comentario });
+          if (response.length === 0) {
+            await Swal.fire({
+              title: 'Selecciona al menos 1 opcion',
+              icon: 'error'
+            });
+            return; // Exit the function if checkboxesSeleccionados is empty
+          }
 
-      if (response.status === 200) {
-        console.log('Enviado correctamente');
-        await Swal.fire({
-          title: 'Guardado correctamente',
-          icon: 'success'
-        })
-      } else {
-        console.log('No se pudo enviar el formulario');
-      }
-    } catch (error) {
+          if (response.status === 200) {
+            console.log('Enviado correctamente');
+            disabledTable()
+            await Swal.fire({
+              title: 'Guardado correctamente',
+              icon: 'success'
+            });
+          } else {
+            console.log('No se pudo enviar el formulario');
+          }
+        } catch (error) {
+          await Swal.fire({
+            title: 'No se pudo enviar',
+            icon: 'error'
+          });
+          console.error('Error al enviar el formulario', error);
+        }
+      };
+      
 
-      await Swal.fire({
-        title: 'No se pudo enviar',
-        icon: 'error'
-      })
-      console.error('Error al enviar el formulario', error);
-    }
+
+  const tableStyle = {
+    opacity: tableEnabled ? 1 : 0.5,
+    cursor: tableEnabled ? "auto" : "not-allowed",
   };
 
   return (
     <div>
-    <table className="table table-striped table-sm">
+    <table className="table table-striped table-sm" aria-disabled={!tableEnabled} style={tableStyle}>
     <thead>
         <tr>
             <th colSpan={6} style={{background: 'skyblue'}}>Elementos de Protección Personal</th>

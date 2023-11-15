@@ -10,9 +10,9 @@ import PublicRoutes from './PublicRoutes'
 import AdminRoutes from './AdminRoutes';
 import InspectorRoutes from './InspectorRoutes';
 import OperarioRoutes from "./OperarioRoutes"
-import { Imagenes } from '../components/Images';
 import { Aside } from '../components/Aside';
 import { Dashboard } from '../components/Dashboard/Dashboard';
+import { ArchivosMain } from '../components/Archivos/ArchivosMain';
 
 export const AppRouter = () => {
   return (
@@ -32,7 +32,7 @@ export const AppRouter = () => {
               <Route path='/panel' element={<PanelControl/>}/> 
               <Route path='/register' element={<Register/>}/>
               <Route path='/chart' element={<Chart/>}/>
-              <Route path='/images' element={<Imagenes/>}/>
+              <Route path='/archivos' element={<ArchivosMain/>}/>
             </Route>
 
             <Route element={<InspectorRoutes/>}>

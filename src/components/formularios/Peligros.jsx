@@ -81,6 +81,16 @@ export const Peligros = () => {
            setComentario(text)
         }
       }
+
+      const [tableEnabled, setTableEnabled] = useState(true);
+      const disabledTable = () => {
+            setTableEnabled(false);
+      };
+      
+      const tableStyle = {
+        opacity: tableEnabled ? 1 : 0.5,
+        cursor: tableEnabled ? "auto" : "not-allowed",
+      };
   const guardarFormulario = async () => {
     try {
       console.log('Valores true', checkboxesSeleccionados, comentario);
@@ -88,6 +98,7 @@ export const Peligros = () => {
 
       if (response.status === 200) {
         console.log('Enviado correctamente');
+        disabledTable()
         Swal.fire({
           title: 'Enviado correctamente ',
           icon: 'success'
@@ -102,7 +113,7 @@ export const Peligros = () => {
  
   return (
     <div>
-    <table className="table table-striped table-sm">
+    <table className="table table-striped table-sm" aria-disabled={!tableEnabled} style={tableStyle}>
         <thead>
         <tr>
         <th colSpan={6} style={{background: 'red'}}>Peligros</th>

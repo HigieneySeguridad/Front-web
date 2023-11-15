@@ -81,7 +81,16 @@ export const Medidas = () => {
            setComentario(text)
         }
       }
+      const [tableEnabled, setTableEnabled] = useState(true);
+      const disabledTable = () => {
+            setTableEnabled(false);
+      };
 
+      const tableStyle = {
+        opacity: tableEnabled ? 1 : 0.5,
+        cursor: tableEnabled ? "auto" : "not-allowed",
+      };
+    
     const guardarFormulario = async () => {
   
         try {
@@ -90,6 +99,7 @@ export const Medidas = () => {
     
           if (response.status === 200) {
             console.log('Enviado correctamente');
+            disabledTable()
             await Swal.fire({
               title: 'Guardado correctamente',
               icon: 'success'
@@ -109,7 +119,7 @@ export const Medidas = () => {
     
   return (
     <div>
-    <table className="table table-striped table-sm">
+    <table className="table table-striped table-sm" aria-disabled={!tableEnabled} style={tableStyle}>
     <thead>
          <tr>
           <th colSpan={6} style={{background: '#32CD32'}}>Medidas de control y mitigación</th>

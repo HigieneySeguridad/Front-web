@@ -9,7 +9,7 @@ Chart.register(...registerables);
 
 export const Dashboard = () => {
   const [chartData, setChartData] = useState({
-    labels: ['Protecciones', 'Peligros', 'Riegos', 'Medidas'],
+    labels: ['Protecciones', 'Peligros', 'Riesgos', 'Medidas'],
     datasets: [
       {
         label: 'Valores del mes 1',
@@ -48,14 +48,18 @@ export const Dashboard = () => {
         const sumaTrue3 = calcularSumaDeTrue(newData3);
         const sumaTrue4 = calcularSumaDeTrue(newData4);
 
-        setChartData((prevChartData) => {
-          const newDatasets = prevChartData.datasets.map((dataset, index) => ({
-            ...dataset,
-            data: index === 0 || index === 1 ? [sumaTrue1, sumaTrue2, sumaTrue3, sumaTrue4] : [newData1[index], newData2[index], newData3[index], newData4[index]],
-          }));
-          return { ...prevChartData, datasets: newDatasets };
+        setChartData({
+          labels: ['Protecciones', 'Peligros', 'Riesgos', 'Medidas'],
+          datasets: [
+            {
+              label: 'Valores del mes 1',
+              data: [sumaTrue1, sumaTrue2, sumaTrue3, sumaTrue4],
+              backgroundColor: 'rgba(0, 123, 255, 0.7)',
+              borderColor: 'rgba(0, 123, 255, 1)',
+              borderWidth: 1,
+            },
+          ],
         });
-      
       } catch (error) {
         console.error('Error al obtener datos del servidor', error);
       }
@@ -113,8 +117,8 @@ export const Dashboard = () => {
 
       <canvas className="my-4 w-100" id="myChart" width="900" height="380"></canvas>
 
-      <h2>Section title</h2>
-      <div className="table-responsive">
+      <h3>Section title</h3>
+      <div className="table-responsive small">
         <table className="table table-striped table-sm">
           <thead>
             <tr>

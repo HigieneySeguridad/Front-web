@@ -69,17 +69,6 @@ return(
       <span className="tooltip">Crear Usuarios</span>
     </li>
     }
-  {
-  state.role === "Admin" && (
-    <li>
-      <Link to="/chart">
-        <i className="bx bx-bar-chart-alt-2"></i>
-        <span className="links_name">Gráficos</span>
-      </Link>
-      <span className="tooltip">Gráficos</span>
-    </li>
-  )
-}
 
 {
   state.role === "Operario" && (
@@ -115,7 +104,7 @@ return(
   {
     state.role === "Admin" &&
     <li>
-      <Link to ={"/images"}>
+      <Link to ={"/archivos"}>
         <i className='bx bx-folder'></i>
         <span className="links_name">Archivos</span>
       </Link>

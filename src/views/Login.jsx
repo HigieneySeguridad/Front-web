@@ -7,9 +7,8 @@ import { userType } from '../context/userTypes'
 export const Login = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  const { stateDispatch } = useContext(UserContext);
   const [showPassword, setShowPassword] = useState(false);
-
+  const { stateDispatch } = useContext(UserContext);
 
   const handleTogglePassword = () => {
     setShowPassword(!showPassword);

@@ -453,3 +453,21 @@ div .comentario{
   border: 0;
   cursor: pointer;
 }
+.editarUserButon {
+  position: absolute;
+  top: 12%;
+  right: 25px;
+  width: 30px;
+  height: 30px;
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+}
+
+.modal-title {
+  color: #0b47afcc;
+}
+
+#editarUsuarioForm label {
+  color: rgb(233, 107, 17);
+}

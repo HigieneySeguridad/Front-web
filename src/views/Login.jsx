@@ -3,6 +3,7 @@ import Swal from 'sweetalert2'
 import { useContext, useState } from 'react'
 import { UserContext } from '../context/userContext'
 import { userType } from '../context/userTypes'
+import axios from "axios"
 
 export const Login = () => {
   const [username, setUsername] = useState('');
@@ -14,67 +15,67 @@ export const Login = () => {
     setShowPassword(!showPassword);
   };
 
-
   const handleInputChange = (event) => {
     const { name, value } = event.target;
     if (name === 'username') {
       setUsername(value);
     } else if (name === 'password') {
       setPassword(value);
-    } 
-  }
+    }
+  };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-  
-    const iniciarSesion = {
-      username,
-      password,
-    };
-  
-      const peticion = await fetch('http://localhost:3000/login', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(iniciarSesion),
-      });
+
+    try {
+      const iniciarSesion = {
+        username,
+        password,
+      };
+
+      const peticion = await axios.post('http://localhost:3000/login', iniciarSesion);
 
       if (peticion.status === 200) {
+        const usuario = peticion.data;
+        if (usuario.active === false) {
+          Swal.fire({
+            icon: "error",
+            title: "Usuario Inactivo"
+          })
+        } else {
+          Swal.fire({
+            icon: 'success',
+            title: 'Has iniciado sesión correctamente',
+          });
+          stateDispatch({
+            type: userType.login,
+            token: usuario.token,
+            nombre: usuario.nombre,
+            role: usuario.role,
+          });
+          console.log('Has iniciado sesión correctamente');
+        }
+      } else if (peticion.status === 401) {
         Swal.fire({
-          icon: 'success',
-          title: 'Has iniciado sesion correctamente'
+          icon: "error",
+          title: "Revisa tus datos"
         })
-        console.log('Has iniciado sesión correctamente');
-      } 
-
-      if (peticion.status ===401){
+      } else if (peticion.status === 429) {
         Swal.fire({
-          icon: 'error',
-          title: 'Revisa tus datos'
+          icon: "error",
+          title: "Has hecho muchos intentos"
         })
-       console.log(await peticion.json())
-      } 
-      if (peticion.status === 429){
-        Swal.fire({
-          icon: 'info',
-          title: 'Has hecho muchos intentos, espera 1 minuto'
-        })
-        console.log(await peticion.text())
       }
-      const response = await peticion.json()
 
-      stateDispatch({
-        type: userType.login,
-        token: response.token,
-        nombre: response.nombre,
-        role: response.role
-      })
-      
-      
+    } catch (error) {
+      Swal.fire({
+        icon: 'error',
+        title: error.message,
+      });
+      console.error(error.message);
+    }
   };
-  
-  
+
     return (     
 <>
 <Header/>

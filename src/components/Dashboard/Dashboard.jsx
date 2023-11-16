@@ -10,19 +10,17 @@ export const Dashboard = () => {
   
   const data = {
     labels: [
-      'Red',
-      'Blue',
-      'Yellow'
+      'Denegados',
+      'Aceptados'
     ],
     datasets: [{
       label: 'My First Dataset',
-      data: [30, 5, 10],
+      data: [30, 15],
       backgroundColor: [
-        'rgb(255, 99, 132)',
-        'rgb(54, 162, 235)',
-        'rgb(255, 205, 86)'
+        'rgb(220, 20, 60)',
+        'rgb(0, 255, 0)'
       ],
-      hoverOffset: 4
+      hoverOffset: 3
     }]
   };
 
@@ -53,7 +51,7 @@ export const Dashboard = () => {
    <Aside/>
     <main className="col-md-9 ms-sm-auto col-lg-10 px-md-9">
       <div className="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-        <h2 style={{color: 'black'}}>Gráficos</h2>
+        <h2 style={{color: 'black'}}>Formularios Enviados</h2>
       </div>
 
       <div className='col-lg-9' id='contenedorChart'>
@@ -68,14 +66,14 @@ export const Dashboard = () => {
           
       </div>
 
-      <h3>Formularios enviados</h3>
+      <h3>Permisos de Trabajo rechazados:</h3>
       <div className="table-responsive small">
         <table className="table table-striped table-sm">
           <thead>
             <tr>
               <th scope="col">N° FORM</th>
               <th scope="col">Encargado</th>
-              <th scope="col">Estado</th>
+              <th scope="col">Sector</th>
               <th scope="col" colSpan={2}>Comentario</th>
             </tr>
           </thead>

@@ -122,76 +122,76 @@ export const Peligros = () => {
    
     <tbody>
             <tr>
-                <td><input type="checkbox" checked={checkboxValues.checkbox1} onChange={() => handleCheckboxChange('checkbox1')}/> 1- Animales ponzoñosos/venenosos</td>
-                <td><input type="checkbox" checked={checkboxValues.checkbox2} onChange={() => handleCheckboxChange('checkbox2')}/> 15- Mala iluminacion </td>
-                <td><input type="checkbox" checked={checkboxValues.checkbox3} onChange={() => handleCheckboxChange('checkbox3')}/> 29- Sustancias toxicas</td>
+                <td><div className="form-check form-switch"><input type="checkbox" className="form-check-input"  id="flexSwitchCheckDefault" checked={checkboxValues.checkbox1} onChange={() => handleCheckboxChange('checkbox1')}/> 1- Animales ponzoñosos/venenosos</div></td>
+                <td><div className="form-check form-switch"><input type="checkbox" className="form-check-input"  id="flexSwitchCheckDefault" checked={checkboxValues.checkbox2} onChange={() => handleCheckboxChange('checkbox2')}/> 15- Mala iluminacion </div></td>
+                <td><div className="form-check form-switch"><input type="checkbox" className="form-check-input"  id="flexSwitchCheckDefault" checked={checkboxValues.checkbox3} onChange={() => handleCheckboxChange('checkbox3')}/> 29- Sustancias toxicas</div></td>
             </tr>
             <tr>
-                <td><input type="checkbox" checked={checkboxValues.checkbox4} onChange={() => handleCheckboxChange('checkbox4')} /> 2- Hidrocarburo/combustible</td>
-                <td><input type="checkbox" checked={checkboxValues.checkbox5} onChange={() => handleCheckboxChange('checkbox5')}/> 16- Objetos/equipos caidos</td>
-                <td><input type="checkbox" checked={checkboxValues.checkbox6} onChange={() => handleCheckboxChange('checkbox6')} /> 30- Liquidos inflamables</td>
+                <td><div className="form-check form-switch"><input type="checkbox" className="form-check-input"  id="flexSwitchCheckDefault" checked={checkboxValues.checkbox4} onChange={() => handleCheckboxChange('checkbox4')} /> 2- Hidrocarburo/combustible</div></td>
+                <td><div className="form-check form-switch"><input type="checkbox" className="form-check-input"  id="flexSwitchCheckDefault" checked={checkboxValues.checkbox5} onChange={() => handleCheckboxChange('checkbox5')}/> 16- Objetos/equipos caidos</div></td>
+                <td><div className="form-check form-switch"><input type="checkbox" className="form-check-input"  id="flexSwitchCheckDefault" checked={checkboxValues.checkbox6} onChange={() => handleCheckboxChange('checkbox6')} /> 30- Liquidos inflamables</div></td>
             </tr>
             <tr>
-                <td><input type="checkbox" checked={checkboxValues.checkbox7} onChange={() => handleCheckboxChange('checkbox7')} /> 3- Sustancia corrosivas</td>
-                <td><input type="checkbox" checked={checkboxValues.checkbox8} onChange={() => handleCheckboxChange('checkbox8')} /> 17- Liberacion/derrame</td>
-                <td><input type="checkbox" checked={checkboxValues.checkbox9} onChange={() => handleCheckboxChange('checkbox9')} /> 31- Herramientas electricas/manuales/neumatica</td>
+                <td><div className="form-check form-switch"><input type="checkbox" className="form-check-input"  id="flexSwitchCheckDefault" checked={checkboxValues.checkbox7} onChange={() => handleCheckboxChange('checkbox7')} /> 3- Sustancia corrosivas</div></td>
+                <td><div className="form-check form-switch"><input type="checkbox" className="form-check-input"  id="flexSwitchCheckDefault" checked={checkboxValues.checkbox8} onChange={() => handleCheckboxChange('checkbox8')} /> 17- Liberacion/derrame</div></td>
+                <td><div className="form-check form-switch"><input type="checkbox" className="form-check-input"  id="flexSwitchCheckDefault" checked={checkboxValues.checkbox9} onChange={() => handleCheckboxChange('checkbox9')} /> 31- Herramientas electricas/manuales/neumatica</div></td>
             </tr>
             <tr>
-                <td><input type="checkbox" checked={checkboxValues.checkbox10} onChange={() => handleCheckboxChange('checkbox10')} /> 4- Superficie fría/caliente</td>
-                <td><input type="checkbox" checked={checkboxValues.checkbox11} onChange={() => handleCheckboxChange('checkbox11')} /> 18- Agentes biologicos </td>
-                <td><input type="checkbox" checked={checkboxValues.checkbox12} onChange={() => handleCheckboxChange('checkbox12')} /> 32- Equipo/Material pesado</td>
+                <td><div className="form-check form-switch"><input type="checkbox" className="form-check-input"  id="flexSwitchCheckDefault" checked={checkboxValues.checkbox10} onChange={() => handleCheckboxChange('checkbox10')} /> 4- Superficie fría/caliente</div></td>
+                <td><div className="form-check form-switch"><input type="checkbox" className="form-check-input"  id="flexSwitchCheckDefault" checked={checkboxValues.checkbox11} onChange={() => handleCheckboxChange('checkbox11')} /> 18- Agentes biologicos</div></td>
+                <td><div className="form-check form-switch"><input type="checkbox" className="form-check-input"  id="flexSwitchCheckDefault" checked={checkboxValues.checkbox12} onChange={() => handleCheckboxChange('checkbox12')} /> 32- Equipo/Material pesado</div></td>
             </tr>
             <tr>
-                <td><input type="checkbox" checked={checkboxValues.checkbox13} onChange={() => handleCheckboxChange('checkbox13')} /> 5- Comunicación restringida</td>
-                <td><input type="checkbox" checked={checkboxValues.checkbox14} onChange={() => handleCheckboxChange('checkbox14')} /> 19- Equipos/insatalaciones a Presion</td>
-                <td><input type="checkbox" checked={checkboxValues.checkbox15} onChange={() => handleCheckboxChange('checkbox15')} /> 33- Empleado nuevo</td>
+                <td><div className="form-check form-switch"><input type="checkbox" className="form-check-input" id="flexSwitchCheckDefault" checked={checkboxValues.checkbox13} onChange={() => handleCheckboxChange('checkbox13')} /> 5- Comunicación restringida</div></td>
+                <td><div className="form-check form-switch"><input type="checkbox" className="form-check-input" id="flexSwitchCheckDefault" checked={checkboxValues.checkbox14} onChange={() => handleCheckboxChange('checkbox14')} /> 19- Equipos/instalaciones a Presión</div></td>
+                <td><div className="form-check form-switch"><input type="checkbox" className="form-check-input" id="flexSwitchCheckDefault" checked={checkboxValues.checkbox15} onChange={() => handleCheckboxChange('checkbox15')} /> 33- Empleado nuevo</div></td>
             </tr>
             <tr>
-                <td><input type="checkbox" checked={checkboxValues.checkbox16} onChange={() => handleCheckboxChange('checkbox16')} /> 6- Espacio confinado</td>
-                <td><input type="checkbox" checked={checkboxValues.checkbox17} onChange={() => handleCheckboxChange('checkbox17')} /> 20- Radiacion </td>
-                <td><input type="checkbox" checked={checkboxValues.checkbox18} onChange={() => handleCheckboxChange('checkbox18')} /> 34- Personal nuevo</td>
+                <td><div className="form-check form-switch"><input type="checkbox" className="form-check-input" id="flexSwitchCheckDefault" checked={checkboxValues.checkbox16} onChange={() => handleCheckboxChange('checkbox16')} /> 6- Espacio confinado</div></td>
+                <td><div className="form-check form-switch"><input type="checkbox" className="form-check-input" id="flexSwitchCheckDefault" checked={checkboxValues.checkbox17} onChange={() => handleCheckboxChange('checkbox17')} /> 20- Radiacion </div></td>
+                <td><div className="form-check form-switch"><input type="checkbox" className="form-check-input" id="flexSwitchCheckDefault" checked={checkboxValues.checkbox18} onChange={() => handleCheckboxChange('checkbox18')} /> 34- Personal nuevo</div></td>
             </tr>
             <tr>
-                <td><input type="checkbox" checked={checkboxValues.checkbox19} onChange={() => handleCheckboxChange('checkbox19')} /> 7- Espacio restringido</td>
-                <td><input type="checkbox" checked={checkboxValues.checkbox20} onChange={() => handleCheckboxChange('checkbox20')} /> 21- Vision Restringida</td>
-                <td><input type="checkbox" checked={checkboxValues.checkbox21} onChange={() => handleCheckboxChange('checkbox21')} /> 35- Tarea Nueva/Desconocida</td>
-            </tr>
-            
-            <tr>
-                <td><input type="checkbox" checked={checkboxValues.checkbox22} onChange={() => handleCheckboxChange('checkbox22')} /> 8- Equipos electricos</td>
-                <td><input type="checkbox" checked={checkboxValues.checkbox23} onChange={() => handleCheckboxChange('checkbox23')} /> 22- Peatones</td>
-                <td><input type="checkbox" checked={checkboxValues.checkbox24} onChange={() => handleCheckboxChange('checkbox24')} /> 36- Polvo</td>
+                <td><div className="form-check form-switch"><input type="checkbox" className="form-check-input" id="flexSwitchCheckDefault" checked={checkboxValues.checkbox19} onChange={() => handleCheckboxChange('checkbox19')} /> 7- Espacio restringido</div></td>
+                <td><div className="form-check form-switch"><input type="checkbox" className="form-check-input" id="flexSwitchCheckDefault" checked={checkboxValues.checkbox20} onChange={() => handleCheckboxChange('checkbox20')} /> 21- Vision Restringida</div></td>
+                <td><div className="form-check form-switch"><input type="checkbox" className="form-check-input" id="flexSwitchCheckDefault" checked={checkboxValues.checkbox21} onChange={() => handleCheckboxChange('checkbox21')} /> 35- Tarea Nueva/Desconocida</div></td>
             </tr>
             <tr>
-                <td><input type="checkbox" checked={checkboxValues.checkbox25} onChange={() => handleCheckboxChange('checkbox25')} /> 9- Animales sueltos</td>
-                <td><input type="checkbox" checked={checkboxValues.checkbox26} onChange={() => handleCheckboxChange('checkbox26')} /> 23- Circulacion Vehicular</td>
-                <td><input type="checkbox" checked={checkboxValues.checkbox27} onChange={() => handleCheckboxChange('checkbox27')} /> 37- Terreno inestable</td>
+                <td><div className="form-check form-switch"><input type="checkbox" className="form-check-input" id="flexSwitchCheckDefault" checked={checkboxValues.checkbox22} onChange={() => handleCheckboxChange('checkbox22')} /> 8- Equipos eléctricos</div></td>
+                <td><div className="form-check form-switch"><input type="checkbox" className="form-check-input" id="flexSwitchCheckDefault" checked={checkboxValues.checkbox23} onChange={() => handleCheckboxChange('checkbox23')} /> 22- Peatones</div></td>
+                <td><div className="form-check form-switch"><input type="checkbox" className="form-check-input" id="flexSwitchCheckDefault" checked={checkboxValues.checkbox24} onChange={() => handleCheckboxChange('checkbox24')} /> 36- Polvo</div></td>
             </tr>
             <tr>
-                <td><input type="checkbox" checked={checkboxValues.checkbox28} onChange={() => handleCheckboxChange('checkbox28')} /> 10- Sustancia Asfixiante(gases-vapores)</td>
-                <td><input type="checkbox" checked={checkboxValues.checkbox29} onChange={() => handleCheckboxChange('checkbox29')} /> 24- Ruido</td>
-                <td><input type="checkbox" checked={checkboxValues.checkbox30} onChange={() => handleCheckboxChange('checkbox30')} /> 38- Terreno con Pendiente</td>
+                <td><div className="form-check form-switch"><input type="checkbox" className="form-check-input" id="flexSwitchCheckDefault" checked={checkboxValues.checkbox25} onChange={() => handleCheckboxChange('checkbox25')} /> 9- Animales sueltos</div></td>
+                <td><div className="form-check form-switch"><input type="checkbox" className="form-check-input" id="flexSwitchCheckDefault" checked={checkboxValues.checkbox26} onChange={() => handleCheckboxChange('checkbox26')} /> 23- Circulación Vehicular</div></td>
+                <td><div className="form-check form-switch"><input type="checkbox" className="form-check-input" id="flexSwitchCheckDefault" checked={checkboxValues.checkbox27} onChange={() => handleCheckboxChange('checkbox27')} /> 37- Terreno inestable</div></td>
             </tr>
             <tr>
-                <td><input type="checkbox" checked={checkboxValues.checkbox31} onChange={() => handleCheckboxChange('checkbox31')} /> 11- Trabajo en altura</td>
-                <td><input type="checkbox" checked={checkboxValues.checkbox32} onChange={() => handleCheckboxChange('checkbox32')} /> 25- Explosivos</td>
-                <td><input type="checkbox" checked={checkboxValues.checkbox33} onChange={() => handleCheckboxChange('checkbox33')} /> 39- Escaleras</td>
+              <td><div className="form-check form-switch"><input type="checkbox" className="form-check-input" id="flexSwitchCheckDefault" checked={checkboxValues.checkbox28} onChange={() => handleCheckboxChange('checkbox28')} /> 10- Sustancia Asfixiante (gases-vapores)</div></td>
+              <td><div className="form-check form-switch"><input type="checkbox" className="form-check-input" id="flexSwitchCheckDefault" checked={checkboxValues.checkbox29} onChange={() => handleCheckboxChange('checkbox29')} /> 24- Ruido</div></td>
+              <td><div className="form-check form-switch"><input type="checkbox" className="form-check-input" id="flexSwitchCheckDefault" checked={checkboxValues.checkbox30} onChange={() => handleCheckboxChange('checkbox30')} /> 38- Terreno con Pendiente</div></td>
             </tr>
             <tr>
-                <td><input type="checkbox" checked={checkboxValues.checkbox34} onChange={() => handleCheckboxChange('checkbox34')} /> 12- H2S</td>
-                <td><input type="checkbox" checked={checkboxValues.checkbox35} onChange={() => handleCheckboxChange('checkbox35')} /> 26- Camino polvoriento</td>
-                <td><input type="checkbox" checked={checkboxValues.checkbox36} onChange={() => handleCheckboxChange('checkbox36')} /> 40- Elemento saliente</td>
+                <td><div className="form-check form-switch"><input type="checkbox" className="form-check-input" id="flexSwitchCheckDefault" checked={checkboxValues.checkbox31} onChange={() => handleCheckboxChange('checkbox31')} /> 11- Trabajo en altura</div></td>
+                <td><div className="form-check form-switch"><input type="checkbox" className="form-check-input" id="flexSwitchCheckDefault" checked={checkboxValues.checkbox32} onChange={() => handleCheckboxChange('checkbox32')} /> 25- Explosivos</div></td>
+                <td><div className="form-check form-switch"><input type="checkbox" className="form-check-input" id="flexSwitchCheckDefault" checked={checkboxValues.checkbox33} onChange={() => handleCheckboxChange('checkbox33')} /> 39- Escaleras</div></td>
             </tr>
             <tr>
-                <td><input type="checkbox" checked={checkboxValues.checkbox37} onChange={() => handleCheckboxChange('checkbox37')} /> 13- Equipo/Maquinaria de carga</td>
-                <td><input type="checkbox" checked={checkboxValues.checkbox38} onChange={() => handleCheckboxChange('checkbox38')} /> 27- Sol/Lluvia/Granizo/Viento</td>
-                <td><input type="checkbox" checked={checkboxValues.checkbox39} onChange={() => handleCheckboxChange('checkbox39')} /> 41- Otro</td>
+                <td><div className="form-check form-switch"><input type="checkbox" className="form-check-input" id="flexSwitchCheckDefault" checked={checkboxValues.checkbox34} onChange={() => handleCheckboxChange('checkbox34')} /> 12- H2S</div></td>
+                <td><div className="form-check form-switch"><input type="checkbox" className="form-check-input" id="flexSwitchCheckDefault" checked={checkboxValues.checkbox35} onChange={() => handleCheckboxChange('checkbox35')} /> 26- Camino polvoriento</div></td>
+                <td><div className="form-check form-switch"><input type="checkbox" className="form-check-input" id="flexSwitchCheckDefault" checked={checkboxValues.checkbox36} onChange={() => handleCheckboxChange('checkbox36')} /> 40- Elemento saliente</div></td>
             </tr>
             <tr>
-                <td><input type="checkbox" checked={checkboxValues.checkbox40} onChange={() => handleCheckboxChange('checkbox40')} /> 14- Objetos en movimientos</td>
-                <td><input type="checkbox" checked={checkboxValues.checkbox41} onChange={() => handleCheckboxChange('checkbox41')} /> 28- Superficies Resbaladizas</td>
+                <td><div className="form-check form-switch"><input type="checkbox" className="form-check-input" id="flexSwitchCheckDefault" checked={checkboxValues.checkbox37} onChange={() => handleCheckboxChange('checkbox37')} /> 13- Equipo/Maquinaria de carga</div></td>
+                <td><div className="form-check form-switch"><input type="checkbox" className="form-check-input" id="flexSwitchCheckDefault" checked={checkboxValues.checkbox38} onChange={() => handleCheckboxChange('checkbox38')} /> 27- Sol/Lluvia/Granizo/Viento</div></td>
+                <td><div className="form-check form-switch"><input type="checkbox" className="form-check-input" id="flexSwitchCheckDefault" checked={checkboxValues.checkbox39} onChange={() => handleCheckboxChange('checkbox39')} /> 41- Otro</div></td>
+            </tr>
+            <tr>
+                <td><div className="form-check form-switch"><input type="checkbox" className="form-check-input" id="flexSwitchCheckDefault" checked={checkboxValues.checkbox40} onChange={() => handleCheckboxChange('checkbox40')} /> 14- Objetos en movimientos</div></td>
+                <td><div className="form-check form-switch"><input type="checkbox" className="form-check-input" id="flexSwitchCheckDefault" checked={checkboxValues.checkbox41} onChange={() => handleCheckboxChange('checkbox41')} /> 28- Superficies Resbaladizas</div></td>
                 <td></td>
             </tr>
+
     </tbody>
     </table>
     <div className="botonesGrupo">

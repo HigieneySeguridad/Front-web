@@ -112,7 +112,7 @@ const fetchUsuario = async () => {
                     <tr>
                         <th>Usuarios</th>
                         <th>Tipo de Usuario</th>
-                        <th>Activo</th>
+                        <th>Estado</th>
                         <th>Fecha de Alta</th>
                         <th>Acciones</th>
                         
@@ -123,7 +123,7 @@ const fetchUsuario = async () => {
                 <tr key={i} onClick={() => setSelectedUserIndex(i)}>
                      <td className='panel'>{usuario.username}</td>
                      <td className='panel'>{usuario.role}</td>
-                     <td className='panel'>{usuario.active.toString()}</td>
+                     <td className='panel'>{usuario.active ? 'Activo' : 'Inactivo'}</td>
                      <td className='panel'>{new Date(usuario.date).toLocaleString()}</td>
                      <td className='panel'>
                     <button type="button" className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editarUsuarioModal" style={{ marginRight: 15 }}>

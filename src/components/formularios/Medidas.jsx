@@ -127,67 +127,66 @@ export const Medidas = () => {
     </thead>
     <tbody>
       
-        <tr>
-            <td><input type="checkbox" id="A" checked={checkboxValues.checkbox1} onChange={() => handleCheckboxChange('checkbox1')}/> A- Ojos y mente en tarea</td>
-            <td><input type="checkbox" id="K" checked={checkboxValues.checkbox2} onChange={() => handleCheckboxChange('checkbox2')}/> K- Señalización/delimitación</td>
-            <td><input type="checkbox" id="T" checked={checkboxValues.checkbox3} onChange={() => handleCheckboxChange('checkbox3')}/> T- Luces Encendidas</td>
-            <td><input type="checkbox" id="AD"checked={checkboxValues.checkbox4} onChange={() => handleCheckboxChange('checkbox4')}/> AD- Kit antiderrame</td>
+            <tr>
+            <td><div className="form-check form-switch"><input type="checkbox" className="form-check-input"  id="flexSwitchCheckDefault" checked={checkboxValues.checkbox1} onChange={() => handleCheckboxChange('checkbox1')} /> A- Ojos y mente en tarea</div></td>
+            <td><div className="form-check form-switch"><input type="checkbox" className="form-check-input"  id="flexSwitchCheckDefault" checked={checkboxValues.checkbox2} onChange={() => handleCheckboxChange('checkbox2')} /> K- Señalización/delimitación</div></td>
+            <td><div className="form-check form-switch"><input type="checkbox" className="form-check-input"  id="flexSwitchCheckDefault" checked={checkboxValues.checkbox3} onChange={() => handleCheckboxChange('checkbox3')} /> T- Luces Encendidas</div></td>
+            <td><div className="form-check form-switch"><input type="checkbox" className="form-check-input"  id="flexSwitchCheckDefault" checked={checkboxValues.checkbox4} onChange={() => handleCheckboxChange('checkbox4')} /> AD- Kit antiderrame</div></td>
         </tr>
         <tr>
-            <td><input type="checkbox" id="B" checked={checkboxValues.checkbox5} onChange={() => handleCheckboxChange('checkbox5')}/> B- Persona Guía</td>
-            <td><input type="checkbox" id="L" checked={checkboxValues.checkbox6} onChange={() => handleCheckboxChange('checkbox6')}/> L- Puesta a Tierra</td>
-            <td><input type="checkbox" id="U" checked={checkboxValues.checkbox7} onChange={() => handleCheckboxChange('checkbox7')}/> U- Uso de cinturón de seguridad</td>
-            <td><input type="checkbox" id="AE" checked={checkboxValues.checkbox8} onChange={() => handleCheckboxChange('checkbox8')}/> AE- Sujeción andamios - Carga - Otros</td>
+            <td><div className="form-check form-switch"><input type="checkbox" className="form-check-input"  id="flexSwitchCheckDefault" checked={checkboxValues.checkbox5} onChange={() => handleCheckboxChange('checkbox5')} /> B- Persona Guía</div></td>
+            <td><div className="form-check form-switch"><input type="checkbox" className="form-check-input"  id="flexSwitchCheckDefault" checked={checkboxValues.checkbox6} onChange={() => handleCheckboxChange('checkbox6')} /> L- Puesta a Tierra</div></td>
+            <td><div className="form-check form-switch"><input type="checkbox" className="form-check-input"  id="flexSwitchCheckDefault" checked={checkboxValues.checkbox7} onChange={() => handleCheckboxChange('checkbox7')} /> U- Uso de cinturón de seguridad</div></td>
+            <td><div className="form-check form-switch"><input type="checkbox" className="form-check-input"  id="flexSwitchCheckDefault" checked={checkboxValues.checkbox8} onChange={() => handleCheckboxChange('checkbox8')} /> AE- Sujeción andamios - Carga - Otros</div></td>
         </tr>
         <tr>
-            <td><input type="checkbox" id="C" checked={checkboxValues.checkbox9} onChange={() => handleCheckboxChange('checkbox9')}/> C- Movimiento lento y continuo</td>
-            <td><input type="checkbox" id="LL" checked={checkboxValues.checkbox10} onChange={() => handleCheckboxChange('checkbox10')}/> LL- Desenergización</td>
-            <td><input type="checkbox" id="V" checked={checkboxValues.checkbox11} onChange={() => handleCheckboxChange('checkbox11')}/> V- Colocación de chapa ciega</td>
-            <td><input type="checkbox" id="AF" checked={checkboxValues.checkbox12} onChange={() => handleCheckboxChange('checkbox12')}/> AF- Estabilización de carga</td>
+            <td><div className="form-check form-switch"><input type="checkbox" className="form-check-input"  id="flexSwitchCheckDefault" checked={checkboxValues.checkbox9} onChange={() => handleCheckboxChange('checkbox9')} /> C- Movimiento lento y continuo</div></td>
+            <td><div className="form-check form-switch"><input type="checkbox" className="form-check-input"  id="flexSwitchCheckDefault" checked={checkboxValues.checkbox10} onChange={() => handleCheckboxChange('checkbox10')} /> LL- Desenergización</div></td>
+            <td><div className="form-check form-switch"><input type="checkbox" className="form-check-input"  id="flexSwitchCheckDefault" checked={checkboxValues.checkbox11} onChange={() => handleCheckboxChange('checkbox11')} /> V- Colocación de chapa ciega</div></td>
+            <td><div className="form-check form-switch"><input type="checkbox" className="form-check-input"  id="flexSwitchCheckDefault" checked={checkboxValues.checkbox12} onChange={() => handleCheckboxChange('checkbox12')} /> AF- Estabilización de carga</div></td>
         </tr>
         <tr>
-            <td><input type="checkbox" id="D" checked={checkboxValues.checkbox13} onChange={() => handleCheckboxChange('checkbox13')}/> D- Inspección visual previa</td>
-            <td><input type="checkbox" id="M" checked={checkboxValues.checkbox14} onChange={() => handleCheckboxChange('checkbox14')}/> M- Desprezurización</td>
-            <td><input type="checkbox" id="W" checked={checkboxValues.checkbox15} onChange={() => handleCheckboxChange('checkbox15')}/> W- Comunicación permanente</td>
-            <td><input type="checkbox" id="AG" checked={checkboxValues.checkbox16} onChange={() => handleCheckboxChange('checkbox16')}/> AG- Coordinación de movimiento</td>
+            <td><div className="form-check form-switch"><input type="checkbox" className="form-check-input"  id="flexSwitchCheckDefault" checked={checkboxValues.checkbox13} onChange={() => handleCheckboxChange('checkbox13')} /> D- Inspección visual previa</div></td>
+            <td><div className="form-check form-switch"><input type="checkbox" className="form-check-input"  id="flexSwitchCheckDefault" checked={checkboxValues.checkbox14} onChange={() => handleCheckboxChange('checkbox14')} /> M- Desprezurización</div></td>
+            <td><div className="form-check form-switch"><input type="checkbox" className="form-check-input"  id="flexSwitchCheckDefault" checked={checkboxValues.checkbox15} onChange={() => handleCheckboxChange('checkbox15')} /> W- Comunicación permanente</div></td>
+            <td><div className="form-check form-switch"><input type="checkbox" className="form-check-input"  id="flexSwitchCheckDefault" checked={checkboxValues.checkbox16} onChange={() => handleCheckboxChange('checkbox16')} /> AG- Coordinación de movimiento</div></td>
         </tr>
         <tr>
-            <td><input type="checkbox" id="E" checked={checkboxValues.checkbox17} onChange={() => handleCheckboxChange('checkbox17')}/> E- Monitoreo de Gases</td>
-            <td><input type="checkbox" id="N" checked={checkboxValues.checkbox18} onChange={() => handleCheckboxChange('checkbox18')}/> N- Orden y Limpieza</td>
-            <td><input type="checkbox" id="X" checked={checkboxValues.checkbox19} onChange={() => handleCheckboxChange('checkbox19')}/> X- Descanzo intermedio</td>
-            <td><input type="checkbox" id="AH" checked={checkboxValues.checkbox20} onChange={() => handleCheckboxChange('checkbox20')}/> AH- Personal capacitado</td>
+            <td><div className="form-check form-switch"><input type="checkbox" className="form-check-input"  id="flexSwitchCheckDefault" checked={checkboxValues.checkbox17} onChange={() => handleCheckboxChange('checkbox17')} /> E- Monitoreo de Gases</div></td>
+            <td><div className="form-check form-switch"><input type="checkbox" className="form-check-input"  id="flexSwitchCheckDefault" checked={checkboxValues.checkbox18} onChange={() => handleCheckboxChange('checkbox18')} /> N- Orden y Limpieza</div></td>
+            <td><div className="form-check form-switch"><input type="checkbox" className="form-check-input"  id="flexSwitchCheckDefault" checked={checkboxValues.checkbox19} onChange={() => handleCheckboxChange('checkbox19')} /> X- Descanzo intermedio</div></td>
+            <td><div className="form-check form-switch"><input type="checkbox" className="form-check-input"  id="flexSwitchCheckDefault" checked={checkboxValues.checkbox20} onChange={() => handleCheckboxChange('checkbox20')} /> AH- Personal capacitado</div></td>
         </tr>
         <tr>
-            <td><input type="checkbox" id="F" checked={checkboxValues.checkbox21} onChange={() => handleCheckboxChange('checkbox21')}/> F- Manejo defensivo</td>
-            <td><input type="checkbox" id="Ñ" checked={checkboxValues.checkbox22} onChange={() => handleCheckboxChange('checkbox22')}/> Ñ- Talud/apuntalamiento</td>
-            <td><input type="checkbox" id="Y" checked={checkboxValues.checkbox23} onChange={() => handleCheckboxChange('checkbox23')}/> Y- Hidratación</td>
-            <td><input type="checkbox" id="AI" checked={checkboxValues.checkbox24} onChange={() => handleCheckboxChange('checkbox24')}/> AI- Otros/No Especificado</td>
+            <td><div className="form-check form-switch"><input type="checkbox" className="form-check-input"  id="flexSwitchCheckDefault" checked={checkboxValues.checkbox21} onChange={() => handleCheckboxChange('checkbox21')} /> F- Manejo defensivo</div></td>
+            <td><div className="form-check form-switch"><input type="checkbox" className="form-check-input"  id="flexSwitchCheckDefault" checked={checkboxValues.checkbox22} onChange={() => handleCheckboxChange('checkbox22')} /> Ñ- Talud/apuntalamiento</div></td>
+            <td><div className="form-check form-switch"><input type="checkbox" className="form-check-input"  id="flexSwitchCheckDefault" checked={checkboxValues.checkbox23} onChange={() => handleCheckboxChange('checkbox23')} /> Y- Hidratación</div></td>
+            <td><div className="form-check form-switch"><input type="checkbox" className="form-check-input"  id="flexSwitchCheckDefault" checked={checkboxValues.checkbox24} onChange={() => handleCheckboxChange('checkbox24')} /> AI- Otros/No Especificado</div></td>
         </tr>
         <tr>
-            <td><input type="checkbox" id="G" checked={checkboxValues.checkbox25} onChange={() => handleCheckboxChange('checkbox25')}/> G- Uso de EPP</td>
-            <td><input type="checkbox" id="O" checked={checkboxValues.checkbox26} onChange={() => handleCheckboxChange('checkbox26')}/> O- Sistema contracaída</td>
-            <td><input type="checkbox" id="Z" checked={checkboxValues.checkbox27} onChange={() => handleCheckboxChange('checkbox27')}/> Z- Rotación del personal</td>
+            <td><div className="form-check form-switch"><input type="checkbox" className="form-check-input"  id="flexSwitchCheckDefault" checked={checkboxValues.checkbox25} onChange={() => handleCheckboxChange('checkbox25')} /> G- Uso de EPP</div></td>
+            <td><div className="form-check form-switch"><input type="checkbox" className="form-check-input"  id="flexSwitchCheckDefault" checked={checkboxValues.checkbox26} onChange={() => handleCheckboxChange('checkbox26')} /> O- Sistema contracaída</div></td>
+            <td><div className="form-check form-switch"><input type="checkbox" className="form-check-input"  id="flexSwitchCheckDefault" checked={checkboxValues.checkbox27} onChange={() => handleCheckboxChange('checkbox27')} /> Z- Rotación del personal</div></td>
             <td></td>
         </tr>
         <tr>
-            <td><input type="checkbox" id="H" checked={checkboxValues.checkbox28} onChange={() => handleCheckboxChange('checkbox28')}/> H- Extintor</td>
-            <td><input type="checkbox" id="P" checked={checkboxValues.checkbox29} onChange={() => handleCheckboxChange('checkbox29')}/> P- Hojas de seguridad</td>
-            <td><input type="checkbox" id="AA" checked={checkboxValues.checkbox30} onChange={() => handleCheckboxChange('checkbox30')}/> AA- Elemento de izaje en condición</td>
+            <td><div className="form-check form-switch"><input type="checkbox" className="form-check-input"  id="flexSwitchCheckDefault" checked={checkboxValues.checkbox28} onChange={() => handleCheckboxChange('checkbox28')} /> H- Extintor</div></td>
+            <td><div className="form-check form-switch"><input type="checkbox" className="form-check-input"  id="flexSwitchCheckDefault" checked={checkboxValues.checkbox29} onChange={() => handleCheckboxChange('checkbox29')} /> P- Hojas de seguridad</div></td>
+            <td><div className="form-check form-switch"><input type="checkbox" className="form-check-input"  id="flexSwitchCheckDefault" checked={checkboxValues.checkbox30} onChange={() => handleCheckboxChange('checkbox30')} /> AA- Elemento de izaje en condición</div></td>
             <td></td>
         </tr>
         <tr>
-            <td><input type="checkbox" id="I" checked={checkboxValues.checkbox31} onChange={() => handleCheckboxChange('checkbox31')}/> I- Supervisión</td>
-            <td><input type="checkbox" id="Q" checked={checkboxValues.checkbox32} onChange={() => handleCheckboxChange('checkbox32')}/> Q- Soga Guía</td>
-            <td><input type="checkbox" id="AB" checked={checkboxValues.checkbox33} onChange={() => handleCheckboxChange('checkbox33')}/> AB- Herramienta en condición</td>
+            <td><div className="form-check form-switch"><input type="checkbox" className="form-check-input"  id="flexSwitchCheckDefault" checked={checkboxValues.checkbox31} onChange={() => handleCheckboxChange('checkbox31')} /> I- Supervisión</div></td>
+            <td><div className="form-check form-switch"><input type="checkbox" className="form-check-input"  id="flexSwitchCheckDefault" checked={checkboxValues.checkbox32} onChange={() => handleCheckboxChange('checkbox32')} /> Q- Soga Guía</div></td>
+            <td><div className="form-check form-switch"><input type="checkbox" className="form-check-input"  id="flexSwitchCheckDefault" checked={checkboxValues.checkbox33} onChange={() => handleCheckboxChange('checkbox33')} /> AB- Herramienta en condición</div></td>
             <td></td>
         </tr>
         <tr>
-            <td><input type="checkbox" id="J" checked={checkboxValues.checkbox34} onChange={() => handleCheckboxChange('checkbox34')}/> J- Bloqueo y etiquetado</td>
-            <td><input type="checkbox" id="R" checked={checkboxValues.checkbox35} onChange={() => handleCheckboxChange('checkbox35')}/> R- Respetar velocidades</td>
-            <td><input type="checkbox" id="AC" checked={checkboxValues.checkbox36} onChange={() => handleCheckboxChange('checkbox36')}/> AC- Botiquín P.A</td>
+            <td><div className="form-check form-switch"><input type="checkbox" className="form-check-input"  id="flexSwitchCheckDefault" checked={checkboxValues.checkbox34} onChange={() => handleCheckboxChange('checkbox34')} /> J- Bloqueo y etiquetado</div></td>
+            <td><div className="form-check form-switch"><input type="checkbox" className="form-check-input"  id="flexSwitchCheckDefault" checked={checkboxValues.checkbox35} onChange={() => handleCheckboxChange('checkbox35')} /> R- Respetar velocidades</div></td>
+            <td><div className="form-check form-switch"><input type="checkbox" className="form-check-input"  id="flexSwitchCheckDefault" checked={checkboxValues.checkbox36} onChange={() => handleCheckboxChange('checkbox36')} /> AC- Botiquín P.A</div></td>
             <td></td>
         </tr>
-       
     </tbody>
   </table>
   <div className="botonesGrupo">

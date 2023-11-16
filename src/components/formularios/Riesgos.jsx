@@ -129,62 +129,63 @@ export const Riesgos = () => {
         </thead>
    
     <tbody>
-            <tr>
-                <td><input type="checkbox" checked= {checkboxValues.checkbox1} onChange={() => handleCheckboxChange('checkbox1')}/> A- Atrapado en</td>
-                <td><input type="checkbox" checked= {checkboxValues.checkbox2} onChange={() => handleCheckboxChange('checkbox2')}/> N- Caida de objetos por desplome o desprendimiento</td>
-            </tr>
-            <tr>
-                <td><input type="checkbox" checked= {checkboxValues.checkbox3} onChange={() => handleCheckboxChange('checkbox3')}/> B- Atrapado entre</td>
-                <td><input type="checkbox" checked= {checkboxValues.checkbox4} onChange={() => handleCheckboxChange('checkbox4')} /> O- Atrapamiento por vuelco de maquinarias</td>
-            </tr>
-            <tr>
-                <td><input type="checkbox" checked= {checkboxValues.checkbox5} onChange={() => handleCheckboxChange('checkbox5')} /> C- Atrapado bajo</td>
-                <td><input type="checkbox" checked= {checkboxValues.checkbox6} onChange={() => handleCheckboxChange('checkbox6')} /> P- Atropellos,golpes,choques contra o con vehiculos</td>
-            </tr>
-            <tr>
-                <td><input type="checkbox" checked= {checkboxValues.checkbox7} onChange={() => handleCheckboxChange('checkbox7')} /> D- Corte/punciones/laceraciones</td>
-                <td><input type="checkbox" checked= {checkboxValues.checkbox8} onChange={() => handleCheckboxChange('checkbox8')} /> Q- Accidientes en vehiculos terrestres</td>
-            </tr>
-            <tr>
-                <td><input type="checkbox" checked= {checkboxValues.checkbox9} onChange={() => handleCheckboxChange('checkbox9')} /> E- Exposicion Calor/Frio (carga termica) </td>
-                <td><input type="checkbox" checked= {checkboxValues.checkbox10} onChange={() => handleCheckboxChange('checkbox10')} /> R- Hundimiento</td>
-            </tr>
-            <tr>
-                <td><input type="checkbox" checked= {checkboxValues.checkbox11} onChange={() => handleCheckboxChange('checkbox11')} /> F- Caida de objetos por manipulacion</td>
-                <td><input type="checkbox" checked= {checkboxValues.checkbox12} onChange={() => handleCheckboxChange('checkbox12')} /> S- Descarga electrica</td>
-            </tr>
-            <tr>
-                <td><input type="checkbox" checked= {checkboxValues.checkbox13} onChange={() => handleCheckboxChange('checkbox13')} /> G- Ignicion</td>
-                <td><input type="checkbox" checked= {checkboxValues.checkbox14} onChange={() => handleCheckboxChange('checkbox14')} /> T- Resbalon/tropiezo/caida</td>
-            </tr>
-            <tr>
-                <td><input type="checkbox" checked= {checkboxValues.checkbox15} onChange={() => handleCheckboxChange('checkbox15')} /> H- Sobreesfuerzo</td>
-                <td><input type="checkbox" checked= {checkboxValues.checkbox16} onChange={() => handleCheckboxChange('checkbox16')} /> U- Picadura y/o mordeduras de animales e insectos</td>
-            </tr>
-            <tr>
-                <td><input type="checkbox" checked= {checkboxValues.checkbox17} onChange={() => handleCheckboxChange('checkbox17')} /> I- Golpeado por</td>
-                <td><input type="checkbox" checked= {checkboxValues.checkbox18} onChange={() => handleCheckboxChange('checkbox18')} /> V- Quemaduras</td>
-            </tr>
-            <tr>
-                <td><input type="checkbox" checked= {checkboxValues.checkbox19} onChange={() => handleCheckboxChange('checkbox19')} /> J- Golpe contra</td>
-                <td><input type="checkbox" checked= {checkboxValues.checkbox20} onChange={() => handleCheckboxChange('checkbox20')} /> W- Explosion/incendio</td>
-            </tr>
-            <tr>
-                <td><input type="checkbox" checked= {checkboxValues.checkbox21} onChange={() => handleCheckboxChange('checkbox21')} /> K- Proyeccion de particulas/salpicaduras</td>
-                <td><input type="checkbox" checked= {checkboxValues.checkbox22} onChange={() => handleCheckboxChange('checkbox22')} /> X- Asfixia/Desmayo</td>
-            </tr>
-            <tr>
-                <td><input type="checkbox" checked= {checkboxValues.checkbox23} onChange={() => handleCheckboxChange('checkbox23')} /> L- Caida de personas a mismo nivel</td>
-                <td><input type="checkbox" checked= {checkboxValues.checkbox24} onChange={() => handleCheckboxChange('checkbox24')} /> Y-Problemas respiratorios</td>
-            </tr>
-            <tr>
-                <td><input type="checkbox" checked= {checkboxValues.checkbox25} onChange={() => handleCheckboxChange('checkbox25')} /> LL- Caida de personas a distinto nivel</td>
-                <td><input type="checkbox" checked= {checkboxValues.checkbox26} onChange={() => handleCheckboxChange('checkbox26')} /> Z- Otro</td>
-            </tr>
-            <tr>
-                <td><input type="checkbox" checked= {checkboxValues.checkbox27} onChange={() => handleCheckboxChange('checkbox27')} /> M- Caida a instalaciones de bajo nivel</td>
-                <td></td>
-            </tr>
+    <tr>
+    <td><div className="form-check form-switch"><input type="checkbox" className="form-check-input" id="flexSwitchCheckDefault" checked={checkboxValues.checkbox1} onChange={() => handleCheckboxChange('checkbox1')} /> A- Atrapado en</div></td>
+    <td><div className="form-check form-switch"><input type="checkbox" className="form-check-input" id="flexSwitchCheckDefault" checked={checkboxValues.checkbox2} onChange={() => handleCheckboxChange('checkbox2')} /> N- Caida de objetos por desplome o desprendimiento</div></td>
+        </tr>
+        <tr>
+            <td><div className="form-check form-switch"><input type="checkbox" className="form-check-input" id="flexSwitchCheckDefault" checked={checkboxValues.checkbox3} onChange={() => handleCheckboxChange('checkbox3')} /> B- Atrapado entre</div></td>
+            <td><div className="form-check form-switch"><input type="checkbox" className="form-check-input" id="flexSwitchCheckDefault" checked={checkboxValues.checkbox4} onChange={() => handleCheckboxChange('checkbox4')} /> O- Atrapamiento por vuelco de maquinarias</div></td>
+        </tr>
+        <tr>
+            <td><div className="form-check form-switch"><input type="checkbox" className="form-check-input" id="flexSwitchCheckDefault" checked={checkboxValues.checkbox5} onChange={() => handleCheckboxChange('checkbox5')} /> C- Atrapado bajo</div></td>
+            <td><div className="form-check form-switch"><input type="checkbox" className="form-check-input" id="flexSwitchCheckDefault" checked={checkboxValues.checkbox6} onChange={() => handleCheckboxChange('checkbox6')} /> P- Atropellos, golpes, choques contra o con vehiculos</div></td>
+        </tr>
+        <tr>
+            <td><div className="form-check form-switch"><input type="checkbox" className="form-check-input" id="flexSwitchCheckDefault" checked={checkboxValues.checkbox7} onChange={() => handleCheckboxChange('checkbox7')} /> D- Corte/punciones/laceraciones</div></td>
+            <td><div className="form-check form-switch"><input type="checkbox" className="form-check-input" id="flexSwitchCheckDefault" checked={checkboxValues.checkbox8} onChange={() => handleCheckboxChange('checkbox8')} /> Q- Accidentes en vehiculos terrestres</div></td>
+        </tr>
+        <tr>
+            <td><div className="form-check form-switch"><input type="checkbox" className="form-check-input" id="flexSwitchCheckDefault" checked={checkboxValues.checkbox9} onChange={() => handleCheckboxChange('checkbox9')} /> E- Exposicion Calor/Frio (carga termica) </div></td>
+            <td><div className="form-check form-switch"><input type="checkbox" className="form-check-input" id="flexSwitchCheckDefault" checked={checkboxValues.checkbox10} onChange={() => handleCheckboxChange('checkbox10')} /> R- Hundimiento</div></td>
+        </tr>
+        <tr>
+            <td><div className="form-check form-switch"><input type="checkbox" className="form-check-input" id="flexSwitchCheckDefault" checked={checkboxValues.checkbox11} onChange={() => handleCheckboxChange('checkbox11')} /> F- Caida de objetos por manipulacion</div></td>
+            <td><div className="form-check form-switch"><input type="checkbox" className="form-check-input" id="flexSwitchCheckDefault" checked={checkboxValues.checkbox12} onChange={() => handleCheckboxChange('checkbox12')} /> S- Descarga electrica</div></td>
+        </tr>
+        <tr>
+            <td><div className="form-check form-switch"><input type="checkbox" className="form-check-input" id="flexSwitchCheckDefault" checked={checkboxValues.checkbox13} onChange={() => handleCheckboxChange('checkbox13')} /> G- Ignicion</div></td>
+            <td><div className="form-check form-switch"><input type="checkbox" className="form-check-input" id="flexSwitchCheckDefault" checked={checkboxValues.checkbox14} onChange={() => handleCheckboxChange('checkbox14')} /> T- Resbalon/tropiezo/caida</div></td>
+        </tr>
+        <tr>
+            <td><div className="form-check form-switch"><input type="checkbox" className="form-check-input" id="flexSwitchCheckDefault" checked={checkboxValues.checkbox15} onChange={() => handleCheckboxChange('checkbox15')} /> H- Sobreesfuerzo</div></td>
+            <td><div className="form-check form-switch"><input type="checkbox" className="form-check-input" id="flexSwitchCheckDefault" checked={checkboxValues.checkbox16} onChange={() => handleCheckboxChange('checkbox16')} /> U- Picadura y/o mordeduras de animales e insectos</div></td>
+        </tr>
+        <tr>
+            <td><div className="form-check form-switch"><input type="checkbox" className="form-check-input" id="flexSwitchCheckDefault" checked={checkboxValues.checkbox17} onChange={() => handleCheckboxChange('checkbox17')} /> I- Golpeado por</div></td>
+            <td><div className="form-check form-switch"><input type="checkbox" className="form-check-input" id="flexSwitchCheckDefault" checked={checkboxValues.checkbox18} onChange={() => handleCheckboxChange('checkbox18')} /> V- Quemaduras</div></td>
+        </tr>
+        <tr>
+            <td><div className="form-check form-switch"><input type="checkbox" className="form-check-input" id="flexSwitchCheckDefault" checked={checkboxValues.checkbox19} onChange={() => handleCheckboxChange('checkbox19')} /> J- Golpe contra</div></td>
+            <td><div className="form-check form-switch"><input type="checkbox" className="form-check-input" id="flexSwitchCheckDefault" checked={checkboxValues.checkbox20} onChange={() => handleCheckboxChange('checkbox20')} /> W- Explosion/incendio</div></td>
+        </tr>
+        <tr>
+            <td><div className="form-check form-switch"><input type="checkbox" className="form-check-input" id="flexSwitchCheckDefault" checked={checkboxValues.checkbox21} onChange={() => handleCheckboxChange('checkbox21')} /> K- Proyeccion de particulas/salpicaduras</div></td>
+            <td><div className="form-check form-switch"><input type="checkbox" className="form-check-input" id="flexSwitchCheckDefault" checked={checkboxValues.checkbox22} onChange={() => handleCheckboxChange('checkbox22')} /> X- Asfixia/Desmayo</div></td>
+        </tr>
+        <tr>
+            <td><div className="form-check form-switch"><input type="checkbox" className="form-check-input" id="flexSwitchCheckDefault" checked={checkboxValues.checkbox23} onChange={() => handleCheckboxChange('checkbox23')} /> L- Caida de personas a mismo nivel</div></td>
+            <td><div className="form-check form-switch"><input type="checkbox" className="form-check-input" id="flexSwitchCheckDefault" checked={checkboxValues.checkbox24} onChange={() => handleCheckboxChange('checkbox24')} /> Y-Problemas respiratorios</div></td>
+        </tr>
+        <tr>
+            <td><div className="form-check form-switch"><input type="checkbox" className="form-check-input" id="flexSwitchCheckDefault" checked={checkboxValues.checkbox25} onChange={() => handleCheckboxChange('checkbox25')} /> LL- Caida de personas a distinto nivel</div></td>
+            <td><div className="form-check form-switch"><input type="checkbox" className="form-check-input" id="flexSwitchCheckDefault" checked={checkboxValues.checkbox26} onChange={() => handleCheckboxChange('checkbox26')} /> Z- Otro</div></td>
+        </tr>
+        <tr>
+            <td><div className="form-check form-switch"><input type="checkbox" className="form-check-input" id="flexSwitchCheckDefault" checked={checkboxValues.checkbox27} onChange={() => handleCheckboxChange('checkbox27')} /> M- Caida a instalaciones de bajo nivel</div></td>
+            <td></td>
+        </tr>
+
     </tbody>
     </table>
   <div className="botonesGrupo">

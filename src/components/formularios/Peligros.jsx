@@ -2,7 +2,8 @@ import { useState } from "react";
 import axios from  "axios"
 import Swal from "sweetalert2"
 
-export const Peligros = () => {
+export const Peligros = ({onGuardadoChange, onCheckboxesChange, onComentarioChange}) => {
+    const [guardado, setGuardado] = useState(false);
     const [comentario, setComentario] = useState("");
     const [checkboxValues, setCheckboxValues] = useState({
         checkbox1: false,
@@ -94,18 +95,17 @@ export const Peligros = () => {
   const guardarFormulario = async () => {
     try {
       console.log('Valores true', checkboxesSeleccionados, comentario);
-      const response = await axios.post('http://localhost:3000/formularios/peligros', {checkboxes: checkboxesSeleccionados, comentario});
+      console.log('Enviado correctamente Peligros');
+      Swal.fire({
+        title: 'Enviado correctamente ',
+        icon: 'success'
+      })
+        disabledTable();
+        setGuardado(true);
+        onGuardadoChange(true);
+        onCheckboxesChange(checkboxesSeleccionados)
+        onComentarioChange(comentario)
 
-      if (response.status === 200) {
-        console.log('Enviado correctamente');
-        disabledTable()
-        Swal.fire({
-          title: 'Enviado correctamente ',
-          icon: 'success'
-        })
-      } else {
-        console.log('No se pudo enviar el formulario');
-      }
     } catch (error) {
       console.error('Error al enviar el formulario', error);
     }
@@ -196,7 +196,7 @@ export const Peligros = () => {
     </table>
     <div className="botonesGrupo">
       <button onClick={submitText} style={{marginRight: 15}} className="btn btn-danger"> Escribe un comentario </button>
-      <button onClick={guardarFormulario} className="btn btn-danger">Enviar</button>
+      <button onClick={guardarFormulario} className="btn btn-danger">Guardar</button>
     </div>
     </div>
   )

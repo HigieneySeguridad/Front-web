@@ -2,7 +2,8 @@ import Swal from "sweetalert2"
 import axios from "axios"
 import { useState } from "react";
 
-export const Medidas = () => {
+export const Medidas = ({onGuardadoChange, onCheckboxesChange, onComentarioChange}) => {
+    const [guardado, setGuardado] = useState(false);
     const [comentario, setComentario] = useState("");
     const [checkboxValues, setCheckboxValues] = useState({
         checkbox1: false,
@@ -95,20 +96,19 @@ export const Medidas = () => {
   
         try {
           console.log('Valores true', checkboxesSeleccionados, comentario );
-          const response = await axios.post('http://localhost:3000/formularios', {checkboxes: checkboxesSeleccionados, comentario } );
-    
-          if (response.status === 200) {
-            console.log('Guardando formulario A');
-            disabledTable()
-            await Swal.fire({
-              title: 'Guardado correctamente',
-              icon: 'success'
-            })
-          } else {
-            console.log('No se pudo enviar el formulario');
-          }
+          console.log('Guardando correctamente Medidas');
+          await Swal.fire({
+            title: 'Guardado correctamente',
+            icon: 'success'
+          })
+
+          disabledTable();
+          setGuardado(true);
+          onGuardadoChange(true);
+          onCheckboxesChange(checkboxesSeleccionados)
+          onComentarioChange(comentario)
+
         } catch (error) {
-    
           await Swal.fire({
             title: 'No se pudo enviar',
             icon: 'error'

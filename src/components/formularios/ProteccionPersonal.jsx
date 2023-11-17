@@ -2,7 +2,8 @@ import { useState } from "react"
 import axios from "axios"
 import Swal from "sweetalert2"
 
-export const ProteccionPersonal = () => {
+export const ProteccionPersonal = ({onGuardadoChange, onCheckboxesChange, onComentarioChange}) => {
+  const [guardado, setGuardado] = useState(false);
   const [comentario, setComentario] = useState("");
   const [checkboxValues, setCheckboxValues] = useState({
     checkbox1: false,
@@ -80,25 +81,17 @@ export const ProteccionPersonal = () => {
   const guardarFormulario = async () => {
         try {
           console.log('Valores true', checkboxesSeleccionados, comentario);
-          const response = await axios.post('http://localhost:3000/formularios', { checkboxes: checkboxesSeleccionados, comentario });
-          if (response.length === 0) {
-            await Swal.fire({
-              title: 'Selecciona al menos 1 opcion',
-              icon: 'error'
-            });
-            return; 
-          }
+          console.log('Enviado correctamente Proteccion');
+          await Swal.fire({
+            title: 'Guardado correctamente',
+            icon: 'success'
+          });
+          disabledTable();
+          setGuardado(true);
+          onGuardadoChange(true);
+          onCheckboxesChange(checkboxesSeleccionados);
+          onComentarioChange(comentario);
 
-          if (response.status === 200) {
-            console.log('Enviado correctamente');
-            disabledTable()
-            await Swal.fire({
-              title: 'Guardado correctamente',
-              icon: 'success'
-            });
-          } else {
-            console.log('No se pudo enviar el formulario');
-          }
         } catch (error) {
           await Swal.fire({
             title: 'No se pudo enviar',

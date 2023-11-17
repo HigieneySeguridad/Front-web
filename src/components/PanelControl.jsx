@@ -8,7 +8,7 @@ const [selectedUserIndex, setSelectedUserIndex] = useState(null);
 const [username, setUsername] = useState('');
 const [password, setPassword] = useState('');
 const [role, setRole] = useState('Operario');
-const [active, setActive] = useState(true);
+const [active, setActive] = useState();
 const [dni, setDni] = useState('');
 const [telefono, setTelefono] = useState('');
 const [showPassword, setShowPassword] = useState(false);
@@ -45,6 +45,7 @@ const fetchUsuario = async () => {
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
+  
     if (name === 'username') {
       setUsername(value);
     } else if (name === 'password') {
@@ -52,13 +53,14 @@ const fetchUsuario = async () => {
     } else if (name === 'role') {
       setRole(value);
     } else if (name === 'activo') {
-      setActive(value === 'true' )
+      setActive(value === 'true' ? true : false);
     } else if (name === 'dni') {
       setDni(value);
     } else if (name === 'telefono') {
       setTelefono(value);
-    } 
-  }
+    }
+  };
+  
 
   const handleTogglePassword = () => {
     setShowPassword(!showPassword);
@@ -123,7 +125,11 @@ const fetchUsuario = async () => {
                 <tr key={i} onClick={() => setSelectedUserIndex(i)}>
                      <td className='panel'>{usuario.username}</td>
                      <td className='panel'>{usuario.role}</td>
-                     <td className='panel'>{usuario.active ? 'Activo' : 'Inactivo'}</td>
+                     <td className='panel'>
+                          <span className={`badge ${usuario.active ? 'text-bg-success' : 'text-bg-danger' } rounded-pill `}>
+                            {usuario.active ? 'Activo' : 'Inactivo'}
+                          </span>
+                    </td>
                      <td className='panel'>{new Date(usuario.date).toLocaleString()}</td>
                      <td className='panel'>
                     <button type="button" className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editarUsuarioModal" style={{ marginRight: 15 }}>
@@ -176,9 +182,9 @@ const fetchUsuario = async () => {
           </div>
             <div className="mb-3">
               <label htmlFor="" style={{marginRight: 25}} >Activo</label>
-              <select name="activo" value={active.toString()} onChange={handleInputChange} required>
-                <option value="true">Si</option>
-                <option value="false">No</option>
+              <select name="activo" value={active} onChange={handleInputChange} required>
+                <option value={true}>Si</option>
+                <option value={false}>No</option>
               </select>
             </div>
           <div className="mb-3">

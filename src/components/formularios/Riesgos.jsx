@@ -1,10 +1,8 @@
 import { useState } from "react";
 import Swal from "sweetalert2"
-import axios from "axios"
 
-export const Riesgos = ({onGuardadoChange, onCheckboxesChange, onComentarioChange}) => {
+export const Riesgos = ({onGuardadoChange, onCheckboxesChange}) => {
     const [guardado, setGuardado] = useState(false);
-    const [comentario, setComentario] = useState("");
     const [checkboxValues, setCheckboxValues] = useState({
         checkbox1: false,
         checkbox2: false,
@@ -63,25 +61,6 @@ export const Riesgos = ({onGuardadoChange, onCheckboxesChange, onComentarioChang
         return acc;
       }, {});
 
-      const submitText = async ()=>{
-        const { value: text } = await Swal.fire({
-            input: 'textarea',
-            inputLabel: 'Message',
-            inputPlaceholder: 'Type your message here...',
-            inputAttributes: {
-              'aria-label': 'Type your message here'
-            },
-            showCancelButton: true
-          })
-          
-          if (text) {
-            Swal.fire({
-              title: 'Tu comentario: ',
-              text
-            })
-           setComentario(text)
-        }
-      }
 
       const [tableEnabled, setTableEnabled] = useState(true);
       const disabledTable = () => {
@@ -95,7 +74,7 @@ export const Riesgos = ({onGuardadoChange, onCheckboxesChange, onComentarioChang
     const guardarFormulario = async () => {
   
         try {
-          console.log('Valores true', checkboxesSeleccionados, comentario );
+          console.log('Valores true', checkboxesSeleccionados);
           console.log('Enviado correctamente Riesgos');
           await Swal.fire({
             title: 'Guardado correctamente',
@@ -105,7 +84,6 @@ export const Riesgos = ({onGuardadoChange, onCheckboxesChange, onComentarioChang
             setGuardado(true);
             onGuardadoChange(true);
             onCheckboxesChange(checkboxesSeleccionados)
-            onComentarioChange(comentario)
 
         } catch (error) {
           await Swal.fire({
@@ -188,7 +166,6 @@ export const Riesgos = ({onGuardadoChange, onCheckboxesChange, onComentarioChang
     </tbody>
     </table>
   <div className="botonesGrupo">
-   <button onClick={submitText} style={{marginRight: 15}} className="btn btn-warning"> Escribe un comentario </button>
    <button onClick={guardarFormulario} className="btn btn-warning">Guardar</button>
   </div>
     </div>

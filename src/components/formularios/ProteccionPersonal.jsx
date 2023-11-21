@@ -1,10 +1,8 @@
 import { useState } from "react"
-import axios from "axios"
 import Swal from "sweetalert2"
 
-export const ProteccionPersonal = ({onGuardadoChange, onCheckboxesChange, onComentarioChange}) => {
+export const ProteccionPersonal = ({onGuardadoChange, onCheckboxesChange}) => {
   const [guardado, setGuardado] = useState(false);
-  const [comentario, setComentario] = useState("");
   const [checkboxValues, setCheckboxValues] = useState({
     checkbox1: false,
     checkbox2: false,
@@ -45,26 +43,6 @@ export const ProteccionPersonal = ({onGuardadoChange, onCheckboxesChange, onCome
       [name]: !checkboxValues[name],
     });
   };
-
-  const submitText = async ()=>{
-    const { value: text } = await Swal.fire({
-        input: 'textarea',
-        inputLabel: 'Message',
-        inputPlaceholder: 'Type your message here...',
-        inputAttributes: {
-          'aria-label': 'Type your message here'
-        },
-        showCancelButton: true
-      })
-      
-      if (text) {
-        Swal.fire({
-          title: 'Tu comentario: ',
-          text
-        })
-       setComentario(text)
-    }
-  }
   
  const checkboxesSeleccionados = Object.keys(checkboxValues)
       .filter((key) => checkboxValues[key])
@@ -80,7 +58,7 @@ export const ProteccionPersonal = ({onGuardadoChange, onCheckboxesChange, onCome
 
   const guardarFormulario = async () => {
         try {
-          console.log('Valores true', checkboxesSeleccionados, comentario);
+          console.log('Valores true', checkboxesSeleccionados);
           console.log('Enviado correctamente Proteccion');
           await Swal.fire({
             title: 'Guardado correctamente',
@@ -90,7 +68,6 @@ export const ProteccionPersonal = ({onGuardadoChange, onCheckboxesChange, onCome
           setGuardado(true);
           onGuardadoChange(true);
           onCheckboxesChange(checkboxesSeleccionados);
-          onComentarioChange(comentario);
 
         } catch (error) {
           await Swal.fire({
@@ -101,8 +78,6 @@ export const ProteccionPersonal = ({onGuardadoChange, onCheckboxesChange, onCome
         }
       };
       
-
-
   const tableStyle = {
     opacity: tableEnabled ? 1 : 0.5,
     cursor: tableEnabled ? "auto" : "not-allowed",
@@ -177,7 +152,6 @@ export const ProteccionPersonal = ({onGuardadoChange, onCheckboxesChange, onCome
     </tbody>
   </table>
   <div className="botonesGrupo">
-   <button onClick={submitText} style={{marginRight: 15}} className="btn btn-info"> Escribe un comentario </button>
    <button onClick={guardarFormulario} className="btn btn-info">Guardar</button>
   </div>
    </div>

@@ -1,10 +1,8 @@
 import { useState } from "react";
-import axios from  "axios"
 import Swal from "sweetalert2"
 
-export const Peligros = ({onGuardadoChange, onCheckboxesChange, onComentarioChange}) => {
+export const Peligros = ({onGuardadoChange, onCheckboxesChange}) => {
     const [guardado, setGuardado] = useState(false);
-    const [comentario, setComentario] = useState("");
     const [checkboxValues, setCheckboxValues] = useState({
         checkbox1: false,
         checkbox2: false,
@@ -63,26 +61,6 @@ export const Peligros = ({onGuardadoChange, onCheckboxesChange, onComentarioChan
         return acc;
       }, {});
 
-      const submitText = async ()=>{
-        const { value: text } = await Swal.fire({
-            input: 'textarea',
-            inputLabel: 'Message',
-            inputPlaceholder: 'Type your message here...',
-            inputAttributes: {
-              'aria-label': 'Type your message here'
-            },
-            showCancelButton: true
-          })
-          
-          if (text) {
-            Swal.fire({
-              title: 'Tu comentario: ',
-              text
-            })
-           setComentario(text)
-        }
-      }
-
       const [tableEnabled, setTableEnabled] = useState(true);
       const disabledTable = () => {
             setTableEnabled(false);
@@ -94,7 +72,7 @@ export const Peligros = ({onGuardadoChange, onCheckboxesChange, onComentarioChan
       };
   const guardarFormulario = async () => {
     try {
-      console.log('Valores true', checkboxesSeleccionados, comentario);
+      console.log('Valores true', checkboxesSeleccionados);
       console.log('Enviado correctamente Peligros');
       Swal.fire({
         title: 'Enviado correctamente ',
@@ -104,7 +82,6 @@ export const Peligros = ({onGuardadoChange, onCheckboxesChange, onComentarioChan
         setGuardado(true);
         onGuardadoChange(true);
         onCheckboxesChange(checkboxesSeleccionados)
-        onComentarioChange(comentario)
 
     } catch (error) {
       console.error('Error al enviar el formulario', error);
@@ -195,7 +172,6 @@ export const Peligros = ({onGuardadoChange, onCheckboxesChange, onComentarioChan
     </tbody>
     </table>
     <div className="botonesGrupo">
-      <button onClick={submitText} style={{marginRight: 15}} className="btn btn-danger"> Escribe un comentario </button>
       <button onClick={guardarFormulario} className="btn btn-danger">Guardar</button>
     </div>
     </div>

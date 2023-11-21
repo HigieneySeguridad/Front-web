@@ -2,13 +2,16 @@ import { Medidas } from './Medidas';
 import { Peligros } from './Peligros';
 import { ProteccionPersonal } from './ProteccionPersonal';
 import { Riesgos } from './Riesgos';
-import React, {useEffect, useState} from 'react'
+import { UserContext } from '../../context/userContext';
+import React, {useContext, useEffect, useState} from 'react'
 import axios from "axios"
 import Swal from 'sweetalert2'
 
 export const Permisos = () => {
   const [usuarios, setUsuarios] = useState([]);
   const [guardadoCorrecto, setGuardadoCorrecto] = useState(false);
+  const [comentario, setComentario] = useState("");
+  const {state} = useContext(UserContext)
   const baseUrl = "http://localhost:3000/registrar";
 
   const fetchUsuario = async () => {
@@ -35,37 +38,14 @@ export const Permisos = () => {
   const [guardadoRiesgos, setGuardadoRiesgos] = useState(false);
   const [guardadoMedidas, setGuardadoMedidas] = useState(false);
 
-  const [checkboxProteccion, setCheckboxesProteccion] = useState({});
-  const [checkboxPeligros, setCheckboxesPeligros] = useState({});
-  const [checkboxRiesgos, setCheckboxesRiesgos] = useState({});
-  const [checkboxMedidas, setCheckboxesMedidas] = useState({});
+  const [proteccion, setCheckboxesProteccion] = useState({});
+  const [peligros, setCheckboxesPeligros] = useState({});
+  const [riesgos, setCheckboxesRiesgos] = useState({});
+  const [medidas, setCheckboxesMedidas] = useState({});
 
-  const [comentarioProteccion, setComentarioProteccion] = useState('');
-  const [comentarioPeligros, setComentarioPeligros] = useState('');
-  const [comentarioRiesgos, setComentarioRiesgos] = useState('');
-  const [comentarioMedidas, setComentarioMedidas] = useState('');
-
+  const [estado, setEstado] = useState('Pendiente')
  
-  const proteccionData = {
-    checkboxes: checkboxProteccion,
-    comentario: comentarioProteccion,
-  };
-  const peligrosData = {
-    checkboxes: checkboxPeligros,
-    comentario: comentarioPeligros,
-  };
-  const riesgosData = {
-    checkboxes: checkboxRiesgos,
-    comentario: comentarioRiesgos,
-  }; 
-  const medidasData = {
-    checkboxes: checkboxMedidas,
-    comentario: comentarioMedidas,
-  };
-
-
   const fechaEnvio = new Date()
-
   
   const handleEnviarFormulario = async () => {
     try {
@@ -77,16 +57,16 @@ export const Permisos = () => {
         guardadoMedidas
       ) {
         
-        const formulariosData = [
-          proteccionData,
-          peligrosData,
-          riesgosData,
-          medidasData,
-        ]
-
-        formulariosData.forEach(formulario => {
-          formulario.fecha = fechaEnvio;
-        });
+        const formulariosData = {
+          proteccion,
+          peligros,
+          riesgos,
+          medidas,
+          fechaEnvio,
+          estado: estado,
+          username: state.nombre,
+          comentario: comentario
+        }
 
         const response = await axios.post('http://localhost:3000/formularios', formulariosData);
 
@@ -105,11 +85,48 @@ export const Permisos = () => {
           })
         }
       } else {
+        Swal.fire({
+          icon: 'error',
+          text: 'Formulario incompleto'
+        })
         console.log('No todos los formularios están guardados correctamente');
       }
     } catch (error) {
       console.error('Error al enviar formularios', error);
     }
+  };
+
+  const submitText = async ()=>{
+    const { value: text } = await Swal.fire({
+        input: 'textarea',
+        inputLabel: 'Message',
+        inputPlaceholder: 'Type your message here...',
+        inputAttributes: {
+          'aria-label': 'Type your message here'
+        },
+        showCancelButton: true
+      })
+      
+      if (text) {
+        Swal.fire({
+          title: 'Tu comentario: ',
+          text
+        })
+       setComentario(text)
+    }
+  }
+
+  const [equipo, setEquipo] = useState({});
+
+  const handleAñadirSolicitud = (username) => {
+    setEquipo((prevEquipo) => ({
+      ...prevEquipo,
+      [username]: 'Pendiente',
+    }));
+    Swal.fire({
+      title: 'Solicitud enviada',
+      icon: 'success'
+    })
   };
 
   return (
@@ -120,22 +137,18 @@ export const Permisos = () => {
       <ProteccionPersonal 
       onGuardadoChange={setGuardadoProteccionPersonal}
       onCheckboxesChange={setCheckboxesProteccion}
-      onComentarioChange={setComentarioProteccion}
       />
       <Peligros 
       onGuardadoChange= {setGuardadoPeligros}
       onCheckboxesChange={setCheckboxesPeligros}
-      onComentarioChange={setComentarioPeligros}
       />
       <Riesgos 
       onGuardadoChange= {setGuardadoRiesgos}
       onCheckboxesChange={setCheckboxesRiesgos}
-      onComentarioChange={setComentarioRiesgos}
       />
       <Medidas 
       onGuardadoChange= {setGuardadoMedidas}
       onCheckboxesChange={setCheckboxesMedidas}
-      onComentarioChange={setComentarioMedidas}
       />
 
       <div style={{marginBottom: 30}}>
@@ -154,9 +167,14 @@ export const Permisos = () => {
                     {usuarios.map((usuario, i)=>(
                 <tr key={i}>
                      <td className='panel'>{usuario.username}</td>
-                     <td className='panel'>None</td>
                      <td className='panel'>
-                    <button type="button" className="btn btn-primary" style={{ marginRight: 15 }}>
+                        <span className={`badge ${equipo[usuario.username] === 'Aceptado' ? 'text-bg-success' : 'text-bg-danger'} rounded-pill `}>
+                          {equipo[usuario.username] || 'None'}
+                        </span>
+                     </td>
+
+                     <td className='panel'>
+                    <button onClick={() => handleAñadirSolicitud(usuario.username)} type="button" className="btn btn-primary" style={{ marginRight: 15 }}>
                       Añadir
                     </button>
                      </td>
@@ -168,7 +186,7 @@ export const Permisos = () => {
             </table>
         </div>
     </div>
-
+       <button onClick={submitText} style={{marginRight: 15}} className="btn btn-warning"> Escribe un comentario </button>
        <button type='submit' className='btn btn-primary' style={{margin: 30}} onClick={handleEnviarFormulario}>Enviar Formulario</button>
     </div>
   </>

@@ -1,23 +1,24 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import "./archivosMain.css";
+import {Link} from "react-router-dom";
 
 export const ArchivosMain = () => {
   const [formularios, setFormularios] = useState([]);
 
-  useEffect(() => {
-    const obtenerFormularios = async () => {
-      try {
-        const response = await axios.get('http://localhost:3000/formularios');
-        console.log('Respuesta:', response.data);
-        if (response.status === 200) {
-          setFormularios(response.data);
-        }
-      } catch (error) {
-        console.error('Error al obtener formularios', error);
+  const obtenerFormularios = async () => {
+    try {
+      const response = await axios.get('http://localhost:3000/formularios');
+      console.log('Respuesta:', response.data);
+      if (response.status === 200) {
+        setFormularios(response.data);
       }
-    };
+    } catch (error) {
+      console.error('Error al obtener formularios', error);
+    }
+  };
 
+  useEffect(() => {
     obtenerFormularios();
   }, []);
 
@@ -25,6 +26,7 @@ export const ArchivosMain = () => {
     try {
         await axios.put(`http://localhost:3000/formularios/${id}`, { estado: 'Aceptado' });
         console.log('Formulario Aceptado');
+        obtenerFormularios();
       } catch (error) {
         console.error('Error al actualizar el estado del formulario', error);
       }
@@ -34,12 +36,11 @@ export const ArchivosMain = () => {
     try {
       await axios.put(`http://localhost:3000/formularios/${id}`, { estado: 'Denegado' });
       console.log('Formulario Denegado');
-      
+      obtenerFormularios();
     } catch (error) {
       console.error('Error al actualizar el estado del formulario', error);
     }
   };
-
 
   return (
     <>
@@ -69,7 +70,7 @@ export const ArchivosMain = () => {
                         <span className="material-symbols-outlined"> close </span>
                     </header>
                     <p>Comentario: {formulario.comentario}</p>
-                    <button className='btn btn-info'>Ver más</button>
+                    <Link to={'/formularios'}>Ver más</Link>
                     </div>
                 </article>
                 </label>
@@ -107,7 +108,7 @@ export const ArchivosMain = () => {
                         <span className="material-symbols-outlined"> close </span>
                     </header>
                     <p>Comentario: {formulario.comentario}</p>
-                    <button className='btn btn-info'>Ver más</button>
+                    <Link to={'/formularios'}>Ver más</Link>
                     </div>
                 </article>
                 </label>

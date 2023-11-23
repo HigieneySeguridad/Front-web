@@ -30,21 +30,7 @@ export const Riesgos = ({onGuardadoChange, onCheckboxesChange}) => {
         checkbox24: false,
         checkbox25: false,
         checkbox26: false,
-        checkbox27: false,
-        checkbox28: false,
-        checkbox29: false,
-        checkbox30: false,
-        checkbox31: false,
-        checkbox32: false,
-        checkbox33: false,
-        checkbox34: false,
-        checkbox35: false,
-        checkbox36: false,
-        checkbox37: false,
-        checkbox38: false,
-        checkbox39: false,
-        checkbox40: false,
-        checkbox41: false
+        checkbox27: false
       });
 
       const handleCheckboxChange = (name) => {

@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Route, Routes} from 'react-router-dom';
 import { LandingPage } from "../views/LandingPage";
 import { Login } from "../views/Login";
 import { Permisos } from '../components/formularios/Permisos';
+import { MostrarForms } from '../components/formularios/MostrarForms';
 import { Register } from '../components/Register';
 import { PanelControl } from '../components/PanelControl';
 import { Chart } from '../components/Gráficos/Chart';
@@ -13,6 +14,7 @@ import OperarioRoutes from "./OperarioRoutes"
 import { Aside } from '../components/Aside';
 import { Dashboard } from '../components/Dashboard/Dashboard';
 import { ArchivosMain } from '../components/Archivos/ArchivosMain';
+
 
 export const AppRouter = () => {
   return (
@@ -28,6 +30,7 @@ export const AppRouter = () => {
             <Route element={<> <Aside/> <PrivateRoutes/> </>}>
 
             <Route element={<AdminRoutes/>}>
+              <Route path='/formularios' element={<MostrarForms/>}/>
               <Route path='/dashboard' element={<Dashboard/>}/> 
               <Route path='/panel' element={<PanelControl/>}/> 
               <Route path='/register' element={<Register/>}/>

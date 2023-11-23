@@ -1,11 +1,12 @@
-import { Medidas } from './Medidas';
-import { Peligros } from './Peligros';
-import { ProteccionPersonal } from './ProteccionPersonal';
-import { Riesgos } from './Riesgos';
+import { Medidas } from './PostFormularios/Medidas';
+import { Peligros } from './PostFormularios/Peligros';
+import { ProteccionPersonal } from './PostFormularios/ProteccionPersonal';
+import { Riesgos } from './PostFormularios/Riesgos';
 import { UserContext } from '../../context/userContext';
-import React, {useContext, useEffect, useState} from 'react'
+import {useContext, useEffect, useState} from 'react'
 import axios from "axios"
 import Swal from 'sweetalert2'
+import { HeaderTable } from './PostFormularios/HeaderTable';
 
 export const Permisos = () => {
   const [usuarios, setUsuarios] = useState([]);
@@ -131,9 +132,9 @@ export const Permisos = () => {
 
   return (
   <>
+  <div style={{display: "grid", placeItems: 'center'}}>
+    <HeaderTable/>
     <div className='container'>
-      <h2 className="section-title" style={{color: "#012970"}}>Análisis de Trabajo Seguro</h2>
-
       <ProteccionPersonal 
       onGuardadoChange={setGuardadoProteccionPersonal}
       onCheckboxesChange={setCheckboxesProteccion}
@@ -150,6 +151,18 @@ export const Permisos = () => {
       onGuardadoChange= {setGuardadoMedidas}
       onCheckboxesChange={setCheckboxesMedidas}
       />
+    <div className='table-responsive'>
+      <table className="table table-striped table-sm">
+        <thead>
+          <tr>
+            <th colSpan={6} style={{background: 'skyblue'}}>Maquinaria y Equipos:</th>
+          </tr>
+        </thead>
+        <tbody>
+          <input type="text" style={{width: 1280, height: 100}} placeholder='Observaciones: '/>
+        </tbody>
+      </table>
+    </div>
 
       <div style={{marginBottom: 30}}>
       <h2 className='section-title' style={{color: "#012970"}}>Equipo de Trabajo</h2>
@@ -184,12 +197,15 @@ export const Permisos = () => {
                     
                 </tbody>
             </table>
-        </div>
+     </div>
     </div>
+
        <button onClick={submitText} style={{marginRight: 15}} className="btn btn-warning"> Escribe un comentario </button>
        <button type='submit' className='btn btn-primary' style={{margin: 30}} onClick={handleEnviarFormulario}>Enviar Formulario</button>
     </div>
+  </div>
   </>
+
   )
 }
 

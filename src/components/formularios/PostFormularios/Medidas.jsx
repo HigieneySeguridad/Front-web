@@ -2,7 +2,9 @@ import Swal from "sweetalert2"
 import { useState } from "react";
 
 export const Medidas = ({onGuardadoChange, onCheckboxesChange}) => {
+  
     const [guardado, setGuardado] = useState(false);
+    /* const [checkboxValues, setCheckboxValues] = useState({}); */
     const [checkboxValues, setCheckboxValues] = useState({
         checkbox1: false,
         checkbox2: false,
@@ -53,6 +55,8 @@ export const Medidas = ({onGuardadoChange, onCheckboxesChange}) => {
           [name]: !checkboxValues[name],
         });
       };
+
+     /*  const checkboxes = Array.from({ length: 36 }, (_, index) => index + 1); */
 
       const checkboxesSeleccionados = Object.keys(checkboxValues)
       .filter((key) => checkboxValues[key])
@@ -105,8 +109,9 @@ export const Medidas = ({onGuardadoChange, onCheckboxesChange}) => {
     </thead>
     <tbody>
       
-            <tr>
-            <td><div className="form-check form-switch"><input type="checkbox" className="form-check-input"  id="flexSwitchCheckDefault" checked={checkboxValues.checkbox1} onChange={() => handleCheckboxChange('checkbox1')} /> A- Ojos y mente en tarea</div></td>
+        <tr>
+        {/* <td>{checkboxes.map((checkbox) => (<div className="form-check form-switch"><input type="checkbox" className="form-check-input"  id="flexSwitchCheckDefault" checked={checkboxValues[`checkbox${checkbox}`] || false}  onChange={() => handleCheckboxChange(`checkbox${checkbox}`)} /> A- Ojos y mente en tarea</div> ))}</td> */}
+            <td><div className="form-check form-switch"><input type="checkbox" className="form-check-input"  id="flexSwitchCheckDefault" checked={checkboxValues.checkbox1}  onChange={() => handleCheckboxChange('checkbox1')} /> A- Ojos y mente en tarea</div></td>
             <td><div className="form-check form-switch"><input type="checkbox" className="form-check-input"  id="flexSwitchCheckDefault" checked={checkboxValues.checkbox2} onChange={() => handleCheckboxChange('checkbox2')} /> K- Señalización/delimitación</div></td>
             <td><div className="form-check form-switch"><input type="checkbox" className="form-check-input"  id="flexSwitchCheckDefault" checked={checkboxValues.checkbox3} onChange={() => handleCheckboxChange('checkbox3')} /> T- Luces Encendidas</div></td>
             <td><div className="form-check form-switch"><input type="checkbox" className="form-check-input"  id="flexSwitchCheckDefault" checked={checkboxValues.checkbox4} onChange={() => handleCheckboxChange('checkbox4')} /> AD- Kit antiderrame</div></td>

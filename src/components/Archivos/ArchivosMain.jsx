@@ -22,31 +22,12 @@ export const ArchivosMain = () => {
     obtenerFormularios();
   }, []);
 
-  const handleAceptar = async (id) => {
-    try {
-        await axios.put(`http://localhost:3000/formularios/${id}`, { estado: 'Aceptado' });
-        console.log('Formulario Aceptado');
-        obtenerFormularios();
-      } catch (error) {
-        console.error('Error al actualizar el estado del formulario', error);
-      }
-  };
-
-  const handleRechazar = async (id) => {
-    try {
-      await axios.put(`http://localhost:3000/formularios/${id}`, { estado: 'Denegado' });
-      console.log('Formulario Denegado');
-      obtenerFormularios();
-    } catch (error) {
-      console.error('Error al actualizar el estado del formulario', error);
-    }
-  };
-
   return (
     <>
       <h2 className='section-title' style={{ color: 'grey' }}>Historial de Formularios</h2>
-      <h4>Formularios Pendientes:</h4>
+
     <div className='container-archivos'>
+    <h3>Formularios Pendientes:</h3>
         <div className="cards-archivos">    
           {formularios
           .filter(formulario => formulario.estado === 'Pendiente')
@@ -58,7 +39,6 @@ export const ArchivosMain = () => {
                     <div className="front">
                     <header>
                         <h3>Formulario {formularioIndex + 1}</h3>
-                        <span className="material-symbols-outlined">open</span>
                     </header>
                     <var>{formularioIndex + 1}</var>
                     <h6>User: {formulario.username}</h6>
@@ -67,24 +47,22 @@ export const ArchivosMain = () => {
                     <div className="back">
                     <header>
                         <h3>Formulario {formularioIndex + 1}</h3>
-                        <span className="material-symbols-outlined"> close </span>
                     </header>
-                    <p>Comentario: {formulario.comentario}</p>
-                    <Link to={'/formularios'}>Ver más</Link>
+                    <button className='btn btn-info'>
+                    <Link to={'/formularios/'+formulario._id}>Ver más</Link>
+                    </button>
                     </div>
                 </article>
                 </label>
-                <div className='botonesGrupo'>
-                  <button style={{ marginRight: 15 }} className="btn btn-success" onClick={() => handleAceptar(formulario._id)}>Aceptar</button>
-                  <button style={{ marginRight: 15 }} className="btn btn-danger" onClick={() => handleRechazar(formulario._id)}>Rechazar</button>
-                </div>
+                
             </div>
             ))} 
         </div>
     </div>
         
-    <h4>Formularios Aceptados:</h4>
-    <div className='container-archivos'>
+
+    <div className='aceptados'>
+    <h3>Formularios Aceptados:</h3>
         <div className="cards-archivos">    
           {formularios
           .filter(formulario => formulario.estado === 'Aceptado')
@@ -96,7 +74,6 @@ export const ArchivosMain = () => {
                     <div className="front">
                     <header>
                         <h3>Formulario {formularioIndex + 1}</h3>
-                        <span className="material-symbols-outlined">open</span>
                     </header>
                     <var>{formularioIndex + 1}</var>
                     <h6>User: {formulario.username}</h6>
@@ -105,10 +82,10 @@ export const ArchivosMain = () => {
                     <div className="back">
                     <header>
                         <h3>Formulario {formularioIndex + 1}</h3>
-                        <span className="material-symbols-outlined"> close </span>
                     </header>
-                    <p>Comentario: {formulario.comentario}</p>
-                    <Link to={'/formularios'}>Ver más</Link>
+                    <button className='btn btn-info'>
+                    <Link to={'/formularios/'+formulario._id}>Ver más</Link>
+                    </button>
                     </div>
                 </article>
                 </label>
@@ -116,8 +93,9 @@ export const ArchivosMain = () => {
             ))} 
         </div>
     </div>
-    <h4>Formularios Denegados:</h4>
-    <div className='container-archivos'>
+
+    <div className='rechazados'>
+    <h3>Formularios Denegados:</h3>
         <div className="cards-archivos">    
           {formularios
           .filter(formulario => formulario.estado === 'Denegado')
@@ -129,7 +107,6 @@ export const ArchivosMain = () => {
                     <div className="front">
                     <header>
                         <h3>Formulario {formularioIndex + 1}</h3>
-                        <span className="material-symbols-outlined">open</span>
                     </header>
                     <var>{formularioIndex + 1}</var>
                     <h6>User: {formulario.username}</h6>
@@ -138,10 +115,10 @@ export const ArchivosMain = () => {
                     <div className="back">
                     <header>
                         <h3>Formulario {formularioIndex + 1}</h3>  
-                        <span className="material-symbols-outlined"> close </span>
                     </header>
-                    <p>Comentario: {formulario.comentario}</p>
-                    <button className='btn btn-info'>Ver más</button>
+                    <button className='btn btn-info'>
+                    <Link to={'/formularios/'+formulario._id}>Ver más</Link>
+                    </button>
                     </div>
                 </article>
                 </label>

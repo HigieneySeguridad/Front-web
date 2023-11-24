@@ -283,10 +283,22 @@ table {
 }
 th {
   text-align: center;
-  background-color: #f17a0b;
   padding: 10px;
   color: rgb(22, 21, 21);
   border: 2px solid #020407;
+}
+.users {
+  text-align: center;
+  padding: 10px;
+  background-color: #0bf1da;
+  color: rgb(22, 21, 21);
+  border: 2px solid #020407;
+}
+
+.th {
+  background-color: #0bf1da;
+  padding: 10px;
+  color: rgb(22, 21, 21);
 }
 
 td {
@@ -294,6 +306,9 @@ td {
   padding: 10px;
   color: black;
   border: 2px solid #000308;
+}
+tr {
+  text-align: left;
 }
 table span {
   color: black;

@@ -30,7 +30,7 @@ export const AppRouter = () => {
             <Route element={<> <Aside/> <PrivateRoutes/> </>}>
 
             <Route element={<AdminRoutes/>}>
-              <Route path='/formularios' element={<MostrarForms/>}/>
+              <Route path='/formularios/:id' element={<MostrarForms/>}/>
               <Route path='/dashboard' element={<Dashboard/>}/> 
               <Route path='/panel' element={<PanelControl/>}/> 
               <Route path='/register' element={<Register/>}/>

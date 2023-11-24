@@ -33,13 +33,14 @@ export const Permisos = () => {
   useEffect(() => {
     fetchUsuario();
   }, []);
-
+  const [guardadoHeader, setGuardadoHeader] = useState(false)
   const [guardadoProteccionPersonal, setGuardadoProteccionPersonal] = useState(false);
   const [guardadoPeligros, setGuardadoPeligros] = useState(false);
   const [guardadoRiesgos, setGuardadoRiesgos] = useState(false);
   const [guardadoMedidas, setGuardadoMedidas] = useState(false);
 
   const [proteccion, setCheckboxesProteccion] = useState({});
+  const [header, setCheckboxesHeader] = useState({});
   const [peligros, setCheckboxesPeligros] = useState({});
   const [riesgos, setCheckboxesRiesgos] = useState({});
   const [medidas, setCheckboxesMedidas] = useState({});
@@ -52,6 +53,7 @@ export const Permisos = () => {
     try {
      
       if (
+        guardadoHeader &&
         guardadoProteccionPersonal &&
         guardadoPeligros &&
         guardadoRiesgos &&
@@ -59,6 +61,7 @@ export const Permisos = () => {
       ) {
         
         const formulariosData = {
+          header,
           proteccion,
           peligros,
           riesgos,
@@ -66,7 +69,15 @@ export const Permisos = () => {
           fechaEnvio,
           estado: estado,
           username: state.nombre,
-          comentario: comentario
+          comentario: comentario,
+          empresa,
+          area,
+          yacimiento,
+          permisoTrabajo,
+          tarea,
+          pasos,
+          observaciones: observaciones,
+          textArea
         }
 
         const response = await axios.post('http://localhost:3000/formularios', formulariosData);
@@ -118,6 +129,34 @@ export const Permisos = () => {
   }
 
   const [equipo, setEquipo] = useState({});
+  const [empresa, setEmpresa] = useState('');
+  const [area, setArea] = useState('');
+  const [yacimiento, setYacimiento] = useState('');
+  const [permisoTrabajo, setPermisoTrabajo] = useState(0);
+  const [tarea, setTarea] = useState('');
+  const [pasos, setPasos] = useState('');
+  const [observaciones, setObservaciones] = useState('')
+
+
+  const [textArea, setTextArea] = useState({
+    textArea1: '',
+    textArea2: '',
+    textArea3: '',
+    textArea4: '',
+    textArea5: '',
+    textArea6: '',
+    textArea7: '',
+    textArea8: '',
+    textArea9: '',
+    textArea10: '',
+    textArea11: '',
+    textArea12: '',
+    textArea13: '',
+    textArea14: '',
+    textArea15: '',
+    textArea16: ''
+  })
+
 
   const handleAñadirSolicitud = (username) => {
     setEquipo((prevEquipo) => ({
@@ -133,7 +172,17 @@ export const Permisos = () => {
   return (
   <>
   <div style={{display: "grid", placeItems: 'center'}}>
-    <HeaderTable/>
+    <HeaderTable
+    onGuardadoChange={setGuardadoHeader}
+    onCheckboxesChange={setCheckboxesHeader}
+    onEmpresaChange={setEmpresa}
+    onYacimientoChange={setYacimiento}
+    onAreaChange={setArea}
+    onPermisoTrabajoChange={setPermisoTrabajo}
+    onTareaChange={setTarea}
+    onPasosChange={setPasos}
+    onTextAreaChange={setTextArea}
+    />
     <div className='container'>
       <ProteccionPersonal 
       onGuardadoChange={setGuardadoProteccionPersonal}
@@ -151,17 +200,10 @@ export const Permisos = () => {
       onGuardadoChange= {setGuardadoMedidas}
       onCheckboxesChange={setCheckboxesMedidas}
       />
-    <div className='table-responsive'>
-      <table className="table table-striped table-sm">
-        <thead>
-          <tr>
-            <th colSpan={6} style={{background: 'skyblue'}}>Maquinaria y Equipos:</th>
-          </tr>
-        </thead>
-        <tbody>
-          <input type="text" style={{width: 1280, height: 100}} placeholder='Observaciones: '/>
-        </tbody>
-      </table>
+
+    <div className="mb-3">
+        <label for="exampleFormControlTextarea1" className="form-label" style={{color:'#32CD32'}}>Observaciones:</label>
+        <textarea className="form-control" id="exampleFormControlTextarea1" placeholder='Necesito...' rows="2" value={observaciones} onChange={(e) => setObservaciones(e.target.value)}></textarea>
     </div>
 
       <div style={{marginBottom: 30}}>
@@ -170,9 +212,9 @@ export const Permisos = () => {
             <table>
                 <thead>
                     <tr>
-                        <th>Compañeros</th>
-                        <th>Estado de Solicitud</th>
-                        <th>Acciones</th>
+                        <th className='users'>Compañeros</th>
+                        <th className='users'>Estado de Solicitud</th>
+                        <th className='users'>Acciones</th>
                         
                     </tr>
                 </thead>

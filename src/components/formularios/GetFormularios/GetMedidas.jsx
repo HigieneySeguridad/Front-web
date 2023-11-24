@@ -1,7 +1,10 @@
 import React, {useState, useEffect} from 'react'
 import axios from 'axios'
+import { useParams } from 'react-router-dom'
 
 export const GetMedidas = () => {
+  
+  const { id } = useParams()
     const [checkboxValues, setCheckboxValues] = useState({
         checkbox1: false,
         checkbox2: false,
@@ -43,10 +46,10 @@ export const GetMedidas = () => {
 
       const traerForm = async () => {
         try {
-          const response = await axios.get('http://localhost:3000/formularios');
+          const response = await axios.get(`http://localhost:3000/formularios/${id}`);
           if (response.status === 200) {
             // Filtrar los formularios de Protección y establecer los valores de los checkboxes
-            const formulariosMedidas = response.data[1].medidas;
+            const formulariosMedidas = response.data.medidas;
             setCheckboxValues(formulariosMedidas);
           }
         } catch (error) {

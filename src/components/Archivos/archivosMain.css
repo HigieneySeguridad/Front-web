@@ -2,16 +2,30 @@
     margin: 0;
     display: grid;
     place-items: center;
-    background: #f1f5f9;
-    color: #1e293b;
+    color: #1f4583;
+    background-image: linear-gradient(175deg, #ffd66f 0, #faca61 25%, #f2bd53 50%, #eab045 75%, #e3a437 100%);
+  }
+  .aceptados {
+    margin: 0;
+    display: grid;
+    place-items: center;
+    color:#22c55e;
     font-family: "Euclid Circular A", "Poppins";
-    border: 1px solid #1e293b;
+    background-image: linear-gradient(180deg, #b9f27d 0, #a4ec79 16.67%, #8be373 33.33%, #6cd86c 50%, #47cd66 66.67%, #00c464 83.33%, #00bd65 100%);
+  }
+  .rechazados {
+    margin: 0;
+    display: grid;
+    place-items: center;
+    color:rgb(231, 100, 12);
+    font-family: "Euclid Circular A", "Poppins";
+    background-image: linear-gradient(180deg, #f19583 0, #e68379 25%, #d86c6c 50%, #c95561 75%, #bd425b 100%);
   }
   
   
   .cards-archivos {
     display: flex;
-    gap: 20px;
+    gap: 30px;
     margin-top: 5%;
     
   }
@@ -20,6 +34,7 @@
     position: relative;
     width: 250px;
     height: 300px;
+  
   }
   
   article header {

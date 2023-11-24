@@ -66,6 +66,7 @@ export const Medidas = ({onGuardadoChange, onCheckboxesChange}) => {
       }, {});
 
       const [tableEnabled, setTableEnabled] = useState(true);
+      
       const disabledTable = () => {
             setTableEnabled(false);
       };

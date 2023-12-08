@@ -1,0 +1,18 @@
+.revelar {
+    position: absolute;
+    top: 46.5%;
+    right: 40px;
+    width: 30px;
+    height: 30px;
+    background: transparent;
+    border: 0;
+    cursor: pointer;
+  }
+  .roles{
+    height: 50px;
+    background: transparent;
+    color: black;
+    border: 2px solid #333;
+    border-radius: 10px;
+    padding-left: 10px;
+  }

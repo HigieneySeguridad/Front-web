@@ -11,7 +11,6 @@ import { useNavigate } from 'react-router-dom';
 export const MostrarForms = () => {
     const navigate = useNavigate();
     const { id } = useParams()
-    console.log(id)
 
   const [checkboxValues, setCheckboxValues] = useState({
     checkbox1: false,
@@ -53,12 +52,11 @@ export const MostrarForms = () => {
   const [Yacimiento, setYacimiento] = useState('');
   const [Tarea, setTarea ] = useState('');
   const [Pasos, setPasos] = useState('');
-
+  const [estado, setEstado] = useState('')
   const traerForm = async () => {
     try {
       const response = await axios.get(`http://localhost:3000/formularios/${id}`);
       if (response.status === 200) {
-        // Filtrar los formularios de Protección y establecer los valores de los checkboxes
         const formularioHeader = response.data;
         setCheckboxValues(formularioHeader.header);
         setEmpresaLocal(formularioHeader.empresa)
@@ -68,6 +66,7 @@ export const MostrarForms = () => {
         setTarea(formularioHeader.tarea)
         setPasos(formularioHeader.pasos)
         setTextArea(formularioHeader.textArea)
+        setEstado(formularioHeader.estado)
       }
     } catch (error) {
       console.log(error);
@@ -82,7 +81,7 @@ export const MostrarForms = () => {
   const tableStyle = {
     opacity: 0.7,
     cursor: "not-allowed",
-    width: 1200,
+    width: 1000,
     height: 400,
     marginTop: 20
   };
@@ -128,9 +127,9 @@ export const MostrarForms = () => {
   };
 
   return (
-    <div style={{display: "grid", placeItems: 'center'}}>
+    <div style={{display: "grid", placeItems: 'center', }}>
     <div>
-        <h2 className='section-title' style={{color: 'blueviolet'}}>ATS- ANALISIS DE TRABAJO SEGURO</h2>
+        <h2 className='section-title' style={{color: 'blueviolet', marginTop: 70}}>ATS- ANALISIS DE TRABAJO SEGURO</h2>
       <div className="mb-3">
         <label for="exampleFormControlInput1" className="form-label" style={{color:'black'}}>Empresa: {empresaLocal}</label> <br />
         <label for="exampleFormControlInput1" className="form-label" style={{color:'black'}}>Yacimiento: {Yacimiento}</label> <br />
@@ -281,10 +280,13 @@ export const MostrarForms = () => {
       <GetRiesgos/>
       <GetMedidas/>
 
-      <div className='botonesGrupo'>
-            <button style={{ marginRight: 15 }} className="btn btn-success" onClick={handleAceptar}>Aceptar</button>
-            <button style={{ marginRight: 15 }} className="btn btn-danger" onClick={handleRechazar}>Rechazar</button>
-      </div>
+ {estado === "Pendiente" && (
+  <div className='botonesGrupo'>
+  <button style={{ marginRight: 15 }} className="btn btn-success" onClick={handleAceptar}>Aceptar</button>
+  <button style={{ marginRight: 15 }} className="btn btn-danger" onClick={handleRechazar}>Rechazar</button>
+ </div>
+ )}
+    
     </div>
   )
 }

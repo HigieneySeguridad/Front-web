@@ -1,118 +1,123 @@
-.container-archivos {
-    margin: 0;
-    display: grid;
-    place-items: center;
-    color: #1f4583;
-    background-image: linear-gradient(175deg, #ffd66f 0, #faca61 25%, #f2bd53 50%, #eab045 75%, #e3a437 100%);
+.bd-placeholder-img {
+  font-size: 1.125rem;
+  text-anchor: middle;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+
+@media (min-width: 768px) {
+  .bd-placeholder-img-lg {
+    font-size: 3.5rem;
   }
-  .aceptados {
-    margin: 0;
-    display: grid;
-    place-items: center;
-    color:#22c55e;
-    font-family: "Euclid Circular A", "Poppins";
-    background-image: linear-gradient(180deg, #b9f27d 0, #a4ec79 16.67%, #8be373 33.33%, #6cd86c 50%, #47cd66 66.67%, #00c464 83.33%, #00bd65 100%);
-  }
-  .rechazados {
-    margin: 0;
-    display: grid;
-    place-items: center;
-    color:rgb(231, 100, 12);
-    font-family: "Euclid Circular A", "Poppins";
-    background-image: linear-gradient(180deg, #f19583 0, #e68379 25%, #d86c6c 50%, #c95561 75%, #bd425b 100%);
-  }
-  
-  
-  .cards-archivos {
-    display: flex;
-    gap: 30px;
-    margin-top: 5%;
-    
-  }
-  
-  article {
-    position: relative;
-    width: 250px;
-    height: 300px;
-  
-  }
-  
-  article header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 40px;
-    margin-bottom: 26px;
-  }
-  
-  article header h2 {
-    font-size: 20px;
-  }
-  
-  article .front,
-  article .back {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    text-align: center;
-    backface-visibility: hidden;
-    background: #ffffff;
-    border-radius: 10px;
-    box-shadow: rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px,
-      rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.1) 0px 1px 2px -1px;
-    padding: 24px;
-    transition: 0.6s;
-    cursor: pointer;
-  }
-  
-  .back {
-    transform: rotateY(180deg);
-  }
-  
- .check {
-    position: absolute;
-    scale: 0;
-  }
-  
-  .check:checked ~ article .back {
-    transform: rotateY(0);
-  }
-  
-  .check:checked ~ article .front {
-    transform: rotateY(-180deg);
-  }
-  
-  article var {
-    font-style: normal;
-    font-size: 80px;
-    line-height: 1;
-  }
-  
-  article h3 {
-    margin: 0 0 30px;
-    font-weight: 500;
-  }
-  
-  #summary :is(var, h3) {
-    color: #3b82f6;
-  }
-  
-  #overdue :is(var, h3) {
-    color: #ef4444;
-  }
-  
-  #features :is(var, h3) {
-    color: #22c55e;
-  }
-  
-  article :is(h4, p) {
-    opacity: 0.5;
-    font-size: 20px;
-  }
-  
-  article p {
-    margin-top: 76px;
-  }
-  
+}
+
+.b-example-divider {
+  width: 100%;
+  height: 3rem;
+  background-color: rgba(0, 0, 0, .1);
+  border: solid rgba(0, 0, 0, .15);
+  border-width: 1px 0;
+  box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
+}
+
+.b-example-vr {
+  flex-shrink: 0;
+  width: 1.5rem;
+  height: 100vh;
+}
+
+.bi {
+  vertical-align: -.125em;
+  fill: currentColor;
+}
+
+.nav-scroller {
+  position: relative;
+  z-index: 2;
+  height: 2.75rem;
+  overflow-y: hidden;
+}
+
+.nav-scroller .nav {
+  display: flex;
+  flex-wrap: nowrap;
+  padding-bottom: 1rem;
+  margin-top: -1px;
+  overflow-x: auto;
+  text-align: center;
+  white-space: nowrap;
+  -webkit-overflow-scrolling: touch;
+}
+
+.btn-bd-primary {
+  --bd-violet-bg: #712cf9;
+  --bd-violet-rgb: 112.520718, 44.062154, 249.437846;
+
+  --bs-btn-font-weight: 600;
+  --bs-btn-color: var(--bs-white);
+  --bs-btn-bg: var(--bd-violet-bg);
+  --bs-btn-border-color: var(--bd-violet-bg);
+  --bs-btn-hover-color: var(--bs-white);
+  --bs-btn-hover-bg: #6528e0;
+  --bs-btn-hover-border-color: #6528e0;
+  --bs-btn-focus-shadow-rgb: var(--bd-violet-rgb);
+  --bs-btn-active-color: var(--bs-btn-hover-color);
+  --bs-btn-active-bg: #5a23c8;
+  --bs-btn-active-border-color: #5a23c8;
+}
+
+.bd-mode-toggle {
+  z-index: 1500;
+}
+
+.bd-mode-toggle .dropdown-menu .active .bi {
+  display: block !important;
+}
+
+.feature-icon {
+  width: 3rem;
+  height: 3rem;
+  border-radius: .75rem;
+}
+
+.icon-square {
+  width: 3rem;
+  height: 3rem;
+  border-radius: .75rem;
+}
+
+.text-shadow-1 { text-shadow: 0 .125rem .25rem rgba(0, 0, 0, .25); }
+.text-shadow-2 { text-shadow: 0 .25rem .5rem rgba(0, 0, 0, .25); }
+.text-shadow-3 { text-shadow: 0 .5rem 1.5rem rgba(0, 0, 0, .25); }
+
+.card-cover {
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+}
+
+.feature-icon-small {
+  width: 3rem;
+  height: 3rem;
+}
+
+.scrollable-section {
+  max-height: 500px; /* Establece la altura máxima para la sección */
+  overflow-y: auto; /* Añade una barra de desplazamiento vertical cuando sea necesario */
+}
+
+.tabla-peque {
+  width: 50%; /* Puedes ajustar este valor según sea necesario */
+  font-size: 0.8em; /* Ajusta el tamaño de la fuente */
+}
+
+.tabla-peque th, .tabla-peque td {
+  padding: 5px; /* Ajusta el espacio interno de las celdas */
+}
+
+.tabla-maspeque {
+  width: 50%; /* Puedes ajustar este valor según sea necesario */
+  font-size: 0.7em; /* Ajusta el tamaño de la fuente */
+}
+

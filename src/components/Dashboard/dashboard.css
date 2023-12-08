@@ -46,3 +46,9 @@
 .navbar .form-control {
   padding: .75rem 1rem;
 }
+
+#contenedorChart{
+  display: flex;
+  place-items: center;
+  margin-bottom: 100px;
+ }

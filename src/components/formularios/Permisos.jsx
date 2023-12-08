@@ -183,7 +183,7 @@ export const Permisos = () => {
     onPasosChange={setPasos}
     onTextAreaChange={setTextArea}
     />
-    <div className='container'>
+    <div>
       <ProteccionPersonal 
       onGuardadoChange={setGuardadoProteccionPersonal}
       onCheckboxesChange={setCheckboxesProteccion}
@@ -208,7 +208,7 @@ export const Permisos = () => {
 
       <div style={{marginBottom: 30}}>
       <h2 className='section-title' style={{color: "#012970"}}>Equipo de Trabajo</h2>
-      <div className='small'>
+      <div className="table table-striped table-sm">
             <table>
                 <thead>
                     <tr>

@@ -40,6 +40,7 @@ export const HeaderTable = ({onGuardadoChange, onCheckboxesChange, onEmpresaChan
   const tableStyle = {
     opacity: tableEnabled ? 1 : 0.5,
     cursor: tableEnabled ? "auto" : "not-allowed",
+    width: 1000,
   };
 
   const [empresaLocal, setEmpresaLocal] = useState('');
@@ -104,7 +105,7 @@ export const HeaderTable = ({onGuardadoChange, onCheckboxesChange, onEmpresaChan
   return (
     <>
     <div>
-        <h2 className='section-title' style={{color: 'blueviolet'}}>ATS- ANALISIS DE TRABAJO SEGURO</h2>
+        <h2 className='section-title' style={{color: 'blueviolet', marginTop: 70}}>ATS- ANALISIS DE TRABAJO SEGURO</h2>
       <div className="mb-3">
         <label for="exampleFormControlInput1" className="form-label" style={{color:'#32CD32'}}>Empresa:</label>
         <input type="text" className="form-control" id="exampleFormControlInput1" placeholder="Refsa..." value={empresaLocal} onChange={(e) => setEmpresaLocal(e.target.value)}/>

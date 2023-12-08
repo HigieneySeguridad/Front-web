@@ -74,6 +74,7 @@ export const Medidas = ({onGuardadoChange, onCheckboxesChange}) => {
       const tableStyle = {
         opacity: tableEnabled ? 1 : 0.5,
         cursor: tableEnabled ? "auto" : "not-allowed",
+        width: 1000,
       };
     
     const guardarFormulario = async () => {

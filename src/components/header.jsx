@@ -8,8 +8,8 @@ export const Header = () => {
       <div className="container">
       <header className="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
         <a href="/" className="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
-          <img src="/img/icono.png" height='30' width='30'/>
-          <span className="fs-4">Poloseg</span>
+          <img src="/assets/img/icono.png" height='30' width='30'/>
+          <span className="fs-4" style={{color: 'blue'}}>Poloseg</span>
         </a>
   
         <ul className="nav nav-pills">
@@ -37,30 +37,6 @@ export const Header = () => {
           
           <li className="nav-item"><a href="#" className="nav-link link-secondary">Admin</a></li>
           <li className="nav-item"><a href="#" className="nav-link link-secondary">Operario</a></li>
-          <li className="nav-item"><a href="#" className="nav-link link-secondary">Inspector</a></li>
-          <li className="nav-item"><a href="#" className="nav-link link-secondary">Inspector-Ext</a></li>
-         
-
-        </ul>
-      </header>
-    </div>
-           
-    );
-  }
-
-  if (location.pathname === '/panel') {
-    return (
-      <div className="container">
-      <header className="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
-        <a href="/" className="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
-          <img src="/img/icono.png" height='30' width='30'/>
-          <span className="fs-4">Poloseg</span>
-        </a>
-  
-        <ul className="nav nav-pills">
-          
-          <li className="nav-item"><a href="#" className="nav-link link-secondary">Admin</a></li>
-          <li className="nav-item"><a href="#" className="nav-link link-secondary">Operadores</a></li>
           <li className="nav-item"><a href="#" className="nav-link link-secondary">Inspector</a></li>
           <li className="nav-item"><a href="#" className="nav-link link-secondary">Inspector-Ext</a></li>
          

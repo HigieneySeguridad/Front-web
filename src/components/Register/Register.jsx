@@ -1,10 +1,10 @@
 import { useState } from 'react';
-import { Header } from "../Header"
 import Swal from 'sweetalert2'
 import './Register.css'
 
 export const Register = () => {
   const [username, setUsername] = useState('');
+  const [nombreCompleto, setNombreCompleto] = useState('');
   const [password, setPassword] = useState('');
   const [role, setRole] = useState('Operario');
   const [showPassword, setShowPassword] = useState(false);
@@ -22,6 +22,8 @@ export const Register = () => {
       setPassword(value);
     } else if (name === 'role') {
       setRole(value)
+    } else if (name === 'nombreCompleto'){
+      setNombreCompleto(value)
     }
   }
 
@@ -31,7 +33,8 @@ export const Register = () => {
     const crearUsuario = {
         username,
         password,
-        role
+        role,
+        nombreCompleto
     }
         const respuesta = await fetch('http://localhost:3000/registrar', {
         method: 'POST',
@@ -59,9 +62,19 @@ export const Register = () => {
 
   return ( 
     <>
-    <Header/>
 <form onSubmit={handleSubmit} className='form'>
 <h2 className='form-h2'>Crear Usuario</h2>
+  <div className="flex-column"><label>Nombre Completo</label></div>
+  <input
+          type="text"
+          name="nombreCompleto"
+          value={nombreCompleto}
+          onChange={handleInputChange}
+          placeholder='Nombre y Apellido..'
+          className="inputForm"
+          required
+        />
+
   <div className="flex-column"><label>Usuario</label></div>
     <input
           type="text"
@@ -98,11 +111,11 @@ export const Register = () => {
         required
       > 
         <option value="Operario">Operario</option>
-        <option value="Inspector">Inspector</option>
-        <option value="Inspector-Externo">Inspector Externo</option>
+        <option value="Supervisor">Supervisor</option>
      </select>
-  <button type="submit" style={{height: 50}} className="button-submit">Crear usuario</button> <br />
-<img src="./assets/img/icono.png"  style={{marginTop: 25}} className='iconoForm'/>
+     <div id='crear'><button type="submit" className="btn btn-info">Crear usuario</button></div>
+ <br />
+<img src="./assets/img/icono.png"  style={{marginTop: 10}} className='iconoForm'/>
 <p className= 'p '>@ Coryright POLOSEG Formosa 2023</p>
 </form>
 

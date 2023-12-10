@@ -14,8 +14,6 @@ export const Header = () => {
   
         <ul className="nav nav-pills">
           
-          <li className="nav-item"><a href="#" className="nav-link link-secondary">Recuperar Contraseña</a></li>
-          <li className="nav-item"><a href="#" className="nav-link link-secondary">Solicitar</a></li>
           <li className="nav-item"><a href="/" className="nav-link">Inicio</a></li>
          
         </ul>
@@ -24,29 +22,6 @@ export const Header = () => {
     );
   }
 
-  if (location.pathname === '/register') {
-    return (
-      <div className="container">
-      <header className="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
-        <a href="/" className="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
-          <img src="/img/icono.png" height='30' width='30'/>
-          <span className="fs-4">Poloseg</span>
-        </a>
-  
-        <ul className="nav nav-pills">
-          
-          <li className="nav-item"><a href="#" className="nav-link link-secondary">Admin</a></li>
-          <li className="nav-item"><a href="#" className="nav-link link-secondary">Operario</a></li>
-          <li className="nav-item"><a href="#" className="nav-link link-secondary">Inspector</a></li>
-          <li className="nav-item"><a href="#" className="nav-link link-secondary">Inspector-Ext</a></li>
-         
-
-        </ul>
-      </header>
-    </div>
-           
-    );
-  }
 
   if (location.pathname === '/') {
     return (

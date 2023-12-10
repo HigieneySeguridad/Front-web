@@ -8,7 +8,7 @@ const AdminRoutes = () => {
     const {state} = useContext(UserContext);
 
   return (
-    state.role === "Admin" ? <Outlet/> : <Navigate to={'/permisos'}/> //Operario
+    state.role === "Admin" || state.role === "Supervisor" ? <Outlet/> : <Navigate to={'/permisos'}/> //Operario
   )
 }
 

@@ -1,12 +1,12 @@
 import "./aside.css"
 import {Link} from "react-router-dom";
-import {useState, useContext } from "react";
+import {useState, useContext, useEffect } from "react";
 import { UserContext } from "../../context/userContext";
 
-
 export const Aside = () => {
+
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
-  const { state } = useContext(UserContext);
+  const { state, notificaciones, setNotificaciones, socket } = useContext(UserContext);
 
 
   const toggleSidebar = () => {
@@ -23,6 +23,35 @@ export const Aside = () => {
     }
   };
   
+
+  const getNotificaciones = async () =>{
+    const peticion = await fetch('http://localhost:3000/notificaciones', {
+      headers: {
+        token: state.token
+      }
+    })
+
+    const respuesta = await peticion.json();
+    console.log(respuesta)
+    setNotificaciones(respuesta ? respuesta : []);
+  };
+
+
+  useEffect(() => {
+    socket.on('new_notificacion', (data) => {
+      console.log('Nueva notificacion')
+      getNotificaciones();
+    });
+
+    return () => {
+      socket.off('new_notificacion');
+    }
+  })
+
+  useEffect(()=>{
+    getNotificaciones();
+  },[])
+
 return(
   <div className={`sidebar ${isSidebarOpen ? 'open' : ''}`}>
 
@@ -53,7 +82,7 @@ return(
       state.role === "Admin" &&
     <li>
       <Link to={"/register"}>
-        <i className='bx bx-user'></i>
+        <i className='bx bx-group'></i>
         <span className="links_name">Crear Usuarios</span>
       </Link>
       <span className="tooltip">Crear Usuarios</span>
@@ -72,44 +101,76 @@ return(
   )
 }
 
-{
-  state.role === "Inspector" && (
-    <li>
-      <Link to="/chart">
-        <i className="bx bx-bar-chart-alt-2"></i>
-        <span className="links_name">Gráficos</span>
-      </Link>
-      <span className="tooltip">Gráficos</span>
-    </li>
-  )
-}
   {
     state.role === "Admin" &&
     <li>
       <Link to ={"/archivos"}>
-        <i className='bx bx-folder'></i>
-        <span className="links_name">Archivos</span>
+        <i className='bx bx-receipt'></i>
+        <span className="links_name">Formularios</span>
       </Link>
-      <span className="tooltip">Archivos</span>
+      <span className="tooltip">Formularios</span>
     </li>
   }
+ 
+ {
+    state.role === "Supervisor" &&
     <li>
-      <a href={"/dashboard"}>
-        <i className='bx bx-bar-chart-alt-2'></i>
-        <span className="links_name">Dashboard</span>
-      </a>
-      <span className="tooltip">Dashboard</span>
+      <Link to ={"/archivos"}>
+        <i className='bx bx-receipt'></i>
+        <span className="links_name">Formularios</span>
+      </Link>
+      <span className="tooltip">Formularios</span>
     </li>
+  }
+
+    {
+      state.role === "Operario" && 
+      <li>
+      <a href={"/notificaciones"}>
+        <i className='bi bi-bell'></i>
+        {
+          notificaciones.filter(n => n.estado === 'Pendiente').length ?
+          <span className="position-absolute top-10 start-100 translate-middle badge rounded-pill bg-danger">
+            {notificaciones.filter(n => n.estado === 'Pendiente').length}
+            <span class="visually-hidden">unread messages</span>
+          </span>
+          : ''
+        }
+        <span className="links_name">Notificaciones</span>
+      </a>
+    <span className="tooltip">Notificaciones</span>
+  </li>
+    }
     {
       state.role === "Admin" &&
       <li>
-       <Link to={"/permisos"}>
-          <i className='bx bx-receipt'></i>
-          <span className="links_name">Formularios</span>
-       </Link>
-        <span className="tooltip">Formularios</span>
-      </li>
+      <a href={"/dashboard"}>
+        <i className='bx bx-bar-chart-alt-2'></i>
+        <span className="links_name">Gráficos</span>
+      </a>
+      <span className="tooltip">Gráficos</span>
+    </li>
     }
+       {
+      state.role === "Supervisor" &&
+      <li>
+      <a href={"/dashboard"}>
+        <i className='bx bx-bar-chart-alt-2'></i>
+        <span className="links_name">Gráficos</span>
+      </a>
+      <span className="tooltip">Gráficos</span>
+    </li>
+    }
+    
+
+    <li>
+      <Link to={"#"}>
+        <i className='bx bx-user'></i>
+        <span className="links_name">Mi Perfil</span>
+      </Link>
+      <span className="tooltip">Mi Perfil</span>
+    </li>
+
     
   </ul>
   

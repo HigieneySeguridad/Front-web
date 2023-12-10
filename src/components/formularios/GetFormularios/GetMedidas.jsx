@@ -4,7 +4,8 @@ import { useParams, useLocation } from 'react-router-dom'
 
 export const GetMedidas = () => {
   const location = useLocation();
-  const { id } = useParams()
+  const { id, idNotificacion } = useParams()
+  
     const [checkboxValues, setCheckboxValues] = useState({
         checkbox1: false,
         checkbox2: false,
@@ -76,7 +77,7 @@ export const GetMedidas = () => {
         marginBottom: 20
       };
 
-  if(location.pathname === `/formularios/${id}`) {
+  if(location.pathname === `/formularios/${id}` || location.pathname === `/notificaciones/${id}/${idNotificacion}`) {
   return (
     
     <div>

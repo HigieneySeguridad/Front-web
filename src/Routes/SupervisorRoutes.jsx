@@ -7,7 +7,7 @@ const InspectorRoutes = () => {
     const {state} = useContext(UserContext);
 
   return (
-    state.role === "Inspector" ? <Outlet/> : <Navigate to={'/'}/>
+    state.role === "Supervisor" ? <Outlet/> : <Navigate to={'/'}/>
   )
 }
 

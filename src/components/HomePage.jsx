@@ -16,29 +16,11 @@ export const HomePage = () => {
       <i className="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
       <nav id="navbar" className="navbar">
         <ul>
-          <li><a href="#" className="active">Inicio</a></li>
-          <li><a href="#">Servicios</a></li>
-          <li><a href="#">Noticias</a></li>
-          <li className="dropdown"><a href="#">Ultimas Normas<i
-                className="bi bi-chevron-down dropdown-indicator"></i></a>
-            <ul>
-              <li><a href="#">Higiene</a></li>
-              <li className="dropdown"><a href="#">Seguridad laboral<i
-                    className="bi bi-chevron-down dropdown-indicator"></i></a>
-                <ul>
-                  <li><a href="#">Ver 1</a></li>
-                  <li><a href="#">Ver 2</a></li>
-                  <li><a href="#">Ver 3</a></li>
-                  <li><a href="#">Ver 4</a></li>
-                  <li><a href="#">Ver 5</a></li>
-                </ul>
-              </li>
-              <li><a href="#">Ver 2</a></li>
-              <li><a href="#">Ver 3</a></li>
-              <li><a href="#">Ver 4</a></li>
-            </ul>
-          </li>
-          <li><a href="#">Contacto</a></li>
+          <li><a href="/">Inicio</a></li>
+          <li><a href="#get-started">Secciones</a></li>
+          <li><a href="#Information">Información</a></li>
+          <li><a href="#Features">Características</a></li>
+          <li><a href="#Noticias">Noticias</a></li>
           <li><Link to={'/login'}><span> Iniciar Sesión</span></Link></li> 
         </ul>
       </nav>
@@ -150,8 +132,8 @@ export const HomePage = () => {
                     </div>
                     <div className="col-xl-7 d-flex align-items-center">
                       <div className="card-body">
-                        <h4 className="card-title">Capacitación</h4>
-                        <p>Contenidos de formación online o presencial sobre seguridad, gestión de equipos y tareas.</p>
+                        <h4 className="card-title">Pautas y Recomendaciones</h4>
+                        <p>Contenidos online o presencial sobre seguridad, gestión de equipos y tareas.</p>
                       </div>
                     </div>
                   </div>
@@ -162,10 +144,10 @@ export const HomePage = () => {
         </section>
         {/* End Constructions Section */}
 {/* Sección de Servicios */}
-<section id="services" className="services section-bg">
+<section id="Information" className="services section-bg">
   <div className="container" data-aos="fade-up">
     <div className="section-header">
-      <h2>Servicios</h2>
+      <h2>Información</h2>
       <p>En SEGURIDAD & HIGIENE INDUSTRIAL estamos comprometidos con nuestros clientes y te brindamos la mejor experiencia posible.</p>
     </div>
     <div className="row gy-4">
@@ -177,7 +159,6 @@ export const HomePage = () => {
           </div>
           <h3>Informes Interactivos</h3>
           <p>Nuestros informes interactivos ofrecen una visión clara y detallada de los datos relevantes para su organización. Puede explorar tendencias, identificar áreas de riesgo y tomar medidas proactivas para mejorar la seguridad en su lugar de trabajo.</p>
-          <a href="#" className="readmore stretched-link">Leer más <i className="bi bi-arrow-right"></i></a>
         </div>
       </div>
       <div className="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
@@ -190,7 +171,7 @@ export const HomePage = () => {
                 Sabemos la importancia de la seguridad eléctrica en el trabajo, 
                 por eso te brindamos información detallada y actualizada para poder tomar 
                 las medidas correctas.</p>
-              <a href="#" className="readmore stretched-link">Leer más <i className="bi bi-arrow-right"></i></a>
+              
             </div>
      </div>
      <div className="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
@@ -201,7 +182,7 @@ export const HomePage = () => {
               <h3>Limpieza y Desinfección</h3>
               <p>Un ambiente laboral limpio y desinfectado es vital para garantizar la salud de los trabajadores. 
                 Aprende cómo mantener la limpieza y desinfección en el ambiente laboral.</p>
-              <a href="#" className="readmore stretched-link">Leer más <i className="bi bi-arrow-right"></i></a>
+              
             </div>
      </div>
      <div className="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
@@ -214,7 +195,7 @@ export const HomePage = () => {
                 el bienestar de los empleados. Ya sea un conflicto interpersonal, 
                 un desacuerdo entre departamentos o cualquier otro problema.
               </p>
-              <a href="#" className="readmore stretched-link">Leer más <i className="bi bi-arrow-right"></i></a>
+              
             </div>
     </div>
     <div className="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="500">
@@ -225,7 +206,7 @@ export const HomePage = () => {
               <h3>Manejo de Maquinaria Pesada</h3>
               <p>Mantén tu ambiente laboral seguro y evita accidentes con información detallada 
                 sobre el manejo correcto de la maquinaria pesada.</p>
-              <a href="#" className="readmore stretched-link">Leer más <i className="bi bi-arrow-right"></i></a>
+            
             </div>
     </div>
     <div className="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="600">
@@ -237,7 +218,7 @@ export const HomePage = () => {
               <p>Nos basamos en el cumplimiento de la legislación vigente, priorizando brindar el mejor soporte y asistencia técnica a nuestros clientes.
                 Nuestra misión consiste en diagnosticar de manera precisa la necesidad de cada compañía, priorizando aumentar la calidad de vida de cada trabajador 
               </p>
-              <a href="#" className="readmore stretched-link">Leer más <i className="bi bi-arrow-right"></i></a>
+              
             </div>
     </div>
     </div>
@@ -245,13 +226,13 @@ export const HomePage = () => {
 </section> {/* FIN Servicios*/}
 
 {/* Sección de Características */}
-<section id="features" className="features section-bg">
+<section id="Features" className="features section-bg">
   <div className="container" data-aos="fade-up">
   <ul className="nav nav-tabs row  g-2 d-flex">
 
     <li className="nav-item col-3">
     <a className="nav-link active show" data-bs-toggle="tab" data-bs-target="#tab-1">
-        <h4>Experiencia y Confiabilidad</h4>
+        <h4>Controles</h4>
     </a>
     </li>
 
@@ -280,10 +261,10 @@ export const HomePage = () => {
             <div className="row">
               <div className="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0 d-flex flex-column justify-content-center"
                 data-aos="fade-up" data-aos-delay="100">
-                <h3> Experiencia y Confiabilidad</h3>
+                <h3>Controles</h3>
                 <p className="fst-italic">
-                  Con años de experiencia en el campo, nos hemos ganado la confianza de numerosas empresas al 
-                  proporcionar soluciones integrales y confiables en seguridad e higiene industrial.
+                Los controles de seguridad e higiene son esenciales para garantizar ambientes saludables y seguros. 
+                Implementar protocolos rigurosos ayuda a prevenir riesgos laborales y a mantener la integridad de los espacios.
                 </p>
                 <ul>
                   <li><i className="bi bi-check2-all"></i> Nuestra reputación habla por sí misma.</li>
@@ -362,64 +343,13 @@ export const HomePage = () => {
       </div>
     </div>
   </section> {/* End Features Section  */}
+{/* End Get Started Section */}
 
-  <section className="get-started section-bg">
-          <div className="container">
-    
-            <div className="row justify-content-between gy-4">
-    
-              <div className="col-lg-6 d-flex align-items-center" data-aos="fade-up">
-                <div className="content">
-                  <h3>Contáctanos</h3>
-                  <p>Por favor complete el siguiente formulario para enviarnos un correo electrónico y lo responderemos lo antes posible.</p>
-                  <p>Maximizamos el rendimiento de las inversiones en seguridad.</p>
-                </div>
-              </div>
-    
-              <div className="col-lg-5" data-aos="fade">
-                <form className="php-email-form">
-                  <h3>Solicitar un Permiso</h3>
-                  <p>Por favor complete el formulario</p>
-                  <div className="row gy-3">
-    
-                    <div className="col-md-12">
-                      <input type="text" name="name" class="form-control" placeholder="Nombre" required/>
-                    </div>
-    
-                    <div className="col-md-12 ">
-                      <input type="email" class="form-control" name="email" placeholder="Email" required/>
-                    </div>
-    
-                    <div className="col-md-12">
-                      <input type="text" class="form-control" name="phone" placeholder="Teléfono" required/>
-                    </div>
-    
-                    <div className="col-md-12">
-                      <textarea className="form-control" name="message" rows="6" placeholder="Mensaje" required></textarea>
-                    </div>
-    
-                    <div className="col-md-12 text-center">
-                      <div className="loading">Loading</div>
-                      <div className="error-message"></div>
-                      <div className="sent-message">Your quote request has been sent successfully. Thank you!</div>
-    
-                      <button type="submit">Solicitar</button>
-                    </div>
-    
-                  </div>
-                </form>
-              </div>
-    
-            </div>
-    
-          </div>
-        </section> {/* End Get Started Section */}
-
-      <section id="recent-blog-posts" className="recent-blog-posts">
+      <section id="Noticias" className="recent-blog-posts">
       <div className="container" data-aos="fade-up">
        <div className="section-header">
         <h2>Noticias Recientes</h2>
-        <p>In commodi voluptatem excepturi quaerat nihil error autem voluptate ut et officia consequuntu</p>
+        <p>En las últimas noticias de seguridad e higiene, se destaca la implementación de medidas innovadoras para mantener entornos seguros, como tecnologías de desinfección avanzada y protocolos mejorados en espacios públicos.</p>
       </div>
 
       <div className="row gy-5">
@@ -428,27 +358,27 @@ export const HomePage = () => {
           <div className="post-item position-relative h-100">
 
             <div className="post-img position-relative overflow-hidden">
-              <img src="assets/img/blog/blog-1.jpg" className="img-fluid" alt=""/>
-              <span className="post-date">December 12</span>
+              <img src="assets/img/Noticias/noticia1.png" className="img-fluid" alt=""/>
+              <span className="post-date">20/11/2023</span>
             </div>
 
             <div className="post-content d-flex flex-column">
 
-              <h3 className="post-title">Eum ad dolor et. Autem aut fugiat debitis</h3>
+              <h3 className="post-title">La precariedad laboral mata</h3>
 
               <div className="meta d-flex align-items-center">
                 <div className="d-flex align-items-center">
-                  <i className="bi bi-person"></i> <span className="ps-2">Julia Parker</span>
+                  <i className="bi bi-person"></i> <span className="ps-2">El País</span>
                 </div>
                 <span className="px-3 text-black-50">/</span>
                 <div className="d-flex align-items-center">
-                  <i className="bi bi-folder2"></i> <span className="ps-2">Politics</span>
+                  <i className="bi bi-folder2"></i> <span className="ps-2">Seguridad Laboral</span>
                 </div>
               </div>
 
               <hr/>
 
-              <a href="blog-details.html" className="readmore stretched-link"><span>Read More</span><i
+              <a href="https://elpais.com/opinion/2023-11-20/la-precariedad-laboral-mata.html" className="readmore stretched-link">Leer Noticia<i
                   className="bi bi-arrow-right"></i></a>
 
             </div>
@@ -460,27 +390,27 @@ export const HomePage = () => {
           <div className="post-item position-relative h-100">
 
             <div className="post-img position-relative overflow-hidden">
-              <img src="assets/img/blog/blog-2.jpg" className="img-fluid" alt=""/>
-              <span className="post-date">July 17</span>
+              <img src="assets/img/Noticias/noticia2.png" className="img-fluid" alt=""/>
+              <span className="post-date">17/11/2023</span>
             </div>
 
             <div className="post-content d-flex flex-column">
 
-              <h3 className="post-title">Et repellendus molestiae qui est sed omnis</h3>
+              <h3 className="post-title">Más seguridad en el trabajo: las muertes caen un 16% respecto al año pasado</h3>
 
               <div className="meta d-flex align-items-center">
                 <div className="d-flex align-items-center">
-                  <i className="bi bi-person"></i> <span className="ps-2">Mario Douglas</span>
+                  <i className="bi bi-person"></i> <span className="ps-2">PACO PUENTES</span>
                 </div>
                 <span className="px-3 text-black-50">/</span>
                 <div className="d-flex align-items-center">
-                  <i className="bi bi-folder2"></i> <span className="ps-2">Sports</span>
+                  <i className="bi bi-folder2"></i> <span className="ps-2">Accidentes Laborales</span>
                 </div>
               </div>
 
               <hr/>
 
-              <a href="blog-details.html" className="readmore stretched-link"><span>Read More</span><i
+              <a href="https://elpais.com/economia/2023-11-17/mas-seguridad-en-el-trabajo-las-muertes-caen-un-16-respecto-al-ano-pasado.html" className="readmore stretched-link">Leer Noticia<i
                   className="bi bi-arrow-right"></i></a>
 
             </div>
@@ -492,27 +422,27 @@ export const HomePage = () => {
           <div className="post-item position-relative h-100" data-aos="fade-up" data-aos-delay="300">
 
             <div className="post-img position-relative overflow-hidden">
-              <img src="assets/img/blog/blog-3.jpg" className="img-fluid" alt=""/>
-              <span className="post-date">September 05</span>
+              <img src="assets/img/Noticias/noticia3.png" className="img-fluid" alt=""/>
+              <span className="post-date">28/09/2023</span>
             </div>
 
             <div className="post-content d-flex flex-column">
 
-              <h3 className="post-title">Quia assumenda est et veritati tirana ploder</h3>
+              <h3 className="post-title">Trabajadores desprotegidos, playas contaminadas y leyes arrinconadas</h3>
 
               <div className="meta d-flex align-items-center">
                 <div className="d-flex align-items-center">
-                  <i className="bi bi-person"></i> <span className="ps-2">Lisa Hunter</span>
+                  <i className="bi bi-person"></i> <span className="ps-2">ANUKTA</span>
                 </div>
                 <span className="px-3 text-black-50">/</span>
                 <div className="d-flex align-items-center">
-                  <i className="bi bi-folder2"></i> <span className="ps-2">Economics</span>
+                  <i className="bi bi-folder2"></i> <span className="ps-2">Materiales de Trabajo</span>
                 </div>
               </div>
 
               <hr/>
 
-              <a href="blog-details.html" className="readmore stretched-link"><span>Read More</span><i
+              <a href="https://elpais.com/planeta-futuro/2023-09-28/trabajadores-desprotegidos-playas-contaminadas-y-leyes-arrinconadas-el-rentable-negocio-de-desguazar-barcos-en-banglades.html" className="readmore stretched-link">Leer Noticia<i
                   className="bi bi-arrow-right"></i></a>
 
             </div>
@@ -552,7 +482,7 @@ export const HomePage = () => {
               </div>
             </div>
 
-            <div className="col-lg-2 col-md-3 footer-links">
+ {/*          <div className="col-lg-2 col-md-3 footer-links">
               <h4>Enlaces a convenir</h4>
               <ul>
                 <li><a href="#">Inicio</a></li>
@@ -563,7 +493,7 @@ export const HomePage = () => {
               </ul>
             </div>
 
-            <div className="col-lg-2 col-md-3 footer-links">
+           <div className="col-lg-2 col-md-3 footer-links">
               <h4>Otros Servicios</h4>
               <ul>
                 <li><a href="#">Evaluación de Ergonomía</a></li>
@@ -583,7 +513,8 @@ export const HomePage = () => {
                 <li><a href="#">Prácticas Ergonómicas</a></li>
                 <li><a href="#">Protocolos de Higiene Rigurosos </a></li>
               </ul>
-            </div>
+            </div> */}
+
           </div>
         </div>
       </div>

@@ -3,7 +3,7 @@ import axios from 'axios'
 import { useParams, useLocation } from 'react-router-dom';
 
 export const GetPeligros = () => {
-  const {id} = useParams()
+  const {id, idNotificacion} = useParams()
   const location = useLocation();
     const [checkboxValues, setCheckboxValues] = useState({
         checkbox1: false,
@@ -81,7 +81,7 @@ export const GetPeligros = () => {
         marginBottom: 20
       };
 
-  if(location.pathname === `/formularios/${id}`){
+  if(location.pathname === `/formularios/${id}` || location.pathname === `/notificaciones/${id}/${idNotificacion}`){
   return (
     <div>
           <table className="table table-striped table-sm" style={tableStyle}>

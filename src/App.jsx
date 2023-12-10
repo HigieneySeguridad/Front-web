@@ -1,7 +1,11 @@
-import { useReducer } from "react"
+import { useReducer, useState } from "react"
 import { UserContext } from "./context/userContext"
 import { AppRouter } from "./Routes/appRouter";
 import { userReducer } from "./context/userReducer"
+import io from 'socket.io-client';
+
+const socket = io('http://localhost:3001');
+
 
 function App() {
  
@@ -9,9 +13,13 @@ function App() {
 
   const [state, stateDispatch] = useReducer(userReducer, {}, obtenerToken);
 
+  const [notificaciones, setNotificaciones] = useState([]);
+
+
+
   return (
     <>
-      <UserContext.Provider value={{state, stateDispatch}}>
+      <UserContext.Provider value={{state, stateDispatch, notificaciones, setNotificaciones, socket}}>
         <AppRouter />
       </UserContext.Provider>
     </>

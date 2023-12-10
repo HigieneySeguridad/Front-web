@@ -7,20 +7,13 @@ import axios from 'axios'
 import { useParams } from 'react-router-dom'
 import Swal from 'sweetalert2'
 import { useNavigate } from 'react-router-dom';
-import { Modal, Button, Form } from 'react-bootstrap';
 import { UserContext } from '../../context/userContext'
 
-export const MostrarForms = () => {
+export const MostrarFormsNotificacion = () => {
     const navigate = useNavigate();
-    const { id } = useParams()
+    const { id, idNotificacion } = useParams()
 
-    const { socket } = useContext(UserContext);
-
-    const [show, setShow] = useState(false);
-
-    const [motivo, setMotivo] = useState('Falta elementos de proteccion');
-
-    const handleClose = () => setShow(!show);
+    const { state: {token}, setNotificaciones } = useContext(UserContext);
 
   const [checkboxValues, setCheckboxValues] = useState({
     checkbox1: false,
@@ -63,7 +56,6 @@ export const MostrarForms = () => {
   const [Tarea, setTarea ] = useState('');
   const [Pasos, setPasos] = useState('');
   const [estado, setEstado] = useState('')
-  const [motivoRechazo, setMotivoRechazo] = useState('')
   const traerForm = async () => {
     try {
       const response = await axios.get(`http://localhost:3000/formularios/${id}`);
@@ -78,7 +70,6 @@ export const MostrarForms = () => {
         setPasos(formularioHeader.pasos)
         setTextArea(formularioHeader.textArea)
         setEstado(formularioHeader.estado)
-        setMotivoRechazo(formularioHeader.motivo)
       }
     } catch (error) {
       console.log(error);
@@ -100,15 +91,14 @@ export const MostrarForms = () => {
   
   const handleAceptar = async () => {
     try {
-       const response = await axios.put(`http://localhost:3000/formularios/${id}`, { estado: 'Aceptado' });
+       const response = await axios.put(`http://localhost:3000/notificaciones/aceptar/${idNotificacion}`, {}, {headers: {token}});
        if(response.status === 200) {
-           console.log('Formulario Aceptado');
            Swal.fire({
                icon: 'success',
-               text: 'Petición aceptada'
+               text: 'Notificacion aceptada'
            })
-           socket.emit('notificacion')
-        navigate('/archivos')
+           setNotificaciones(prevValues => prevValues.map(notificacion => notificacion._id === idNotificacion ? {...notificacion, estado: 'aceptado'} : {...notificacion}))
+        navigate('/notificaciones')
        }
       } catch (error) {
         Swal.fire({
@@ -121,16 +111,15 @@ export const MostrarForms = () => {
 
   const handleRechazar = async  () => {
     try {
-      const response = await axios.put(`http://localhost:3000/formularios/${id}`, { estado: 'Denegado', motivo });
+      const response = await axios.put(`http://localhost:3000/notificaciones/rechazar/${idNotificacion}`, {}, {headers: {token}});
       if(response.status === 200){
-          console.log('Formulario Denegado');
-          handleClose()
+         
           Swal.fire({
             icon: 'success',
-            text: 'Petición rechazada'
+            text: 'Notificacion rechazada'
         })
-        socket.emit('notificacion')
-       navigate('/archivos')
+        setNotificaciones(prevValues => prevValues.map(notificacion => notificacion._id === idNotificacion ? {...notificacion, estado: 'rechazado'} : {...notificacion}))
+       navigate('/notificaciones')
       }
     } catch (error) {
         Swal.fire({
@@ -143,32 +132,6 @@ export const MostrarForms = () => {
 
   return (
     <div style={{display: "grid", placeItems: 'center', }}>
-      <Modal show={show} onHide={handleClose} >
-        <Modal.Header closeButton>
-          <Modal.Title>Motivo del rechazo</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-
-          <Form.Group className='mb-3'>
-            <Form.Label>Motivo</Form.Label>
-            <Form.Select onChange={({target})=>setMotivo(target.value)}>
-              <option>Falta elementos de proteccion</option>
-              <option>Descripcion del trabajo incompleta</option>
-              <option>Otros</option>
-            </Form.Select>
-          </Form.Group>
-
-          {motivo !== 'Falta elementos de proteccion' && motivo !== 'Descripcion del trabajo incompleta' && <Form.Control as="textarea" rows={3} placeholder='Escriba el motivo del rechazo' onChange={(e)=>setMotivo(e.target.value)}/>}
-        </Modal.Body>
-        <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
-            Cancelar
-          </Button>
-          <Button variant="primary" onClick={handleRechazar}>
-            Rechazar formulario
-          </Button>
-        </Modal.Footer>
-      </Modal>
     <div>
         <h2 className='section-title' style={{color: 'blueviolet', marginTop: 70}}>ATS- ANALISIS DE TRABAJO SEGURO</h2>
       <div className="mb-3">
@@ -322,17 +285,11 @@ export const MostrarForms = () => {
       <GetMedidas/>
 
 
-      {motivoRechazo &&
-        <div className="alert alert-danger text-center" role="alert">
-          El formulario de trabajo fue rechazo por el siguiente motivo: <br/> {motivoRechazo}
-        </div>}
+      <div className='botonesGrupo'>
+        <button style={{ marginRight: 15 }} className="btn btn-success" onClick={handleAceptar}>Unirse al equipo</button>
+        <button style={{ marginRight: 15 }} className="btn btn-danger" onClick={handleRechazar}>Rechazar invitacion</button>
+      </div>
 
- {estado === "Pendiente" && (
-  <div className='botonesGrupo'>
-  <button style={{ marginRight: 15 }} className="btn btn-success" onClick={handleAceptar}>Aceptar</button>
-  <button style={{ marginRight: 15 }} className="btn btn-danger" onClick={()=>setShow(true)}>Rechazar</button>
- </div>
- )}
     
     </div>
   )

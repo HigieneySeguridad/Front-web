@@ -9,10 +9,11 @@ import Swal from 'sweetalert2'
 import { HeaderTable } from './PostFormularios/HeaderTable';
 
 export const Permisos = () => {
+
   const [usuarios, setUsuarios] = useState([]);
   const [guardadoCorrecto, setGuardadoCorrecto] = useState(false);
   const [comentario, setComentario] = useState("");
-  const {state} = useContext(UserContext)
+  const {state, socket} = useContext(UserContext)
   const baseUrl = "http://localhost:3000/registrar";
 
   const fetchUsuario = async () => {
@@ -44,6 +45,23 @@ export const Permisos = () => {
   const [peligros, setCheckboxesPeligros] = useState({});
   const [riesgos, setCheckboxesRiesgos] = useState({});
   const [medidas, setCheckboxesMedidas] = useState({});
+
+  const [equipo, setEquipo] = useState([]);
+  const [empresa, setEmpresa] = useState('');
+  const [area, setArea] = useState('');
+  const [yacimiento, setYacimiento] = useState('');
+  const [permisoTrabajo, setPermisoTrabajo] = useState(0);
+  const [tarea, setTarea] = useState('');
+  const [pasos, setPasos] = useState('');
+  const [observaciones, setObservaciones] = useState('')
+  const [userFilter, setUserFilter] = useState('')
+  
+  const usuariosFiltrados = usuarios.filter(usuario => usuario.username.toLowerCase().includes(userFilter.toLowerCase()))
+
+
+  useEffect(()=>{
+    console.log(equipo)
+  },[equipo])
 
   const [estado, setEstado] = useState('Pendiente')
  
@@ -77,7 +95,8 @@ export const Permisos = () => {
           tarea,
           pasos,
           observaciones: observaciones,
-          textArea
+          textArea,
+          equipo
         }
 
         const response = await axios.post('http://localhost:3000/formularios', formulariosData);
@@ -89,6 +108,7 @@ export const Permisos = () => {
             icon: 'success',
             text: 'Formulario Completo Enviado'
           })
+          socket.emit('notificacion');
         } else {
           console.log('Error al enviar formularios');
           Swal.fire({
@@ -128,16 +148,6 @@ export const Permisos = () => {
     }
   }
 
-  const [equipo, setEquipo] = useState({});
-  const [empresa, setEmpresa] = useState('');
-  const [area, setArea] = useState('');
-  const [yacimiento, setYacimiento] = useState('');
-  const [permisoTrabajo, setPermisoTrabajo] = useState(0);
-  const [tarea, setTarea] = useState('');
-  const [pasos, setPasos] = useState('');
-  const [observaciones, setObservaciones] = useState('')
-
-
   const [textArea, setTextArea] = useState({
     textArea1: '',
     textArea2: '',
@@ -158,11 +168,11 @@ export const Permisos = () => {
   })
 
 
-  const handleAñadirSolicitud = (username) => {
-    setEquipo((prevEquipo) => ({
+  const handleAñadirSolicitud = (user) => {
+    setEquipo((prevEquipo) => ([
       ...prevEquipo,
-      [username]: 'Pendiente',
-    }));
+      user
+    ]));
     Swal.fire({
       title: 'Solicitud enviada',
       icon: 'success'
@@ -210,33 +220,48 @@ export const Permisos = () => {
       <h2 className='section-title' style={{color: "#012970"}}>Equipo de Trabajo</h2>
       <div className="table table-striped table-sm">
             <table>
+              <thead>
+                <th colSpan={3}><input type="text" placeholder='Buscar por nombre' onChange={({target})=>setUserFilter(target.value)} className='form-control'/></th>
+              </thead>
                 <thead>
                     <tr>
                         <th className='users'>Compañeros</th>
                         <th className='users'>Estado de Solicitud</th>
-                        <th className='users'>Acciones</th>
-                        
+                        <th className='users'>Acciones</th> 
                     </tr>
                 </thead>
                 <tbody>
-                    {usuarios.map((usuario, i)=>(
-                <tr key={i}>
-                     <td className='panel'>{usuario.username}</td>
-                     <td className='panel'>
-                        <span className={`badge ${equipo[usuario.username] === 'Aceptado' ? 'text-bg-success' : 'text-bg-danger'} rounded-pill `}>
-                          {equipo[usuario.username] || 'None'}
+                  {usuariosFiltrados.map((usuario, i) => (
+                    <tr key={i}>
+                      <td className='panel'>{usuario.username}</td>
+                      <td className='panel'>
+                        <span className={`badge ${equipo.find(user => user.username === usuario.username)?.estado === 'Pendiente' ? 'text-bg-warning' : 'text-bg-danger'} rounded-pill `}>
+                          {equipo.find(user => user.username === usuario.username)?.estado || 'None'}
                         </span>
-                     </td>
+                      </td>
 
-                     <td className='panel'>
-                    <button onClick={() => handleAñadirSolicitud(usuario.username)} type="button" className="btn btn-primary" style={{ marginRight: 15 }}>
-                      Añadir
-                    </button>
-                     </td>
-                 </tr>
-                 
-                 ))}
-                    
+                      <td className='panel'>
+                        {
+                          equipo.find(user => user.username === usuario.username)?.estado === 'Pendiente'
+                            ? (
+                              <button onClick={() => setEquipo(equipo.filter(user => user.id !== usuario._id))} type="button" className="btn btn-primary" style={{ marginRight: 15 }}>
+                                Cancelar
+                              </button>
+
+                            )
+                            :
+                            (
+                              <button onClick={() => handleAñadirSolicitud({ username: usuario.username, id: usuario._id, estado: 'Pendiente' })} type="button" className="btn btn-primary" style={{ marginRight: 15 }}>
+                                Añadir
+                              </button>
+                            )
+                        }
+                        
+                      </td>
+                    </tr>
+
+                  ))}
+
                 </tbody>
             </table>
      </div>

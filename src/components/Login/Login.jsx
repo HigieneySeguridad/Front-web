@@ -1,4 +1,4 @@
-import { Header } from "../Header"
+import { Header } from "../header"
 import Swal from 'sweetalert2'
 import { useContext, useState } from 'react'
 import { UserContext } from '../../context/userContext'
@@ -114,11 +114,11 @@ export const Login = () => {
       </button>
     </div>
   <div className="flex-row">
-    <a className="link-form">Olvidaste tu contraseña?</a>
+    <a href="#">Olvidaste tu contraseña?</a>
   </div>
 
   <button type='submit' className="button-submit" onClick={handleSubmit}>Iniciar Sesion</button>
-  <p className="p">No tienes cuenta? <a href="http://localhost:5173/#contact">Solicitar</a></p>
+  <p className="p">No tienes cuenta? <a href="#">Solicitar</a></p>
 <img src="./assets/img/icono.png" className='iconoForm'/>
 <p className= 'p '>@ Coryright POLOSEG Formosa 2023</p>
 </form>

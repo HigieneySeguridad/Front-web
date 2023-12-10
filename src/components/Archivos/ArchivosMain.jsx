@@ -152,7 +152,7 @@ export const ArchivosMain = () => {
 </svg>
 
       <div className="container px-4 py-5" style={{marginTop: 50}}>
-      <h3 className="pb-2 border-bottom">Previsualización de Formularios</h3>
+      <h3 className="pb-2 border-bottom">Previsualización de Formularios {filtro}</h3>
       <div className='btn-group'>
       <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
         Estado
@@ -165,8 +165,16 @@ export const ArchivosMain = () => {
       </div>
 
       {formulariosFiltrados.map((formulario, formularioIndex) => (
+        
     <div key={formularioIndex} className="row row-cols-1 row-cols-md-2 align-items-md-center g-4 py-5">
+      
       <div className="col d-flex flex-column align-items-start gap-1 scrollable-section">
+
+      <div className="tabla-peque">
+        <label for="exampleFormControlTextarea1" className="form-label" style={{color:'black'}}>Tarea a Ejecutar: {formulario.tarea}</label> <br />
+        <label for="exampleFormControlTextarea1" className="form-label" style={{color:'black'}}>Pasos a realizar: {formulario.pasos}</label>
+       </div>
+
       <table className='table table-striped table-sm tabla-peque' style={tableStyle}>
             <thead>
                 <th className='th'>Trabajos Peligrosos</th>
@@ -174,75 +182,25 @@ export const ArchivosMain = () => {
             </thead>
             <tbody>
                 <th>
-                    <tr><div className="form-check form-switch"><input type="checkbox" className="form-check-input"  id="flexSwitchCheckDefault" checked={checkboxValues.checkbox1}/> Trabajo en Espacio Confinado</div></tr>
-                    <tr><div className='form-check form-switch'><input type="checkbox" className="form-check-input"  id="flexSwitchCheckDefault" checked={checkboxValues.checkbox2}/> Trabajo en Equipo energizado</div></tr>
-                    <tr><div className='form-check form-switch'><input type="checkbox" className="form-check-input"  id="flexSwitchCheckDefault" checked={checkboxValues.checkbox3}/> Trabajo en Caliente</div></tr>
-                    <tr><div className='form-check form-switch'><input type="checkbox" className="form-check-input"  id="flexSwitchCheckDefault" checked={checkboxValues.checkbox4}/> Trabajo en Altura</div></tr>
-                    <tr><div className='form-check form-switch'><input type="checkbox" className="form-check-input"  id="flexSwitchCheckDefault" checked={checkboxValues.checkbox5}/> Trabajo en Zanja o excavaciones</div></tr>
+                    <tr><div className="form-check form-switch"><input type="checkbox" className="form-check-input"  id="flexSwitchCheckDefault" checked={formulario.header?.checkbox1}/> Trabajo en Espacio Confinado</div></tr>
+                    <tr><div className='form-check form-switch'><input type="checkbox" className="form-check-input"  id="flexSwitchCheckDefault" checked={formulario.header?.checkbox2}/> Trabajo en Equipo energizado</div></tr>
+                    <tr><div className='form-check form-switch'><input type="checkbox" className="form-check-input"  id="flexSwitchCheckDefault" checked={formulario.header?.checkbox3}/> Trabajo en Caliente</div></tr>
+                    <tr><div className='form-check form-switch'><input type="checkbox" className="form-check-input"  id="flexSwitchCheckDefault" checked={formulario.header?.checkbox4}/> Trabajo en Altura</div></tr>
+                    <tr><div className='form-check form-switch'><input type="checkbox" className="form-check-input"  id="flexSwitchCheckDefault" checked={formulario.header?.checkbox5}/> Trabajo en Zanja o excavaciones</div></tr>
                 </th>
                 <th>
                     
-                        <tr><div className='form-check form-switch'><input type="checkbox" className="form-check-input"  id="flexSwitchCheckDefault" checked={checkboxValues.checkbox6}/> Caminos/picada</div></tr>
-                        <tr><div className='form-check form-switch'><input type="checkbox" className="form-check-input"  id="flexSwitchCheckDefault" checked={checkboxValues.checkbox7}/> Tanques</div></tr>
-                        <tr><div className='form-check form-switch'><input type="checkbox" className="form-check-input"  id="flexSwitchCheckDefault" checked={checkboxValues.checkbox8}/> Líneas de conducción</div></tr>
-                        <tr><div className='form-check form-switch'><input type="checkbox" className="form-check-input"  id="flexSwitchCheckDefault" checked={checkboxValues.checkbox9}/> Pozos</div></tr>
-                        <tr><div className='form-check form-switch'><input type="checkbox" className="form-check-input"  id="flexSwitchCheckDefault" checked={checkboxValues.checkbox10}/> Instalación Elec.</div></tr>
-                        <tr><div className='form-check form-switch'><input type="checkbox" className="form-check-input"  id="flexSwitchCheckDefault" checked={checkboxValues.checkbox11}/> Equipos</div></tr>
-                        <tr><div className='form-check form-switch'><input type="checkbox" className="form-check-input"  id="flexSwitchCheckDefault" checked={checkboxValues.checkbox12}/> Otros</div></tr>
+                        <tr><div className='form-check form-switch'><input type="checkbox" className="form-check-input"  id="flexSwitchCheckDefault" checked={formulario.header?.checkbox6}/> Caminos/picada</div></tr>
+                        <tr><div className='form-check form-switch'><input type="checkbox" className="form-check-input"  id="flexSwitchCheckDefault" checked={formulario.header?.checkbox7}/> Tanques</div></tr>
+                        <tr><div className='form-check form-switch'><input type="checkbox" className="form-check-input"  id="flexSwitchCheckDefault" checked={formulario.header?.checkbox8}/> Líneas de conducción</div></tr>
+                        <tr><div className='form-check form-switch'><input type="checkbox" className="form-check-input"  id="flexSwitchCheckDefault" checked={formulario.header?.checkbox9}/> Pozos</div></tr>
+                        <tr><div className='form-check form-switch'><input type="checkbox" className="form-check-input"  id="flexSwitchCheckDefault" checked={formulario.header?.checkbox10}/> Instalación Elec.</div></tr>
+                        <tr><div className='form-check form-switch'><input type="checkbox" className="form-check-input"  id="flexSwitchCheckDefault" checked={formulario.header?.checkbox11}/> Equipos</div></tr>
+                        <tr><div className='form-check form-switch'><input type="checkbox" className="form-check-input"  id="flexSwitchCheckDefault" checked={formulario.header?.checkbox12}/> Otros</div></tr>
                     
                 </th>
             </tbody>
         </table>
-
-       <div className="mb-3 tabla-peque">
-        <label for="exampleFormControlTextarea1" className="form-label" style={{color:'black'}}>Tarea a Ejecutar: {Tarea}</label> <br />
-        <label for="exampleFormControlTextarea1" className="form-label" style={{color:'black'}}>Pasos a realizar: {Pasos}</label>
-       </div>
-
-       <table className='table-sm tabla-peque' style={tableStyle}>
-        <thead>
-            <th style={{background:'skyblue'}}>Paso N°</th>
-            <th style={{background:'skyblue'}}>Pasos de la tarea</th>
-            <th style={{background:'red'}}>Peligros</th>
-            <th style={{background:'#FFD700'}}>Riesgos y Consecuencias</th>
-            <th style={{background:'#32CD32'}}>Medidas Preventivas y de control</th>
-        </thead>
-        <tbody>
-            <tr>
-                <th>1</th>
-                <th><div className="mb-3">{textArea.textArea1}</div></th>
-                <th><div className="mb-3">{textArea.textArea2}</div></th>
-                <th><div className="mb-3">{textArea.textArea3}</div></th>
-                <th><div className="mb-3">{textArea.textArea4}</div></th>
-            </tr>
-            <tr>
-                <th>2</th>
-                <th><div className="mb-3">{textArea.textArea5}</div></th>
-                <th><div className="mb-3">{textArea.textArea6}</div></th>
-                <th><div className="mb-3">{textArea.textArea7}</div></th>
-                <th><div className="mb-3">{textArea.textArea8}</div></th>
-            </tr>
-            <tr>
-                <th>3</th><th><div className="mb-3">{textArea.textArea9}</div></th>
-                <th><div className="mb-3">{textArea.textArea10}</div></th>
-                <th><div className="mb-3">{textArea.textArea11}</div></th>
-                <th><div className="mb-3">{textArea.textArea12}</div></th>
-            </tr>
-            <tr>
-                <th>4</th><th><div className="mb-3">{textArea.textArea13}</div></th>
-                <th><div className="mb-3">{textArea.textArea14}</div></th>
-                <th><div className="mb-3">{textArea.textArea15}</div></th>
-                <th><div className="mb-3">{textArea.textArea16}</div></th>
-            </tr>
-        </tbody>
-    </table>
-    <div className='table-sm tabla-maspeque'>
-      <GetProteccion/>
-      <GetPeligros/>
-      <GetRiesgos/>
-      <GetMedidas/>
-    </div>
-        <Link to={'/formularios/'+formulario._id} className="btn btn-primary">Ver Detalles</Link>
       </div>
 
       <div className="col">
@@ -284,8 +242,12 @@ export const ArchivosMain = () => {
             <h6 className="fw-semibold mb-0 text-body-emphasis">Fecha</h6>
             <p className="text-body-secondary">{new Date(formulario.fecha).toLocaleString()}</p>
           </div>
+          <div>
+            <Link to={'/formularios/'+formulario._id} className="btn btn-primary">Ver Detalles</Link>
+          </div>
         </div>
       </div>
+      <div className='b-example-divider'></div>
     </div>
       ))}
   </div>

@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { useParams, useLocation } from "react-router-dom";
 
 export const GetProteccion = () => {
-  const {id} = useParams()
+  const {id, idNotificacion} = useParams()
   const location = useLocation();
   const [checkboxValues, setCheckboxValues] = useState({
     checkbox1: false,
@@ -73,7 +73,7 @@ export const GetProteccion = () => {
     fontSize: 8.8
   };
 
-  if(location.pathname=== `/formularios/${id}`){
+  if(location.pathname=== `/formularios/${id}` || location.pathname === `/notificaciones/${id}/${idNotificacion}`){
   return (
     <div>
     <table className="table table-striped table-sm" style={tableStyle}>

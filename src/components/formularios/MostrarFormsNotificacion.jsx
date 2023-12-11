@@ -56,6 +56,7 @@ export const MostrarFormsNotificacion = () => {
   const [Tarea, setTarea ] = useState('');
   const [Pasos, setPasos] = useState('');
   const [estado, setEstado] = useState('')
+  const [equipo, setEquipo] = useState([]);
   const traerForm = async () => {
     try {
       const response = await axios.get(`http://localhost:3000/formularios/${id}`);
@@ -69,7 +70,8 @@ export const MostrarFormsNotificacion = () => {
         setTarea(formularioHeader.tarea)
         setPasos(formularioHeader.pasos)
         setTextArea(formularioHeader.textArea)
-        setEstado(formularioHeader.estado)
+        setEstado(formularioHeader.estado);
+        setEquipo(formularioHeader.equipo);
       }
     } catch (error) {
       console.log(error);
@@ -284,6 +286,33 @@ export const MostrarFormsNotificacion = () => {
       <GetRiesgos/>
       <GetMedidas/>
 
+      <h2 className='section-title mt-4' style={{color: "#012970"}}>Equipo de Trabajo</h2>
+      
+      <div className="table table-striped table-sm d-flex justify-content-center" style={{width: '800px'}}>
+        <table>
+          <thead>
+            <tr>
+              <th className='users'>Compañeros</th>
+              <th className='users'>Estado de Solicitud</th>
+            </tr>
+          </thead>
+          <tbody>
+            {equipo.map((usuario, i) => (
+           
+              <tr key={i}>
+                <td className='panel'>{usuario.username}</td>
+                <td className='panel'>
+                  <span className={`badge ${usuario.estado === 'Pendiente' ? 'text-bg-warning' : 'text-bg-success'} rounded-pill `}>
+                    {usuario.estado === 'Pendiente' ? 'Pendiente' : 'Aceptado'}
+                  </span>
+                </td>
+              </tr>
+             
+            ))}
+
+          </tbody>
+        </table>
+      </div>
 
       <div className='botonesGrupo'>
         <button style={{ marginRight: 15 }} className="btn btn-success" onClick={handleAceptar}>Unirse al equipo</button>

@@ -64,6 +64,8 @@ export const MostrarForms = () => {
   const [Pasos, setPasos] = useState('');
   const [estado, setEstado] = useState('')
   const [motivoRechazo, setMotivoRechazo] = useState('')
+  const [equipo, setEquipo] = useState([]);
+
   const traerForm = async () => {
     try {
       const response = await axios.get(`http://localhost:3000/formularios/${id}`);
@@ -79,6 +81,7 @@ export const MostrarForms = () => {
         setTextArea(formularioHeader.textArea)
         setEstado(formularioHeader.estado)
         setMotivoRechazo(formularioHeader.motivo)
+        setEquipo(formularioHeader.equipo)
       }
     } catch (error) {
       console.log(error);
@@ -320,6 +323,34 @@ export const MostrarForms = () => {
       <GetPeligros/>
       <GetRiesgos/>
       <GetMedidas/>
+
+      <h2 className='section-title mt-4' style={{color: "#012970"}}>Equipo de Trabajo</h2>
+      
+      <div className="table table-striped table-sm d-flex justify-content-center" style={{width: '800px'}}>
+        <table>
+          <thead>
+            <tr>
+              <th className='users'>Compañeros</th>
+              <th className='users'>Estado de Solicitud</th>
+            </tr>
+          </thead>
+          <tbody>
+            {equipo.map((usuario, i) => (
+           
+              <tr key={i}>
+                <td className='panel'>{usuario.username}</td>
+                <td className='panel'>
+                  <span className={`badge ${usuario.estado === 'Pendiente' ? 'text-bg-warning' : 'text-bg-success'} rounded-pill `}>
+                    {usuario.estado === 'Pendiente' ? 'Pendiente' : 'Aceptado'}
+                  </span>
+                </td>
+              </tr>
+             
+            ))}
+
+          </tbody>
+        </table>
+      </div>
 
 
       {motivoRechazo &&

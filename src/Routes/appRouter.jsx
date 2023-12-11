@@ -16,8 +16,7 @@ import { ArchivosMain } from '../components/Archivos/ArchivosMain';
 import { HeaderTool } from '../components/headerTool/HeaderTool';
 import { Notificaciones } from '../components/notificaciones/Notificaciones.jsx';
 import { MostrarFormsNotificacion } from '../components/formularios/MostrarFormsNotificacion.jsx';
-
-
+import { EditarUsuario } from '../components/EditarUsuario/EditarUsuario.jsx';
 export const AppRouter = () => {
   return (
     <>
@@ -50,6 +49,7 @@ export const AppRouter = () => {
                 <Route path='/notificaciones/:id/:idNotificacion' element={<MostrarFormsNotificacion/>}/>
             </Route>
 
+            <Route path='/editar' element={<EditarUsuario/>}/>
             </Route>
           </Routes>
     </Router>

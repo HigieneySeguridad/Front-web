@@ -162,16 +162,15 @@ return(
     </li>
     }
     
-
     <li>
-      <Link to={"#"}>
+      <Link to={"/editar"}>
         <i className='bx bx-user'></i>
         <span className="links_name">Mi Perfil</span>
       </Link>
       <span className="tooltip">Mi Perfil</span>
     </li>
 
-    
+  
   </ul>
   
 </div>
